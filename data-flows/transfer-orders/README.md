@@ -1,8 +1,25 @@
 # Transfer Orders
-## Warehouse to Retail Store initiated by ERP
-### No Partial Receipts, No Short Shipment, No Quality Control, No Damages
 
-In this scenario 100 units are transferred from the warehouse to retail store.
+A Transfer Order is a transaction that's created to move inventory from one of your locations to another.
+
+Transfer Orders should be used when inventory has to be shipped and received.
+
+## Warehouse to Retail Store
+
+The scenarios below document the inventory adjustments ChannelApe expects at each stage of the transfer order's journey.
+
+In our examples, we follow a Transfer Order that has been created to physically move 100 units from the Warehouse to the Retail Store.
+
+### No Partial Receipts, No Short Shipment, No Quality Control Adjustments, No Damages
+
+The transfer order is shipped complete and a receipt is sent once completely received.
+
+There are no adjustments to indicate progress of quality control procedures.
+
+Inventory is received in good condition and deemed available to sell.
+
+<details>
+<summary>Show Diagram</summary>
 
 ```mermaid
 sequenceDiagram
@@ -48,11 +65,18 @@ sequenceDiagram
 
     ERP->>ERP: Transfer Order completed
 ```
+</details>
 
-### Partial Receipts, No Short Shipment, No Quality Control, No Damages
-In this scenario 100 units are transferred from the warehouse to retail store.
+### Partial Receipts, No Short Shipment, No Quality Control Adjustments, No Damages
 
-Partial receipts are created as the inventory is received.
+The transfer order is shipped complete and multiple receipts are created throughout the receiving process.
+
+There are no adjustments to indicate progress of quality control procedures.
+
+Inventory is received in good condition and deemed available to sell.
+
+<details>
+<summary>Show Diagram</summary>
 
 ```mermaid
 sequenceDiagram
@@ -102,12 +126,18 @@ sequenceDiagram
     ERP->>ERP: Transfer Order completed
 ```
 
-### Partial Receipts, Short Shipment, No Quality Control, No Damages
-In this scenario 100 units are transferred from the warehouse to retail store.
+</details>
 
-Partial receipts are created as the inventory is received.
+### Partial Receipts, Short Shipment, No Quality Control Adjustments, No Damages
 
-The delivery was short 5 units.
+The transfer order is shipped 5 units short and multiple receipts are created throughout the receiving process.
+
+There are no adjustments to indicate progress of quality control procedures.
+
+Inventory is received in good condition and deemed available to sell.
+
+<details>
+<summary>Show Diagram</summary>
 
 ```mermaid
 sequenceDiagram
@@ -158,16 +188,18 @@ sequenceDiagram
     ERP->>ERP: Transfer Order completed
 ```
 
-### Partial Receipts, Short Shipment, Quality Control, No Damages
-In this scenario 100 units are transferred from the warehouse to retail store.
+</details>
 
-Partial receipts are created as the inventory is received.
+### Partial Receipts, Short Shipment, Quality Control Adjustments, No Damages
 
-The delivery was short 5 units.
+The transfer order is shipped 5 units short and multiple receipts are created throughout the receiving process.
 
-A sample size of 10 units are inspected as part of Quality Control.
+10 units are selected for population sampling and inspected as part of the Quality Control process.
 
-10 units pass inspection and are returned to Available stock.
+All 10 units pass inspection and are returned to Available stock.
+
+<details>
+<summary>Show Diagram</summary>
 
 ```mermaid
 sequenceDiagram
@@ -230,19 +262,20 @@ sequenceDiagram
     note over Retail Location: Available to Sell +10 units
 ```
 
+</details>
+
 ### Partial Receipts, Short Shipment, Quality Control, Damages
 
-In this scenario 100 units are transferred from the warehouse to retail store.
+The transfer order is shipped 5 units short and multiple receipts are created throughout the receiving process.
 
-Partial receipts are created as the inventory is received.
-
-The delivery was short 5 units.
-
-A sample size of 10 units are inspected as part of Quality Control.
+10 units are selected for population sampling and inspected as part of the Quality Control process.
 
 6 units pass inspection and are returned to Available stock.
 
-4 units fail inspection and are transferred to damages.
+4 units fail inspection and are transferred to the Damages location.
+
+<details>
+<summary>Show Diagram</summary>
 
 ```mermaid
 sequenceDiagram
@@ -302,7 +335,10 @@ sequenceDiagram
     note over Retail Damages Location: On Hold +4 units
 ```
 
+</details>
+
 ## Damages to Warehouse initiated by ERP
+
 ### Some of the damages are refurbished
 
 In this scenario 4 units are transferred from the retail store to the warehouse for refurbishment.
@@ -310,6 +346,9 @@ In this scenario 4 units are transferred from the retail store to the warehouse 
 3 units are refurbished and returned to Available stock.
 
 1 unit remains in damages.
+
+<details>
+<summary>Show Diagram</summary>
 
 ```mermaid
 sequenceDiagram
@@ -365,3 +404,5 @@ sequenceDiagram
     Warehouse->>ChannelApe: Inventory Adjustment
     note over Warehouse Location: Available to Sell +3 units
 ```
+
+</details>
