@@ -18,8 +18,8 @@ There are no adjustments to indicate progress of quality control procedures.
 
 Inventory is received in good condition and deemed available to sell.
 
-<details open><summary>Show Diagram</summary>
-<p>
+<details open>
+<summary>Show Diagram</summary>
 
 ```mermaid
 sequenceDiagram
@@ -65,8 +65,6 @@ sequenceDiagram
 
     ERP->>ERP: Transfer Order completed
 ```
-
-</p>
 </details>
 
 ### Partial Receipts, No Short Shipment, No Quality Control Adjustments, No Damages
@@ -77,7 +75,7 @@ There are no adjustments to indicate progress of quality control procedures.
 
 Inventory is received in good condition and deemed available to sell.
 
-<details>
+<details open>
 <summary>Show Diagram</summary>
 
 ```mermaid
@@ -138,7 +136,7 @@ There are no adjustments to indicate progress of quality control procedures.
 
 Inventory is received in good condition and deemed available to sell.
 
-<details>
+<details open>
 <summary>Show Diagram</summary>
 
 ```mermaid
@@ -200,7 +198,7 @@ The transfer order is shipped 5 units short and multiple receipts are created th
 
 All 10 units pass inspection and are returned to Available stock.
 
-<details>
+<details open>
 <summary>Show Diagram</summary>
 
 ```mermaid
@@ -276,7 +274,7 @@ The transfer order is shipped 5 units short and multiple receipts are created th
 
 4 units fail inspection and are transferred to the Damages location.
 
-<details>
+<details open>
 <summary>Show Diagram</summary>
 
 ```mermaid
@@ -349,7 +347,7 @@ In this scenario 4 units are transferred from the retail store to the warehouse 
 
 1 unit remains in damages.
 
-<details>
+<details open>
 <summary>Show Diagram</summary>
 
 ```mermaid
