@@ -18,8 +18,8 @@ There are no adjustments to indicate progress of quality control procedures.
 
 Inventory is received in good condition and deemed available to sell.
 
-<details>
-<summary>Show Diagram</summary>
+<details><summary>Show Diagram</summary>
+<p>
 
 ```mermaid
 sequenceDiagram
@@ -65,6 +65,8 @@ sequenceDiagram
 
     ERP->>ERP: Transfer Order completed
 ```
+
+</p>
 </details>
 
 ### Partial Receipts, No Short Shipment, No Quality Control Adjustments, No Damages
