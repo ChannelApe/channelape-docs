@@ -18,7 +18,7 @@ There are no adjustments to indicate progress of quality control procedures.
 
 Inventory is received in good condition and deemed available to sell.
 
-<details><summary>Show Diagram</summary>
+<details open><summary>Show Diagram</summary>
 <p>
 
 ```mermaid
