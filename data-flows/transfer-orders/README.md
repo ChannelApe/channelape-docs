@@ -29,8 +29,8 @@ sequenceDiagram
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
-    actor Retail Integration
     participant Retail Location
+    actor Retail Integration
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
@@ -53,7 +53,7 @@ sequenceDiagram
     
     Retail Integration->>ChannelApe: Retrieve ASN
     Retail Integration-->>Retail Store: ASN created
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -61,9 +61,11 @@ sequenceDiagram
     Retail Store->>Retail Store: Receipt created
     Retail Integration->>Retail Store: Retrieve Receipt
     Retail Integration-->>ChannelApe: Create Receipt
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -100 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +100 units
 
     Retail Store->>Retail Store: Receipt completed
@@ -73,6 +75,7 @@ sequenceDiagram
     note over Retail Location: No adjustment
 
     ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
     ERP Integration-->>ERP: Close Transfer Order
 ```
 
@@ -97,8 +100,8 @@ sequenceDiagram
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
-    actor Retail Integration
     participant Retail Location
+    actor Retail Integration
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
@@ -120,7 +123,7 @@ sequenceDiagram
     
     Retail Integration->>ChannelApe: Retrieve ASN
     Retail Integration-->>Retail Store: ASN created
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -128,17 +131,21 @@ sequenceDiagram
     Retail Store->>Retail Store: Receipt created
     Retail Integration->>Retail Store: Retrieve Receipt
     Retail Integration-->>ChannelApe: Create Receipt
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -40 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +40 units
 
     Retail Store->>Retail Store: Receipt created
     Retail Integration->>Retail Store: Retrieve Receipt
     Retail Integration-->>ChannelApe: Create Receipt
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -60 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +60 units
     
     Retail Store->>Retail Store: Receipt completed
@@ -148,7 +155,9 @@ sequenceDiagram
     note over Retail Location: No adjustment
 
     ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
 
+    ERP Integration->>ChannelApe: Retrieve ASN status change
     ERP Integration-->>ERP: Close Transfer Order
 ```
 
@@ -173,8 +182,8 @@ sequenceDiagram
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
-    actor Retail Integration
     participant Retail Location
+    actor Retail Integration
     participant Retail Damages Location
     participant Retail Store
 
@@ -197,7 +206,7 @@ sequenceDiagram
     
     Retail Integration->>ChannelApe: Retrieve ASN
     Retail Integration-->>Retail Store: ASN created
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -205,28 +214,31 @@ sequenceDiagram
     Retail Store->>Retail Store: Receipt created
     Retail Integration->>Retail Store: Retrieve Receipt
     Retail Integration-->>ChannelApe: Create Receipt
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -50 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +50 units
 
     Retail Store->>Retail Store: Receipt created
     Retail Integration->>Retail Store: Retrieve Receipt
     Retail Integration-->>ChannelApe: Create Receipt
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -45 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +45 units
 
     Retail Store->>Retail Store: Receipt completed
 
     Retail Integration->>Retail Store: Retrieve ASN status change
     Retail Integration-->>ChannelApe: Close ASN
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -5 units
 
-    ERP Integration->>ChannelApe: Receipt retrieved
-
+    ERP Integration->>ChannelApe: Retrieve ASN status change
     ERP Integration-->>ERP: Close Transfer Order
 ```
 
@@ -251,8 +263,8 @@ sequenceDiagram
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
-    actor Retail Integration
     participant Retail Location
+    actor Retail Integration
     participant Retail Damages Location
     participant Retail Store
 
@@ -275,7 +287,7 @@ sequenceDiagram
     
     Retail Integration->>ChannelApe: Retrieve ASN
     Retail Integration-->>Retail Store: ASN created
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -283,46 +295,47 @@ sequenceDiagram
     Retail Store->>Retail Store: Receipt created
     Retail Integration->>Retail Store: Retrieve Receipt
     Retail Integration-->>ChannelApe: Create Receipt
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -50 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +50 units
 
     Retail Store->>Retail Store: Inspection starts
 
     Retail Integration->>Retail Store: Retrieve Inventory Adjustment
-    Retail Integration-->>ChannelApe: Create Inventory Adjustment
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell -10 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Hold +10 units
 
     Retail Store->>Retail Store: Receipt created
     Retail Integration->>Retail Store: Retrieve Receipt
     Retail Integration-->>ChannelApe: Create Receipt
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -45 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +45 units
 
     Retail Store->>Retail Store: Receipt completed
 
     Retail Integration->>Retail Store: Retrieve ASN status change
     Retail Integration-->>ChannelApe: Close ASN
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -5 units
 
-    ERP Integration->>ChannelApe: Receipt retrieved
-
+    ERP Integration->>ChannelApe: Retrieve ASN status change
     ERP Integration-->>ERP: Close Transfer Order
 
     Retail Store->>Retail Store: Inspection completes
 
     Retail Integration->>Retail Store: Retrieve Inventory Adjustment
-    Retail Integration-->>ChannelApe: Create Inventory Adjustment
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Hold -10 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +10 units
 ```
 
@@ -349,8 +362,8 @@ sequenceDiagram
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
-    actor Retail Integration
     participant Retail Location
+    actor Retail Integration
     participant Retail Damages Location
     participant Retail Store
 
@@ -373,7 +386,7 @@ sequenceDiagram
     
     Retail Integration->>ChannelApe: Retrieve ASN
     Retail Integration-->>Retail Store: ASN created
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -381,48 +394,48 @@ sequenceDiagram
     Retail Store->>Retail Store: Receipt created
     Retail Integration->>Retail Store: Retrieve Receipt
     Retail Integration-->>ChannelApe: Create Receipt
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -50 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +50 units
 
     Retail Store->>Retail Store: Inspection starts
 
     Retail Integration->>Retail Store: Retrieve Inventory Adjustment
-    Retail Integration-->>ChannelApe: Create Inventory Adjustment
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell -10 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Hold +10 units
 
     Retail Store->>Retail Store: Receipt created
     Retail Integration->>Retail Store: Retrieve Receipt
     Retail Integration-->>ChannelApe: Create Receipt
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration-->>ERP: Receipt created
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -45 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +45 units
 
     Retail Integration->>Retail Store: Retrieve ASN status change
     Retail Integration-->>ChannelApe: Close ASN
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -5 units
 
-    ERP Integration->>ChannelApe: Receipt retrieved
-
+    ERP Integration->>ChannelApe: Retrieve ASN status change
     ERP Integration-->>ERP: Close Transfer Order
     
     Retail Store->>Retail Store: Inspection completes
 
     Retail Integration->>Retail Store: Retrieve Inventory Adjustment
-    Retail Integration-->>ChannelApe: Create Inventory Adjustment
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Hold -10 units
-    Retail Integration-->>Retail Location: Inventory Adjustment
+    Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +6 units
 
     Retail Integration->>Retail Store: Retrieve Inventory Adjustment
-    Retail Integration-->>ChannelApe: Create Inventory Adjustment
     note over Retail Damages Location: Available to Sell +4 units
 ```
 
@@ -450,8 +463,8 @@ sequenceDiagram
     participant Warehouse Damages Location
     participant Warehouse Location
     participant Warehouse
-    actor Retail Integration
     participant Retail Location
+    actor Retail Integration
     participant Retail Damages Location
     participant Retail Store
 
@@ -486,8 +499,7 @@ sequenceDiagram
 
     Warehouse->>ChannelApe: ASN closed
 
-    ERP Integration->>ChannelApe: Receipt retrieved
-
+    ERP Integration->>ChannelApe: Retrieve ASN status change
     ERP Integration-->>ERP: Close Transfer Order
 
     Warehouse->>Warehouse: Refurbishment starts
