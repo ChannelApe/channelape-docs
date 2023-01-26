@@ -10,7 +10,7 @@ The scenarios below document the inventory adjustments ChannelApe expects at eac
 
 In our examples, we follow a Transfer Order that has been created to physically move 100 units from the Warehouse to the Retail Store.
 
-### No Partial Receipts, No Short Shipment, No Quality Control Adjustments, No Damages
+### 1. No Partial Receipts, No Short Shipment, No Quality Control Adjustments, No Damages
 
 The transfer order is shipped complete and a receipt is sent once completely received.
 
@@ -25,14 +25,18 @@ Inventory is received in good condition and deemed available to sell.
 sequenceDiagram
     autonumber
     participant ERP
+    actor ERP Integration
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
+    actor Retail Integration
     participant Retail Location
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
-    ERP->>ChannelApe: Fulfillment Order created
+
+    ERP Integration->>ERP: Transfer Order retrieved
+    ERP Integration->>ChannelApe: Fulfillment Order created
 
     ChannelApe->>Warehouse: Fulfillment Order sent
     note over Warehouse Location: Committed +100 units
@@ -43,11 +47,11 @@ sequenceDiagram
     note over Warehouse Location: Committed -100 units
     note over Warehouse Location: Available to Sell -100 units
 
-    ERP->>ChannelApe: Fulfillment retrieved
-    ERP->>ERP: Transfer Order updated
-    ERP->>ChannelApe: ASN created
+    ERP Integration->>ChannelApe: Fulfillment retrieved
+    ERP Integration->>ERP: Transfer Order updated
+    ERP Integration->>ChannelApe: ASN created
     
-    ChannelApe->>Retail Store: ASN sent
+    Retail Store->>ChannelApe: ASN retrieved
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -61,13 +65,13 @@ sequenceDiagram
     Retail Store->>ChannelApe: ASN closed
     note over Retail Location: No adjustment
 
-    ERP->>ChannelApe: Receipt retrieved
-
-    ERP->>ERP: Transfer Order completed
+    ERP Integration->>ChannelApe: Receipt retrieved
+    ERP Integration->>ERP: Transfer Order completed
 ```
+
 </details>
 
-### Partial Receipts, No Short Shipment, No Quality Control Adjustments, No Damages
+### 2. Partial Receipts, No Short Shipment, No Quality Control Adjustments, No Damages
 
 The transfer order is shipped complete and multiple receipts are created throughout the receiving process.
 
@@ -82,14 +86,18 @@ Inventory is received in good condition and deemed available to sell.
 sequenceDiagram
     autonumber
     participant ERP
+    actor ERP Integration
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
+    actor Retail Integration
     participant Retail Location
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
-    ERP->>ChannelApe: Fulfillment Order created
+
+    ERP Integration->>ERP: Transfer Order retrieved
+    ERP Integration->>ChannelApe: Fulfillment Order created
 
     ChannelApe->>Warehouse: Fulfillment Order sent
     note over Warehouse Location: Committed +100 units
@@ -99,11 +107,11 @@ sequenceDiagram
     note over Warehouse Location: Committed -100 units
     note over Warehouse Location: Available to Sell -100 units
 
-    ERP->>ChannelApe: Fulfillment retrieved
-    ERP->>ERP: Transfer Order updated
-    ERP->>ChannelApe: ASN created
+    ERP Integration->>ChannelApe: Fulfillment retrieved
+    ERP Integration->>ERP: Transfer Order updated
+    ERP Integration->>ChannelApe: ASN created
     
-    ChannelApe->>Retail Store: ASN sent
+    Retail Store->>ChannelApe: ASN retrieved
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -121,14 +129,14 @@ sequenceDiagram
     Retail Store->>ChannelApe: ASN closed
     note over Retail Location: No adjustment
 
-    ERP->>ChannelApe: Receipt retrieved
+    ERP Integration->>ChannelApe: Receipt retrieved
 
-    ERP->>ERP: Transfer Order completed
+    ERP Integration->>ERP: Transfer Order completed
 ```
 
 </details>
 
-### Partial Receipts, Short Shipment, No Quality Control Adjustments, No Damages
+### 3. Partial Receipts, Short Shipment, No Quality Control Adjustments, No Damages
 
 The transfer order is shipped 5 units short and multiple receipts are created throughout the receiving process.
 
@@ -143,15 +151,19 @@ Inventory is received in good condition and deemed available to sell.
 sequenceDiagram
     autonumber
     participant ERP
+    actor ERP Integration
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
+    actor Retail Integration
     participant Retail Location
     participant Retail Damages Location
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
-    ERP->>ChannelApe: Fulfillment Order created
+
+    ERP Integration->>ERP: Transfer Order retrieved
+    ERP Integration->>ChannelApe: Fulfillment Order created
 
     ChannelApe->>Warehouse: Fulfillment Order sent
     note over Warehouse Location: Committed +100 units
@@ -161,11 +173,11 @@ sequenceDiagram
     note over Warehouse Location: Committed -100 units
     note over Warehouse Location: Available to Sell -100 units
 
-    ERP->>ChannelApe: Fulfillment retrieved
-    ERP->>ERP: Transfer Order updated
-    ERP->>ChannelApe: ASN created
+    ERP Integration->>ChannelApe: Fulfillment retrieved
+    ERP Integration->>ERP: Transfer Order updated
+    ERP Integration->>ChannelApe: ASN created
     
-    ChannelApe->>Retail Store: ASN sent
+    Retail Store->>ChannelApe: ASN retrieved
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -183,14 +195,14 @@ sequenceDiagram
     Retail Store->>ChannelApe: ASN closed
     note over Retail Location: On Order -5 units
 
-    ERP->>ChannelApe: Receipt retrieved
+    ERP Integration->>ChannelApe: Receipt retrieved
 
-    ERP->>ERP: Transfer Order completed
+    ERP Integration->>ERP: Transfer Order completed
 ```
 
 </details>
 
-### Partial Receipts, Short Shipment, Quality Control Adjustments, No Damages
+### 4. Partial Receipts, Short Shipment, Quality Control Adjustments, No Damages
 
 The transfer order is shipped 5 units short and multiple receipts are created throughout the receiving process.
 
@@ -205,15 +217,19 @@ All 10 units pass inspection and are returned to Available stock.
 sequenceDiagram
     autonumber
     participant ERP
+    actor ERP Integration
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
+    actor Retail Integration
     participant Retail Location
     participant Retail Damages Location
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
-    ERP->>ChannelApe: Fulfillment Order created
+
+    ERP Integration->>ERP: Transfer Order retrieved
+    ERP Integration->>ChannelApe: Fulfillment Order created
 
     ChannelApe->>Warehouse: Fulfillment Order sent
     note over Warehouse Location: Committed +100 units
@@ -223,11 +239,11 @@ sequenceDiagram
     note over Warehouse Location: Committed -100 units
     note over Warehouse Location: Available to Sell -100 units
 
-    ERP->>ChannelApe: Fulfillment retrieved
-    ERP->>ERP: Transfer Order updated
-    ERP->>ChannelApe: ASN created
+    ERP Integration->>ChannelApe: Fulfillment retrieved
+    ERP Integration->>ERP: Transfer Order updated
+    ERP Integration->>ChannelApe: ASN created
     
-    ChannelApe->>Retail Store: ASN sent
+    Retail Store->>ChannelApe: ASN retrieved
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -251,9 +267,9 @@ sequenceDiagram
     Retail Store->>ChannelApe: ASN closed
     note over Retail Location: On Order -5 units
 
-    ERP->>ChannelApe: Receipt retrieved
+    ERP Integration->>ChannelApe: Receipt retrieved
 
-    ERP->>ERP: Transfer Order completed
+    ERP Integration->>ERP: Transfer Order completed
 
     Retail Store->>Retail Store: Inspection completes
 
@@ -264,7 +280,7 @@ sequenceDiagram
 
 </details>
 
-### Partial Receipts, Short Shipment, Quality Control Adjustments, Damages
+### 5. Partial Receipts, Short Shipment, Quality Control Adjustments, Damages
 
 The transfer order is shipped 5 units short and multiple receipts are created throughout the receiving process.
 
@@ -281,15 +297,19 @@ The transfer order is shipped 5 units short and multiple receipts are created th
 sequenceDiagram
     autonumber
     participant ERP
+    actor ERP Integration
     participant ChannelApe
     participant Warehouse Location
     participant Warehouse
+    actor Retail Integration
     participant Retail Location
     participant Retail Damages Location
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
-    ERP->>ChannelApe: Fulfillment Order created
+
+    ERP Integration->>ERP: Transfer Order retrieved
+    ERP Integration->>ChannelApe: Fulfillment Order created
 
     ChannelApe->>Warehouse: Fulfillment Order sent
     note over Warehouse Location: Committed +100 units
@@ -299,11 +319,11 @@ sequenceDiagram
     note over Warehouse Location: Committed -100 units
     note over Warehouse Location: Available to Sell -100 units
 
-    ERP->>ChannelApe: Fulfillment retrieved
-    ERP->>ERP: Transfer Order updated
-    ERP->>ChannelApe: ASN created
+    ERP Integration->>ChannelApe: Fulfillment retrieved
+    ERP Integration->>ERP: Transfer Order updated
+    ERP Integration->>ChannelApe: ASN created
     
-    ChannelApe->>Retail Store: ASN sent
+    Retail Store->>ChannelApe: ASN retrieved
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
@@ -325,9 +345,9 @@ sequenceDiagram
     Retail Store->>ChannelApe: ASN Closed
     note over Retail Location: On Order -5 units
 
-    ERP->>ChannelApe: Receipt retrieved
+    ERP Integration->>ChannelApe: Receipt retrieved
 
-    ERP->>ERP: Transfer Order completed
+    ERP Integration->>ERP: Transfer Order completed
     
     Retail Store->>Retail Store: Inspection completes
 
@@ -343,7 +363,7 @@ sequenceDiagram
 
 ## Damages to Warehouse
 
-### Some of the damages are refurbished
+### 6. Some of the damages are refurbished
 
 In this scenario 4 units are transferred from the retail store to the warehouse for refurbishment.
 
@@ -358,16 +378,20 @@ In this scenario 4 units are transferred from the retail store to the warehouse 
 sequenceDiagram
     autonumber
     participant ERP
+    actor ERP Integration
     participant ChannelApe
     participant Warehouse Damages Location
     participant Warehouse Location
     participant Warehouse
+    actor Retail Integration
     participant Retail Location
     participant Retail Damages Location
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
-    ERP->>ChannelApe: Fulfillment Order created
+
+    ERP Integration->>ERP: Transfer Order retrieved
+    ERP Integration->>ChannelApe: Fulfillment Order created
 
     ChannelApe->>Retail Store: Fulfillment Order sent
     note over Retail Damages Location: Committed +4 units
@@ -378,9 +402,9 @@ sequenceDiagram
     note over Retail Damages Location: Committed -4 units
     note over Retail Damages Location: Available to Sell -4 units
     
-    ERP->>ChannelApe: Fulfillment retrieved
-    ERP->>ERP: Transfer Order updated
-    ERP->>ChannelApe: ASN created
+    ERP Integration->>ChannelApe: Fulfillment retrieved
+    ERP Integration->>ERP: Transfer Order updated
+    ERP Integration->>ChannelApe: ASN created
 
     ChannelApe->>Warehouse: ASN sent
     note over Warehouse Damages Location: On Order +4 units
@@ -395,9 +419,9 @@ sequenceDiagram
 
     Warehouse->>ChannelApe: ASN closed
 
-    ERP->>ChannelApe: Receipt retrieved
+    ERP Integration->>ChannelApe: Receipt retrieved
 
-    ERP->>ERP: Transfer Order completed
+    ERP Integration->>ERP: Transfer Order completed
 
     Warehouse->>Warehouse: Refurbishment starts
 
