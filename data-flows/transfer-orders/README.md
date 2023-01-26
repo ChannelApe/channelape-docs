@@ -30,7 +30,6 @@ sequenceDiagram
     participant Warehouse Location
     participant Warehouse
     participant Retail Location
-    participant Retail Damages Location
     actor Retail Integration
     participant Retail Store
 
@@ -73,10 +72,8 @@ sequenceDiagram
 
     Retail Integration->>Retail Store: Retrieve ASN status change
     Retail Integration-->>ChannelApe: Close ASN
-    note over Retail Location: No adjustment
 
-    ERP Integration->>ChannelApe: Receipt retrieved
-    ERP Integration-->>ERP: Receipt created
+    ERP Integration->>ChannelApe: Retrieve ASN status change
     ERP Integration-->>ERP: Close Transfer Order
 ```
 
@@ -102,7 +99,6 @@ sequenceDiagram
     participant Warehouse Location
     participant Warehouse
     participant Retail Location
-    participant Retail Damages Location
     actor Retail Integration
     participant Retail Store
 
@@ -154,10 +150,6 @@ sequenceDiagram
 
     Retail Integration->>Retail Store: Retrieve ASN status change
     Retail Integration-->>ChannelApe: Close ASN
-    note over Retail Location: No adjustment
-
-    ERP Integration->>ChannelApe: Receipt retrieved
-    ERP Integration-->>ERP: Receipt created
 
     ERP Integration->>ChannelApe: Retrieve ASN status change
     ERP Integration-->>ERP: Close Transfer Order
