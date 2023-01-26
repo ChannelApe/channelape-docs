@@ -51,18 +51,22 @@ sequenceDiagram
     ERP Integration->>ERP: Transfer Order updated
     ERP Integration->>ChannelApe: ASN created
     
-    Retail Store->>ChannelApe: ASN retrieved
+    Retail Integration->>ChannelApe: ASN retrieved
+    Retail Integration->>Retail Store: ASN created
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
 
-    Retail Store->>ChannelApe: Receipt created
+    Retail Store->>Retail Store: Receipt created
+    Retail Integration->>Retail Store: Receipt retrieved
+    Retail Integration->>ChannelApe: Receipt created
     note over Retail Location: On Order -100 units
     note over Retail Location: Available to Sell +100 units
 
     Retail Store->>Retail Store: Receipt completed
 
-    Retail Store->>ChannelApe: ASN closed
+    Retail Integration->>Retail Store: Retrieve ASN status change
+    Retail Integration->>ChannelApe: ASN closed
     note over Retail Location: No adjustment
 
     ERP Integration->>ChannelApe: Receipt retrieved
@@ -111,22 +115,28 @@ sequenceDiagram
     ERP Integration->>ERP: Transfer Order updated
     ERP Integration->>ChannelApe: ASN created
     
-    Retail Store->>ChannelApe: ASN retrieved
+    Retail Integration->>ChannelApe: ASN retrieved
+    Retail Integration->>Retail Store: ASN created
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
 
-    Retail Store->>ChannelApe: Receipt created
+    Retail Store->>Retail Store: Receipt created
+    Retail Integration->>Retail Store: Receipt retrieved
+    Retail Integration->>ChannelApe: Receipt created
     note over Retail Location: On Order -40 units
     note over Retail Location: Available to Sell +40 units
 
-    Retail Store->>ChannelApe: Receipt created
+    Retail Store->>Retail Store: Receipt created
+    Retail Integration->>Retail Store: Receipt retrieved
+    Retail Integration->>ChannelApe: Receipt created
     note over Retail Location: On Order -60 units
     note over Retail Location: Available to Sell +60 units
     
     Retail Store->>Retail Store: Receipt completed
 
-    Retail Store->>ChannelApe: ASN closed
+    Retail Integration->>Retail Store: Retrieve ASN status change
+    Retail Integration->>ChannelApe: ASN closed
     note over Retail Location: No adjustment
 
     ERP Integration->>ChannelApe: Receipt retrieved
@@ -177,22 +187,28 @@ sequenceDiagram
     ERP Integration->>ERP: Transfer Order updated
     ERP Integration->>ChannelApe: ASN created
     
-    Retail Store->>ChannelApe: ASN retrieved
+    Retail Integration->>ChannelApe: ASN retrieved
+    Retail Integration->>Retail Store: ASN created
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
 
-    Retail Store->>ChannelApe: Receipt created
+    Retail Store->>Retail Store: Receipt created
+    Retail Integration->>Retail Store: Receipt retrieved
+    Retail Integration->>ChannelApe: Receipt created
     note over Retail Location: On Order -50 units
     note over Retail Location: Available to Sell +50 units
 
-    Retail Store->>ChannelApe: Receipt created
+    Retail Store->>Retail Store: Receipt created
+    Retail Integration->>Retail Store: Receipt retrieved
+    Retail Integration->>ChannelApe: Receipt created
     note over Retail Location: On Order -45 units
     note over Retail Location: Available to Sell +45 units
 
     Retail Store->>Retail Store: Receipt completed
 
-    Retail Store->>ChannelApe: ASN closed
+    Retail Integration->>Retail Store: Retrieve ASN status change
+    Retail Integration->>ChannelApe: ASN closed
     note over Retail Location: On Order -5 units
 
     ERP Integration->>ChannelApe: Receipt retrieved
@@ -243,12 +259,15 @@ sequenceDiagram
     ERP Integration->>ERP: Transfer Order updated
     ERP Integration->>ChannelApe: ASN created
     
-    Retail Store->>ChannelApe: ASN retrieved
+    Retail Integration->>ChannelApe: ASN retrieved
+    Retail Integration->>Retail Store: ASN created
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
 
-    Retail Store->>ChannelApe: Receipt created
+    Retail Store->>Retail Store: Receipt created
+    Retail Integration->>Retail Store: Receipt retrieved
+    Retail Integration->>ChannelApe: Receipt created
     note over Retail Location: On Order -50 units
     note over Retail Location: Available to Sell +50 units
 
@@ -258,13 +277,16 @@ sequenceDiagram
     note over Retail Location: Available to Sell -10 units
     note over Retail Location: On Hold +10 units
 
-    Retail Store->>ChannelApe: Receipt created
+    Retail Store->>Retail Store: Receipt created
+    Retail Integration->>Retail Store: Receipt retrieved
+    Retail Integration->>ChannelApe: Receipt created
     note over Retail Location: On Order -45 units
     note over Retail Location: Available to Sell +45 units
 
     Retail Store->>Retail Store: Receipt completed
 
-    Retail Store->>ChannelApe: ASN closed
+    Retail Integration->>Retail Store: Retrieve ASN status change
+    Retail Integration->>ChannelApe: ASN closed
     note over Retail Location: On Order -5 units
 
     ERP Integration->>ChannelApe: Receipt retrieved
@@ -323,12 +345,15 @@ sequenceDiagram
     ERP Integration->>ERP: Transfer Order updated
     ERP Integration->>ChannelApe: ASN created
     
-    Retail Store->>ChannelApe: ASN retrieved
+    Retail Integration->>ChannelApe: ASN retrieved
+    Retail Integration->>Retail Store: ASN created
     note over Retail Location: On Order +100 units
 
     Retail Store->>Retail Store: Receipt Started
 
-    Retail Store->>ChannelApe: Receipt created
+    Retail Store->>Retail Store: Receipt created
+    Retail Integration->>Retail Store: Receipt retrieved
+    Retail Integration->>ChannelApe: Receipt created
     note over Retail Location: On Order -50 units
     note over Retail Location: Available to Sell +50 units
 
@@ -338,11 +363,14 @@ sequenceDiagram
     note over Retail Location: Available to Sell -10 units
     note over Retail Location: On Hold +10 units
 
-    Retail Store->>ChannelApe: Receipt created
+    Retail Store->>Retail Store: Receipt created
+    Retail Integration->>Retail Store: Receipt retrieved
+    Retail Integration->>ChannelApe: Receipt created
     note over Retail Location: On Order -45 units
     note over Retail Location: Available to Sell +45 units
 
-    Retail Store->>ChannelApe: ASN Closed
+    Retail Integration->>Retail Store: Retrieve ASN status change
+    Retail Integration->>ChannelApe: ASN closed
     note over Retail Location: On Order -5 units
 
     ERP Integration->>ChannelApe: Receipt retrieved
