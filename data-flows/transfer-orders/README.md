@@ -264,7 +264,7 @@ sequenceDiagram
 
 </details>
 
-### Partial Receipts, Short Shipment, Quality Control, Damages
+### Partial Receipts, Short Shipment, Quality Control Adjustments, Damages
 
 The transfer order is shipped 5 units short and multiple receipts are created throughout the receiving process.
 
@@ -312,7 +312,9 @@ sequenceDiagram
     note over Retail Location: On Order -50 units
     note over Retail Location: Available to Sell +50 units
 
-    Retail Store->>ChannelApe: Inventory Adjustment - Inspection Started
+    Retail Store->>Retail Store: Inspection starts
+
+    Retail Store->>ChannelApe: Inventory Adjustment
     note over Retail Location: Available to Sell -10 units
     note over Retail Location: On Hold +10 units
 
@@ -327,17 +329,19 @@ sequenceDiagram
 
     ERP->>ERP: Transfer Order completed
     
-    Retail Store->>ChannelApe: Inventory Adjustment - Inspection Complete
+    Retail Store->>Retail Store: Inspection completes
+
+    Retail Store->>ChannelApe: Inventory Adjustment
     note over Retail Location: On Hold -10 units
     note over Retail Location: Available to Sell +6 units
 
-    Retail Store->>ChannelApe: Inventory Adjustment - Damaged
-    note over Retail Damages Location: On Hold +4 units
+    Retail Store->>ChannelApe: Inventory Adjustment
+    note over Retail Damages Location: Available to Sell +4 units
 ```
 
 </details>
 
-## Damages to Warehouse initiated by ERP
+## Damages to Warehouse
 
 ### Some of the damages are refurbished
 
@@ -372,6 +376,7 @@ sequenceDiagram
 
     Retail Store->>ChannelApe: Fulfillment created
     note over Retail Damages Location: Committed -4 units
+    note over Retail Damages Location: Available to Sell -4 units
     
     ERP->>ChannelApe: Fulfillment retrieved
     ERP->>ERP: Transfer Order updated
@@ -384,7 +389,7 @@ sequenceDiagram
 
     Warehouse->>ChannelApe: Receipt Created
     note over Warehouse Damages Location: On Order -4 units
-    note over Warehouse Damages Location: On Hold +4 units
+    note over Warehouse Damages Location: Available to Sell +4 units
 
     Warehouse->>Warehouse: Receipt completed
 
@@ -399,7 +404,7 @@ sequenceDiagram
     Warehouse->>Warehouse: Refurbishment completes
 
     Warehouse->>ChannelApe: Inventory Adjustment
-    note over Warehouse Damages Location: On Hold -3 units
+    note over Warehouse Damages Location: Available to Sell -3 units
 
     Warehouse->>ChannelApe: Inventory Adjustment
     note over Warehouse Location: Available to Sell +3 units
