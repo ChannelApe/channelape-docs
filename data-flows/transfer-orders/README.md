@@ -30,6 +30,7 @@ sequenceDiagram
     participant Warehouse Location
     participant Warehouse
     participant Retail Location
+    participant Retail Damages Location
     actor Retail Integration
     participant Retail Store
 
@@ -101,6 +102,7 @@ sequenceDiagram
     participant Warehouse Location
     participant Warehouse
     participant Retail Location
+    participant Retail Damages Location
     actor Retail Integration
     participant Retail Store
 
@@ -183,8 +185,8 @@ sequenceDiagram
     participant Warehouse Location
     participant Warehouse
     participant Retail Location
-    actor Retail Integration
     participant Retail Damages Location
+    actor Retail Integration
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
@@ -264,8 +266,8 @@ sequenceDiagram
     participant Warehouse Location
     participant Warehouse
     participant Retail Location
-    actor Retail Integration
     participant Retail Damages Location
+    actor Retail Integration
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
@@ -363,8 +365,8 @@ sequenceDiagram
     participant Warehouse Location
     participant Warehouse
     participant Retail Location
-    actor Retail Integration
     participant Retail Damages Location
+    actor Retail Integration
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
@@ -464,8 +466,8 @@ sequenceDiagram
     participant Warehouse Location
     participant Warehouse
     participant Retail Location
-    actor Retail Integration
     participant Retail Damages Location
+    actor Retail Integration
     participant Retail Store
 
     ERP->>ERP: Transfer Order created
