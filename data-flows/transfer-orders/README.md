@@ -400,7 +400,7 @@ sequenceDiagram
     Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +50 units
     else ChannelApe ASN Playbook
-    ChannelApe->>Retail Store: Retrieve Receipt
+    ChannelApe->>Retail Integration: Retrieve Receipt
     note over Retail Location: On Order -50 units
     note over Retail Location: Available to Sell +50 units
     end
@@ -429,7 +429,7 @@ sequenceDiagram
     Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: Available to Sell +45 units
     else ChannelApe ASN Playbook
-    ChannelApe->>Retail Store: Retrieve Receipt
+    ChannelApe->>Retail Integration: Retrieve Receipt
     note over Retail Location: On Order -45 units
     note over Retail Location: Available to Sell +45 units
     end
@@ -445,7 +445,7 @@ sequenceDiagram
     Retail Integration-->>Retail Location: Create Inventory Adjustment
     note over Retail Location: On Order -5 units
     else ChannelApe ASN Playbook
-    ChannelApe->>Retail Store: Retrieve ASN status change
+    ChannelApe->>Retail Integration: Retrieve ASN status change
     note over Retail Location: On Order -5 units
     end
 
