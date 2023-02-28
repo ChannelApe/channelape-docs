@@ -60,29 +60,48 @@ In some circumstances brands can arrange for the Purchase Order to be delivered 
 #### SDQ Order
 SDQ stands for Ship Destination Quantity.  An SDQ order is a Purchase Order that contains items that have varying ship-by dates and/or varying destinations.
 
-## Purchase Order Sequence Diagram
+## Purchase Orders - using our API
 
 ```mermaid
 sequenceDiagram
     autonumber
     participant Manufacturer
-    actor User
-    participant ChannelApe
-    participant Warehouse Location
+    actor ABC Co
+    participant ChannelApe API
+    actor ChannelApe iPaaS Playbook
+    participant ChannelApe IMS
     participant Warehouse
 
-    User->>Manufacturer: Create PO
-    User-->>ChannelApe: Create PO
-    Manufacturer->>Manufacturer: Create Shipment
-    User->>Manufacturer: Get Shipment
-    User-->>ChannelApe: Create Shipment
-    ChannelApe->>Warehouse: Create Shipment
-    note over Warehouse Location: +100 On Order
-    Manufacturer-->>Warehouse: Shipment is Delivered
-    Warehouse->>Warehouse: Receipt started
-    ChannelApe->>Warehouse: Get Receipt
-    note over Warehouse Location: -100 On Order
-    note over Warehouse Location: +100 Available to Sell
-    Warehouse->>Warehouse: Receipt finished
-    User->>ChannelApe: Close PO
+    ABC Co->>Manufacturer: Places order for 3100 units
+    ABC Co-->>ChannelApe API: Create Purchase Order
+    note right of ChannelApe API: Order status is OPEN
+    Manufacturer->>Manufacturer: 🚢 Ships order
+    Manufacturer->>ABC Co: Informs buyer of shipment
+    ABC Co-->>ChannelApe API: Update Purchase Order with Fulfillment
+    note right of ChannelApe API: Fulfillment status is SHIPPED<br/>Order status is IN_PROGRESS
+    note right of ChannelApe iPaaS Playbook: Send ASNs runs on<br />⏱️ 15 minute intervals
+    ChannelApe iPaaS Playbook->>ChannelApe API: Queries for fulfillments in SHIPPED status on orders with IN_PROGESS status
+    activate ChannelApe iPaaS Playbook
+    ChannelApe iPaaS Playbook-->>Warehouse: Send Advanced Ship Notice
+    ChannelApe iPaaS Playbook-->>ChannelApe IMS: Update inventory
+    deactivate ChannelApe iPaaS Playbook
+    note right of ChannelApe IMS: +3100 to ON_ORDER<br/>at the Warehouse location
+    ChannelApe iPaaS Playbook-->>ChannelApe API: Update fulfillment status on Purchase Order
+    note left of ChannelApe API: Fulfillment status is changed to PENDING_RECEIPT
+    
+    Manufacturer-->>Warehouse:  🚚 Shipment in transit to warehouse
+    note right of Warehouse: 📦 Shipment arrives at warehouse
+    note right of Warehouse: Receiving process starts
+    loop Until receipt finishes (10 more times)
+    Warehouse->>Warehouse: Pallet is put away and receipt is created
+    Warehouse->>ChannelApe iPaaS Playbook: Send receipt details
+    ChannelApe iPaaS Playbook-->>ChannelApe IMS: Update inventory
+    note right of ChannelApe IMS: -310 to ON_ORDER<br/>and +310 to AVAILABLE_TO_SELL<br/>at the Warehouse location
+    ChannelApe iPaaS Playbook-->>ChannelApe API: Update fulfillment status on Purchase Order
+    note left of ChannelApe API: Fulfillment status is changed to RECEIVED
+    end
+    note right of Warehouse: 🏁 Receipt is finished
+    alt are all fulfillments RECEIVED?
+    ChannelApe iPaaS Playbook-->>ChannelApe API: Close Purchase Order
+    end
 ```
