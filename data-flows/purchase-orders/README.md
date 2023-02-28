@@ -37,20 +37,20 @@ Each shipment typically includes:
 Facts
 
 - They know a 20 ft. container fits roughtly 3,500 shoes.
-- They also know it takes about 2-4 weeks to transport, a delivery of this size will take about 1 week to receive and stock at the Manufacturer, and an error rate of 3%.
+- They also know it takes about 2-4 weeks to transport, a delivery of this size will take about 1 week to receive and stock at the Warehouse, and an error rate of 3%.
 
 Steps
 
 1. ABC Co. coordinates a Purchase Order for 3,100 units from their manufacturer in China and a ship-by date of September 15, 2023, with Flexport, their freight forwarding broker.
 1. ABC Co. is given Flexport's invoice ID to track delivery progress.
 1. The manufacturer loads 10 pallets into the container with each pallet containing ~310 pairs of shoes and the shipment departs for Port of Los Angeles.
-1. ABC Co. gives their Manufacturer advanced notice of this shipment and its expected arrival date to ensure delivery goes smoothly.
+1. ABC Co. gives their Warehouse advanced notice of this shipment and its expected arrival date to ensure delivery goes smoothly.
 
 ### Opportunities
 1. What if this Purchase Order contained a hundred line items and instead of 2 large POs a year, it was actually 20?
 1. What if delivery is delayed?
 1. How does ABC Co. know how many pairs of shoes a 20 ft. container can fit?
-1. Or that it takes 2-4 weeks to transport and another week to put away at the Manufacturer?
+1. Or that it takes 2-4 weeks to transport and another week to put away at the Warehouse?
 1. How do they know their shrink rate is 3%?
 1. How did they create their production schedule in the first place?
 
