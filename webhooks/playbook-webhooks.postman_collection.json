@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "3c783c14-3624-4599-af09-0d542602ba6e",
+		"name": "iPaaS Playbook Webhook APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11485806"
+	},
+	"item": [
+		{
+			"name": "Stock Transfer Orders",
+			"item": [
+				{
+					"name": "Confirm Shipment - Single Carton",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"orderUpdate\": {\n    \"fulfillments\": [\n      {\n        \"id\": \"208924061\",\n        \"additionalFields\": [\n          {\n            \"name\": \"shipment_id\",\n            \"value\": \"208924061\"\n          },\n          {\n            \"name\": \"warehouse_order_id\",\n            \"value\": \"R_2935999\"\n          },\n          {\n            \"name\": \"Sscc\",\n            \"value\": \"00001922492001525086\"\n          },\n          {\n            \"name\": \"ShipmentNumber\",\n            \"value\": \"20892406\"\n          },\n          {\n            \"name\": \"CartonNumber\",\n            \"value\": \"1\"\n          },\n          {\n            \"name\": \"Length\",\n            \"value\": \"24\"\n          },\n          {\n            \"name\": \"Width\",\n            \"value\": \"14\"\n          },\n          {\n            \"name\": \"Height\",\n            \"value\": \"14\"\n          },\n          {\n            \"name\": \"Weight\",\n            \"value\": \"18.38\"\n          },\n          {\n            \"name\": \"TotalOrderWeight\",\n            \"value\": \"18.38\"\n          },\n          {\n            \"name\": \"TotalOrderCartons\",\n            \"value\": \"1\"\n          },\n          {\n            \"name\": \"ClientTotalFreightCharge\",\n            \"value\": \"140.00\"\n          },\n          {\n            \"name\": \"TotalOrderCubeVolume\",\n            \"value\": \"2.54\"\n          }\n        ],\n        \"locationId\": \"309\",\n        \"shippingCompany\": \"FEDEX\",\n        \"shippingMethod\": \"GROUND\",\n        \"trackingNumber\": \"1234123412341234\",\n        \"shippedAt\": \"2023-03-01T17:30:00Z\",\n        \"status\": \"OPEN\",\n        \"lineItems\": [\n          {\n            \"additionalFields\": [],\n            \"quantity\": 4,\n            \"sku\": \"125_001_BBPLD_OS\"\n          },\n          {\n            \"additionalFields\": [],\n            \"quantity\": 4,\n            \"sku\": \"117_001_GGY_7\"\n          }\n        ]\n      }\n    ]\n  }\n}\n"
+						},
+						"url": {
+							"raw": "{{endpoint}}/stock-transfer-orders/shipments/webhook.rsb",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"stock-transfer-orders",
+								"shipments",
+								"webhook.rsb"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"orderUpdate\": {\n    \"fulfillments\": [\n      {\n        \"id\": \"208924061\",\n        \"additionalFields\": [\n          {\n            \"name\": \"shipment_id\",\n            \"value\": \"208924061\"\n          },\n          {\n            \"name\": \"warehouse_order_id\",\n            \"value\": \"R_2935999\"\n          },\n          {\n            \"name\": \"NRI_CarrierName\",\n            \"value\": \"OASIS\"\n          },\n          {\n            \"name\": \"NRI_CarrierSCAC\",\n            \"value\": \"OASIS\"\n          },\n          {\n            \"name\": \"Sscc\",\n            \"value\": \"00001922492001525086\"\n          },\n          {\n            \"name\": \"ShipmentNumber\",\n            \"value\": \"20892406\"\n          },\n          {\n            \"name\": \"CartonNumber\",\n            \"value\": \"1\"\n          },\n          {\n            \"name\": \"Length\",\n            \"value\": \"24\"\n          },\n          {\n            \"name\": \"Width\",\n            \"value\": \"14\"\n          },\n          {\n            \"name\": \"Height\",\n            \"value\": \"14\"\n          },\n          {\n            \"name\": \"Weight\",\n            \"value\": \"18.38\"\n          },\n          {\n            \"name\": \"TotalOrderWeight\",\n            \"value\": \"18.38\"\n          },\n          {\n            \"name\": \"TotalOrderCartons\",\n            \"value\": \"1\"\n          },\n          {\n            \"name\": \"ClientTotalFreightCharge\",\n            \"value\": \"140.00\"\n          },\n          {\n            \"name\": \"TotalOrderCubeVolume\",\n            \"value\": \"2.54\"\n          }\n        ],\n        \"locationId\": \"309\",\n        \"shippingCompany\": \"OASIS\",\n        \"shippingMethod\": \"OASIS\",\n        \"trackingNumber\": \"1234123412341234\",\n        \"shippedAt\": \"2023-03-01T17:30:00Z\",\n        \"status\": \"OPEN\",\n        \"lineItems\": [\n          {\n            \"additionalFields\": [],\n            \"id\": \"1\",\n            \"quantity\": 4,\n            \"sku\": \"125_001_BBPLD_OS\"\n          },\n          {\n            \"additionalFields\": [],\n            \"id\": \"2\",\n            \"quantity\": 4,\n            \"sku\": \"117_001_GGY_7\"\n          }\n        ]\n      }\n    ]\n  }\n}\n"
+								},
+								"url": {
+									"raw": "{{endpoint}}/stock-transfer-orders/shipments/webhook.rsb",
+									"host": [
+										"{{endpoint}}"
+									],
+									"path": [
+										"stock-transfer-orders",
+										"shipments",
+										"webhook.rsb"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 19:12:43 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Shipment request has been received and queued for processing.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "# Confirm Shipment\n\nThe Confirm Shipment API is used to communicate line item, carton, and tracking information on the carton level for each carton within shipment."
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{secret}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-channel-ape-authorization-token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "https://edi-300.channelapeservices.com/web/connector",
+			"type": "string"
+		}
+	]
+}
