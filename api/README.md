@@ -223,7 +223,7 @@ Notes
         "shippingCompany": "FEDEX",
         "shippingMethod": "GROUND",
         "trackingNumber": "1234123412341234",
-        "shippedAt": "2023-03-01T17:30:00Z",
+        "shippedAt": "2023-02-14T00:00:00.000Z",
         "status": "OPEN",
         "lineItems": [
           {
