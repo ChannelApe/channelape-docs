@@ -116,12 +116,25 @@ root
 
 ```json
 {
+  "purchaseOrderNumber": "R_2935999",
+  "warehouseOrderId": "R_2935999",
+  "channelOrderId": "R_2935999",
+  "purchasedAt": "2023-02-13T19:00:00.000Z",
+  "shippingCompany": "FEDEX",
+  "shippingMethod": "GROUND",
+  "locationId": "819",
+  "warehouseCode": "LK",
+  "warehouseCompany": "NRI",
+  "warehouseName": "NRI - Available",
+  "warehouseId": "LK",
+  "warehouseZipcode": "91761",
+  "status": "OPEN",
   "additionalFields": {
     "VendorPartyInternalID": "1018",
     "SenderPartyInternalID": "123456789",
     "RecipientPartyInternalID": "1234567890123",
     "ShippingDateTimePeriod": "2023-02-13T19:00:00Z",
-    "ArrivalDateTimePeriod": "2022-02-13T19:00:00Z",
+    "ArrivalDateTimePeriod": "2023-02-13T19:00:00Z",
     "note_attributes_ship_from": "819",
     "shipping_lines_title": "VENDOR",
     "note_attribute_retail_order": "true",
@@ -142,14 +155,13 @@ root
   "customer": {
     "additionalFields": [],
     "shippingAddress": {
-      "additionalFields": [],
-      "address1": "181 Columbus Ave.",
+      "name": "Upper West Side (NY)",
+      "address1": "181 Columbus Ave",
       "city": "New York",
-      "countryCode": "US",
-      "name": "Rothy's 181 Columbus",
       "postalCode": "10023",
       "province": "New York",
-      "provinceCode": "NY"
+      "provinceCode": "NY",
+      "countryCode": "US"
     }
   },
   "lineItems": [
@@ -191,19 +203,6 @@ root
       "sku": "125_001_BBPLD_OS",
       "taxes": []
     }
-  ],
-  "locationId": "309",
-  "purchasedAt": "2022-08-08T11:00:07.000Z",
-  "purchaseOrderNumber": "R_2935999",
-  "shippingCompany": "FEDEX",
-  "shippingMethod": "GROUND",
-  "warehouseOrderId": "R_2935999",
-  "warehouseCode": "LK",
-  "warehouseCompany": "NRI",
-  "warehouseName": "NRI - Available",
-  "warehouseId": "LK",
-  "warehouseZipcode": "91761",
-  "status": "OPEN",
-  "channelOrderId": "R_2935999"
+  ]
 }
 ```
