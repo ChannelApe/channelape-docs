@@ -1,3 +1,49 @@
+# Inventory Adjustments
+
+⚠️ Caution: Inventory can be changed using an adjust or set oepration.  
+Make sure you're using the correct operation.
+
+Documentation for both of these operations is publicly available.
+
+- [Inventory Adjustment](https://docs.channelape.io/#7fb11288-1d07-4aa9-97f4-b6a66429e404)
+- [Inventory Set](https://docs.channelape.io/#e5638e1d-4f0c-49a8-a4ad-9291d2889e9f)
+
+If you're interested in learning more, check out about our [Inventory Management System](https://www.channelape.com/knowledge/channelape-inventory-management-system) knowledgebase article.
+
+### Data Requirements
+
+#### Adjustment
+
+| Field           | Type       | Required | Description                                                                |
+| --------------- | ---------- | -------- | -------------------------------------------------------------------------- |
+| locationId      | string     | Yes      | The corresponding ChannelApe location where the adjustment should be made. |
+| sku             | string     | Yes      | The SKU of the item you want to adjust.                                    |
+| inventoryStatus | string     | Yes      | The status for the balance being adjusted.                                 |
+| quantity        | signed int | Yes      | The relative change in quantity (+/-).                                     |
+
+#### Inventory Statuses
+
+| Status            |
+| ----------------- |
+| AVAILABLE_TO_SELL |
+| COMMITTED         |
+| ON_ORDER          |
+| RESERVE           |
+| ON_HOLD           |
+| ON_HAND           |
+
+### Example Payload
+
+```json
+{
+  "locationId": 10,
+  "sku": "Some-New-Sku",
+  "inventoryStatus": "ON_HOLD",
+  "quantity": "15",
+  "effectiveAt": "2019-10-25T19:07:49.088Z"
+}
+```
+
 # Confirm Shipment
 
 ## Overview
@@ -5,6 +51,7 @@
 This Endpoint is used to confirm shipment of a Purchase Order or Fulfillment Order.
 
 ### Use Cases
+
 1. Confirming a Shipment for a Purchase Order
 1. Confirming a Shipment for a Stock Transfer Order
 1. Confirming a Shipment for a Sales Order
@@ -78,6 +125,7 @@ orderUpdate
 #### LineItem
 
 Notes
+
 - A line item cannot have 0 for the quantity so if an item has not shipped do not include it in the request.
 
 | Field            | Type                     | Required | Description                                 |
