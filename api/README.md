@@ -32,7 +32,7 @@ If you're interested in learning more, check out about our [Inventory Management
 | ON_HOLD           |
 | ON_HAND           |
 
-### Example Payload
+### Example Request
 
 ```json
 {
@@ -157,7 +157,7 @@ Notes
 | ClientTotalFreightCharge | Total Freight Charge (amount)                                         | No       |
 | TotalOrderCubeVolume     | Total Order Cube Volume                                               | No       |
 
-### Example Request Payload
+### Example Request
 
 ```json
 {
