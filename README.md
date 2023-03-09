@@ -1,10 +1,14 @@
 # channelape-docs
 
+## API
+
+[API Documentation](api/README.md)
+
+[Postman Collection](api/playbook-api.postman_collection.json)
+
 ## Webhooks
 
-[Webhook Documentation](webhooks/README.md)
-
-[Postman Collection](webhooks/playbook-webhooks.postman_collection.json)
+[Webhook Documentation](webhooks/README.me)
 
 ## Data Flow Diagrams & Scenarios
 

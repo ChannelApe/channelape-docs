@@ -1,187 +1,208 @@
-# Confirm Shipment
+# Webhooks
 
 ## Overview
 
-### Endpoint
+This documentation explains the different types of notifications ChannelApe can send.
 
-An authenticated endpoint is provisioned by environment.
+### Use Cases
+1. Receive notification when a new Purchase Order is created
+1. Receive notification when a new Stock Transfer Order is created
+1. Receive notification when a new Sales Order is created
+1. Receive notification when a Purchase Order ships
+1. Receive notification when a Stock Transfer Order ships
+1. Receive notification when a Sales Order ships
 
-Because it is authenticated you must provide your API Secret Key in the `x-channel-ape-authorization-token` header along with your request.
+### Receiving Webhooks
 
-### Request
+In order to receive a webhook your application must provide an HTTPS endpoint.
 
-| Property     | Value            |
-| ------------ | ---------------- |
-| Method       | POST             |
-| Content-Type | application/json |
+### Security
+
+A security token can be used to protect your endpoint.
+ChannelApe will include a query parameter named `@authtoken` in the webhook notification request with its value set to the token provided.
 
 #### Structure
 
+TODO
 ```
-orderUpdate
-    - fulfillments
-        - additionalFields
-        - lineItems
-            - additionalFields
+root node
+  - additionalFields
+  - customer
+  - ...
 ```
 
-### Limitations
-
-- Minimum of 1 fulfillment
-- Maximum of 5000 fulfillments for entire Order
-
-### Data Requirements
-
-#### Request Root
-
-| Field       | Type                | Required | Description                                                                               |
-| ----------- | ------------------- | -------- | ----------------------------------------------------------------------------------------- |
-| orderUpdate | list of OrderUpdate | Yes      | Used to update multiple orders with shipment details. At least 1 orderUpdate is required. |
-
-#### OrderUpdate
-
-| Field               | Type                 | Required | Description |
-| ------------------- | -------------------- | -------- | ----------- |
-| id                  | string               | No       |             |
-| purchaseOrderNumber | string               | No       |             |
-| channelOrderId      | string               | No       |             |
-| fulfillments        | array of Fulfillment | Yes      |             |
-
-#### Fulfillment
-
-| Field            | Type                     | Required | Description                                                                                                                |
-| ---------------- | ------------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| shippedAt        | DateTime                 | Yes      | ISO-8601 formatted time of shipment                                                                                        |
-| status           | string                   | Yes      | Will always be "OPEN"                                                                                                      |
-| locationId       | string                   | Yes      | The corresponding ChannelApe location where the shipment originated used for inventory tracking                            |
-| lineItems        | array of LineItem        | Yes      | Line items shipped in the shipment                                                                                         |
-| additionalFields | array of AdditionalField | Yes\*    | Used to capture and pass through other data requirements as needed. See requirements below. Can also be used for metadata. |
-| trackingNumber   | string                   | No\*     | Tracking Number - Only required if shipping with SSCC-18                                                                   |
-| id               | string                   | No\*     | Only required if unable to provide additionalFields.warehouse_order_id                                                     |
-| shippingCompany  | string                   | No\*     | Carrier used for shipment - Only required to track inbound deliveries                                                      |
-| shippingMethod   | string                   | No\*     | Delivery service used - Only required to track inbound deliveries                                                          |
-
-##### Required Additional Fields
-
-| Field                               | Type               | Required | Description                                                                                       |
-| ----------------------------------- | ------------------ | -------- | ------------------------------------------------------------------------------------------------- |
-| additionalFields.warehouse_order_id | Warehouse Order ID | Yes      | This is the warehouse_order_id that was included on the initial Fulfillment Order from ChannelApe |
-| additionalFields.shipment_id        | Shipment ID        | Yes      | Unique identifier for the shipment taken from your system                                         |
-
-#### LineItem
-
-Notes
-- A line item cannot have 0 for the quantity so if an item has not shipped do not include it in the request.
-
-| Field            | Type                     | Required | Description                                 |
-| ---------------- | ------------------------ | -------- | ------------------------------------------- |
-| sku              | string                   | Yes      | SKU                                         |
-| quantity         | integer                  | Yes      | Quantity shipped                            |
-| additionalFields | array of AdditionalField | No       | Additional information about the line item. |
-
-#### AdditionalField
-
-| Field | Type   | Required | Description                   |
-| ----- | ------ | -------- | ----------------------------- |
-| name  | string | Yes      | Name of the additional field  |
-| value | string | No       | Value of the additional field |
-
-#### Optional Additional Fields (Example)
-
-| Name                     | Description                                                           | Required |
-| ------------------------ | --------------------------------------------------------------------- | -------- |
-| Sscc                     | SSCC code - Only required to enable automate receipts with warehouse. | No       |
-| ShipmentNumber           | Shipment Number - Only required if using SSCC-18                      | No\*     |
-| CartonNumber             | Carton Number - Only required if using SSCC-18                        | No\*     |
-| Length                   | Carton Length                                                         | No       |
-| Width                    | Carton Width                                                          | No       |
-| Height                   | Carton Height                                                         | No       |
-| Weight                   | Total Order Weight                                                    | No       |
-| TotalOrderWeight         | Total Order Weight                                                    | No       |
-| TotalOrderCartons        | Total Order Cartons                                                   | No       |
-| ClientTotalFreightCharge | Total Freight Charge (amount)                                         | No       |
-| TotalOrderCubeVolume     | Total Order Cube Volume                                               | No       |
-
-### Example Request Payload
+### Example Payload
 
 ```json
 {
-  "orderUpdate": {
-    "fulfillments": [
+  "additionalFields": {
+    "closed_at": "null",
+    "number": "345",
+    "note": "Check for fraud",
+    "token": "889d29b22f9c6055d9844a41dd537e58",
+    "taxes_included": "false",
+    "financial_status": "paid",
+    "total_discounts": "0.00",
+    "total_line_items_price": "2000.00",
+    "buyer_accepts_marketing": "false",
+    "name": "CAWO11345",
+    "cancelled_at": "null",
+    "user_id": "79729033458",
+    "location_id": "null",
+    "browser_ip": "174.54.139.218",
+    "order_number": "1345",
+    "processing_method": "direct",
+    "source_name": "shopify_draft_order",
+    "tags": "bogo, new customer, summer sale, test123",
+    "order_status_url": "https://channelape-warehouse-onboarding-1.myshopify.com/61758701810/orders/889d29b22f9c6055d9844a41dd537e58/authenticate?key=8c02536e3736fcde95d0eb27fffa2041",
+    "updated_at": "2022-08-08T07:00:09.000-04:00",
+    "shipping_lines_title": "express",
+    "shipping_lines_code": "express",
+    "shipping_lines_source": "shopify",
+    "created_at": "2022-08-08T07:00:07.000-04:00",
+    "processed_at": "2022-08-08T07:00:05.000-04:00",
+    "risk_recommendation": "accept",
+    "apple_pay": "false",
+    "warehouse_order_id": "CAWO11345"
+  },
+  "customer": {
+    "additionalFields": [
       {
-        "id": "208924061",
-        "additionalFields": [
-          {
-            "name": "shipment_id",
-            "value": "208924061"
-          },
-          {
-            "name": "warehouse_order_id",
-            "value": "R_2935999"
-          },
-          {
-            "name": "Sscc",
-            "value": "00001922492001525086"
-          },
-          {
-            "name": "ShipmentNumber",
-            "value": "20892406"
-          },
-          {
-            "name": "CartonNumber",
-            "value": "1"
-          },
-          {
-            "name": "Length",
-            "value": "24"
-          },
-          {
-            "name": "Width",
-            "value": "14"
-          },
-          {
-            "name": "Height",
-            "value": "14"
-          },
-          {
-            "name": "Weight",
-            "value": "18.38"
-          },
-          {
-            "name": "TotalOrderWeight",
-            "value": "18.38"
-          },
-          {
-            "name": "TotalOrderCartons",
-            "value": "1"
-          },
-          {
-            "name": "ClientTotalFreightCharge",
-            "value": "140.00"
-          },
-          {
-            "name": "TotalOrderCubeVolume",
-            "value": "2.54"
-          }
-        ],
-        "locationId": "309",
-        "shippingCompany": "FEDEX",
-        "shippingMethod": "GROUND",
-        "trackingNumber": "1234123412341234",
-        "shippedAt": "2023-03-01T17:30:00Z",
-        "status": "OPEN",
-        "lineItems": [
-          {
-            "quantity": 4,
-            "sku": "125_001_BBPLD_OS"
-          },
-          {
-            "quantity": 4,
-            "sku": "117_001_GGY_7"
-          }
-        ]
+        "name": "id",
+        "value": "6026118824178"
+      },
+      {
+        "name": "accepts_marketing",
+        "value": "false"
+      },
+      {
+        "name": "orders_count",
+        "value": "3"
+      },
+      {
+        "name": "total_spent",
+        "value": "0.00"
+      },
+      {
+        "name": "state",
+        "value": "disabled"
+      },
+      {
+        "name": "billing_address_company",
+        "value": "ABC 123 Inc."
       }
-    ]
-  }
+    ],
+    "billingAddress": {
+      "additionalFields": [],
+      "address1": "202 Wyoming Avenue",
+      "address2": "Suite 100",
+      "city": "Maplewood",
+      "company": "ABC 123 Inc.",
+      "country": "United States",
+      "countryCode": "US",
+      "firstName": "John",
+      "lastName": "Davies",
+      "name": "John Davies",
+      "postalCode": "07040",
+      "province": "New Jersey",
+      "provinceCode": "NJ"
+    },
+    "email": "rjdavis@channelape.com",
+    "firstName": "R.J.",
+    "lastName": "Davis",
+    "phone": "+15705556799",
+    "shippingAddress": {
+      "additionalFields": [],
+      "address1": "224 Wyoming Ave",
+      "address2": "Suite 100",
+      "city": "Scranton",
+      "country": "United States",
+      "countryCode": "US",
+      "firstName": "R.J.",
+      "lastName": "Davis",
+      "name": "R.J. Davis",
+      "postalCode": "18503",
+      "province": "Pennsylvania",
+      "provinceCode": "PA"
+    }
+  },
+  "lineItems": [
+    {
+      "additionalFields": {
+        "variant_id": "42186875306226",
+        "title": "ChannelApe Running Shoes",
+        "variant_title": "9",
+        "product_id": "7484045623538",
+        "requires_shipping": "true",
+        "taxable": "true",
+        "gift_card": "false",
+        "variant_inventory_management": "shopify",
+        "fulfillable_quantity": "6",
+        "total_discount": "0.00",
+        "fulfillment_service": "manual"
+      },
+      "id": "12303922528498",
+      "price": "125.00",
+      "quantity": 6,
+      "sku": "CARSBLKM-09",
+      "grams": "680",
+      "title": "ChannelApe Running Shoes - 9"
+    },
+    {
+      "additionalFields": {
+        "variant_id": "42186875338994",
+        "title": "ChannelApe Running Shoes",
+        "variant_title": "10",
+        "product_id": "7484045623538",
+        "requires_shipping": "true",
+        "taxable": "true",
+        "gift_card": "false",
+        "variant_inventory_management": "shopify",
+        "fulfillable_quantity": "8",
+        "total_discount": "0.00",
+        "fulfillment_service": "manual"
+      },
+      "id": "12303922561266",
+      "price": "125.00",
+      "quantity": 8,
+      "sku": "CARSBLKM-10",
+      "grams": "680",
+      "title": "ChannelApe Running Shoes - 10"
+    },
+    {
+      "additionalFields": {
+        "variant_id": "42186875371762",
+        "title": "ChannelApe Running Shoes",
+        "variant_title": "11",
+        "product_id": "7484045623538",
+        "requires_shipping": "true",
+        "taxable": "true",
+        "gift_card": "false",
+        "variant_inventory_management": "shopify",
+        "fulfillable_quantity": "2",
+        "total_discount": "0.00",
+        "fulfillment_service": "manual"
+      },
+      "id": "12303922594034",
+      "price": "125.00",
+      "quantity": 2,
+      "sku": "CARSBLKM-11",
+      "grams": "680",
+      "title": "ChannelApe Running Shoes - 11"
+    }
+  ],
+  "locationId": "596",
+  "purchasedAt": "2022-08-08T11:00:07.000Z",
+  "purchaseOrderNumber": "CAWO11345",
+  "shippingCompany": "FEDEX",
+  "shippingMethod": "GROUND",
+  "status": "NEW",
+  "warehouseOrderId": "CAWO11345",
+  "warehouseCode": "KYSPL2",
+  "warehouseCompany": "United Parcel Service",
+  "warehouseName": "UPS East Coast",
+  "warehouseId": "UPSF",
+  "warehouseZipcode": "40165",
+  "channelOrderId": "4850616631538"
 }
 ```
