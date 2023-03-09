@@ -174,7 +174,7 @@ root
         "StockTransferOrderReferenceTypeCode": "814",
         "StockTransferOrderReferenceItemID": "1",
         "StockTransferOrderReferenceItemTypeCode": "74",
-        "fulfillable_quantity": "1",
+        "fulfillable_quantity": "4",
         "Z_PurchaseOrder_ODR": "R_2935999-01",
         "OutboundDeliveryExecution.ID": "5194550",
         "Item.ID": "1"
@@ -193,14 +193,14 @@ root
         "StockTransferOrderReferenceTypeCode": "814",
         "StockTransferOrderReferenceItemID": "2",
         "StockTransferOrderReferenceItemTypeCode": "74",
-        "fulfillable_quantity": "5",
+        "fulfillable_quantity": "4",
         "Z_PurchaseOrder_ODR": "R_2935999-01",
         "OutboundDeliveryExecution.ID": "5194550",
         "Item.ID": "2"
       },
       "id": "2",
       "quantity": 4,
-      "sku": "125_001_BBPLD_OS",
+      "sku": "117_001_GGY_7",
       "taxes": []
     }
   ]
