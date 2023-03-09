@@ -219,7 +219,7 @@ Notes
             "value": "2.54"
           }
         ],
-        "locationId": "309",
+        "locationId": "819",
         "shippingCompany": "FEDEX",
         "shippingMethod": "GROUND",
         "trackingNumber": "1234123412341234",
