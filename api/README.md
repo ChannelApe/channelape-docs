@@ -1,25 +1,26 @@
 # Inventory Adjustments
 
-⚠️ Caution: Inventory can be changed using an adjust or set oepration.  
-Make sure you're using the correct operation.
+## Overview
 
-Documentation for both of these operations is publicly available.
+⚠️ Caution: Our API supports two different inventory operations.
 
-- [Inventory Adjustment](https://docs.channelape.io/#7fb11288-1d07-4aa9-97f4-b6a66429e404)
-- [Inventory Set](https://docs.channelape.io/#e5638e1d-4f0c-49a8-a4ad-9291d2889e9f)
+This section describes the _adjust_ operation. The other is a _set_ operation which will be explained in another section.
+The differences between adjust and set are significant as the adjust operation will change the balance relative to the quantity posted and the set operation will overwrite the balance.
+
+More information can be found at [docs.channelape.io](https://docs.channelape.io/#7fb11288-1d07-4aa9-97f4-b6a66429e404).
 
 If you're interested in learning more, check out about our [Inventory Management System](https://www.channelape.com/knowledge/channelape-inventory-management-system) knowledgebase article.
 
-### Data Requirements
+### Endpoints
 
-#### Adjustment
+ChannelApe supports two methods for adjusting inventory:
 
-| Field           | Type       | Required | Description                                                                |
-| --------------- | ---------- | -------- | -------------------------------------------------------------------------- |
-| locationId      | string     | Yes      | The corresponding ChannelApe location where the adjustment should be made. |
-| sku             | string     | Yes      | The SKU of the item you want to adjust.                                    |
-| inventoryStatus | string     | Yes      | The status for the balance being adjusted.                                 |
-| quantity        | signed int | Yes      | The relative change in quantity (+/-).                                     |
+1. For creating individual one-off adjustments use `/v1/inventories/quantities/adjusts`
+1. For creating batching adjustments use `/v1/batches`
+
+We recommend using the batch adjustments endpoint if you're creating more than one adjustment or have multiple related adjustments as the batch ID will be helpful for associating groups of transactions.
+
+Whichever endpoint you choose to use will require authentication so you must provide your API Secret Key in the `x-channel-ape-authorization-token` header along with your request.
 
 #### Inventory Statuses
 
@@ -32,15 +33,112 @@ If you're interested in learning more, check out about our [Inventory Management
 | ON_HOLD           |
 | ON_HAND           |
 
+## Individual Adjustment
+
+### Request Properties
+
+| Property | Value |
+| -------- | ----- |
+| Protocol | HTTP  |
+| Method   | POST  |
+
+### Headers
+
+| Header                            | Value                                                                                    |
+| --------------------------------- | ---------------------------------------------------------------------------------------- |
+| content-type                      | application/json                                                                         |
+| x-channel-ape-authorization-token | Your API token                                                                           |
+| x-channel-ape-idempotent-key      | A unique id for the adjustment that ChannelApe will use to filter duplicate adjustments. |
+
+### Data Requirements
+
+#### Request Body
+
+| Field           | Type       | Required | Description                                                                |
+| --------------- | ---------- | -------- | -------------------------------------------------------------------------- |
+| locationId      | string     | Yes      | The corresponding ChannelApe location where the adjustment should be made. |
+| sku             | string     | Yes      | The SKU of the item you want to adjust.                                    |
+| inventoryStatus | string     | Yes      | The status for the balance being adjusted.                                 |
+| memo            | string     | Yes      | Put the reason why the adjustment was made.                                |
+| quantity        | signed int | Yes      | The relative change in quantity (+/-).                                     |
+
 ### Example Request
 
 ```json
 {
-  "locationId": 10,
-  "sku": "Some-New-Sku",
-  "inventoryStatus": "ON_HOLD",
-  "quantity": "15",
-  "effectiveAt": "2019-10-25T19:07:49.088Z"
+  "locationId": 309,
+  "sku": "117_001_GGY_7",
+  "inventoryStatus": "AVAILABLE_TO_SELL",
+  "memo": "Reason: PI",
+  "quantity": "-1"
+}
+```
+
+## Batch Adjustment
+
+ChannelApe will assign a unique ID to the batch upon submission.
+This ID can be used to track progress of a batch (which is especially helpful for large batches).
+
+### Request Properties
+
+| Property | Value |
+| -------- | ----- |
+| Protocol | HTTP  |
+| Method   | POST  |
+
+### Headers
+
+| Header                            | Value            |
+| --------------------------------- | ---------------- |
+| content-type                      | application/json |
+| x-channel-ape-authorization-token | Your API token   |
+
+### Data Requirements
+
+#### Request Body
+
+| Field       | Type                     | Required | Description                                                       |
+| ----------- | ------------------------ | -------- | ----------------------------------------------------------------- |
+| businessId  | string                   | Yes      | The ID of the business where these adjustments should be applied. |
+| adjustments | array of BatchAdjustment | Yes      | A list of adjustments to apply.                                   |
+
+#### BatchAdjustment
+
+| Field           | Type       | Required | Description                                                                              |
+| --------------- | ---------- | -------- | ---------------------------------------------------------------------------------------- |
+| idempotentKey   | string     | Yes      | A unique id for the adjustment that ChannelApe will use to filter duplicate adjustments. |
+| locationId      | string     | Yes      | The corresponding ChannelApe location where the adjustment should be made.               |
+| sku             | string     | Yes      | The SKU of the item you want to adjust.                                                  |
+| quantity        | signed int | Yes      | The relative change in quantity (+/-).                                                   |
+| operation       | string     | Yes      | Should always be "ADJUST" for adjustments.                                               |
+| memo            | string     | Yes      | Put the reason why the adjustment was made.                                              |
+| inventoryStatus | string     | Yes      | The status for the balance being adjusted.                                               |
+
+### Example Request
+
+```json
+{
+  "businessId": "938a69a8-9ef2-4faa-b485-dad486aba56e",
+  "adjustments": [
+    {
+      "idempotentKey": "123456789",
+      "inventoryItemId": "703",
+      "quantity": 10,
+      "operation": "ADJUST",
+      "locationId": 51,
+      "inventoryStatus": "ON_ORDER",
+      "memo": "Reason the adjustment was made."
+    },
+    {
+      "idempotentKey": "123456789",
+      "sku": "ABC-123",
+      "quantity": 12,
+      "operation": "SET",
+      "locationId": 51,
+      "inventoryStatus": "COMMITTED",
+      "memo": "Reason the adjustment was made."
+    }
+  ]
 }
 ```
 
@@ -62,10 +160,11 @@ An authenticated endpoint is provisioned by environment.
 
 Because it is authenticated you must provide your API Secret Key in the `x-channel-ape-authorization-token` header along with your request.
 
-### Request
+### Request Properties
 
 | Property     | Value            |
 | ------------ | ---------------- |
+| Protocol     | HTTP             |
 | Method       | POST             |
 | Content-Type | application/json |
 
@@ -238,5 +337,179 @@ Notes
       }
     ]
   }
+}
+```
+
+# Create Stock Transfer Order
+
+### Example Request
+
+```json
+{
+  "businessId": "ec5fcd55-c275-4843-9641-d0fd44b9f173",
+  "channelId": "eacc87ed-1e37-4883-bc53-935b032bf4b0",
+  "channelOrderId": "R_2935999",
+  "purchaseOrderNumber": "R_2935999",
+  "status": "OPEN",
+  "purchasedAt": "2023-02-13T15:45:11.361Z",
+  "alphabeticCurrencyCode": "USD",
+  "customer": {
+    "additionalFields": [
+      {
+        "name": "anything",
+        "value": "you add here will be passed through"
+      }
+    ],
+    "shippingAddress": {
+      "additionalFields": [],
+      "address1": "181 Columbus Ave.",
+      "city": "New York",
+      "countryCode": "US",
+      "name": "Rothy's 181 Columbus",
+      "postalCode": "10023",
+      "province": "New York",
+      "provinceCode": "NY"
+    }
+  },
+  "additionalFields": [
+    {
+      "name": "VendorPartyInternalID",
+      "value": "1018"
+    },
+    {
+      "name": "SenderPartyInternalID",
+      "value": "123456789"
+    },
+    {
+      "name": "RecipientPartyInternalID",
+      "value": "1234567890123"
+    },
+    {
+      "name": "ShippingDateTimePeriod",
+      "value": "2023-02-13T19:00:00Z"
+    },
+    {
+      "name": "ArrivalDateTimePeriod",
+      "value": "2022-02-13T19:00:00Z"
+    },
+    {
+      "name": "note_attributes_ship_from",
+      "value": "819"
+    },
+    {
+      "name": "shipping_lines_title",
+      "value": "VENDOR"
+    },
+    {
+      "name": "note_attribute_retail_order",
+      "value": "true"
+    }
+  ],
+  "lineItems": [
+    {
+      "additionalFields": [
+        {
+          "name": "DeliveryQuantityTypeCode",
+          "value": "EA"
+        },
+        {
+          "name": "HTSCode",
+          "value": "4202.92.3131"
+        },
+        {
+          "name": "CountryOfOrigin",
+          "value": "CN"
+        },
+        {
+          "name": "StockTransferOrderReferenceID",
+          "value": "2936000"
+        },
+        {
+          "name": "StockTransferOrderReferenceTypeCode",
+          "value": "814"
+        },
+        {
+          "name": "StockTransferOrderReferenceItemID",
+          "value": "1"
+        },
+        {
+          "name": "StockTransferOrderReferenceItemTypeCode",
+          "value": "74"
+        },
+        {
+          "name": "fulfillable_quantity",
+          "value": "4"
+        },
+        {
+          "name": "Z_PurchaseOrder_ODR",
+          "value": "R_2935999-02"
+        },
+        {
+          "name": "OutboundDeliveryExecution.ID",
+          "value": "5194651"
+        },
+        {
+          "name": "Item.ID",
+          "value": "1"
+        }
+      ],
+      "id": "1",
+      "quantity": 4,
+      "sku": "125_001_BBPLD_OS",
+      "taxes": []
+    },
+    {
+      "additionalFields": [
+        {
+          "name": "DeliveryQuantityTypeCode",
+          "value": "PR"
+        },
+        {
+          "name": "HTSCode",
+          "value": "6404.19.3760"
+        },
+        {
+          "name": "CountryOfOrigin",
+          "value": "CN"
+        },
+        {
+          "name": "StockTransferOrderReferenceID",
+          "value": "2935999"
+        },
+        {
+          "name": "StockTransferOrderReferenceTypeCode",
+          "value": "814"
+        },
+        {
+          "name": "StockTransferOrderReferenceItemID",
+          "value": "2"
+        },
+        {
+          "name": "StockTransferOrderReferenceItemTypeCode",
+          "value": "74"
+        },
+        {
+          "name": "fulfillable_quantity",
+          "value": "4"
+        },
+        {
+          "name": "Z_PurchaseOrder_ODR",
+          "value": "R_2935999-01"
+        },
+        {
+          "name": "OutboundDeliveryExecution.ID",
+          "value": "5194550"
+        },
+        {
+          "name": "Item.ID",
+          "value": "2"
+        }
+      ],
+      "id": "2",
+      "quantity": 4,
+      "sku": "117_001_GGY_7",
+      "taxes": []
+    }
+  ]
 }
 ```
