@@ -12,6 +12,8 @@
 
 ## Data Flow Diagrams & Scenarios
 
+[Purchase Orders](/data-flows/purchase-orders/README.md)
+
 [Transfer Orders](data-flows/transfer-orders/README.md)
 
 [Sales Orders](data-flows/sales-orders/README.md)
