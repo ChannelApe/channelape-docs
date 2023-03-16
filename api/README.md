@@ -7,67 +7,11 @@ This section describes how to adjust inventory balances in ChannelApe using the 
 The other is a `SET` operation which is used to complete overwrite ChannelApe's inventory balance.
 If you're interested in learning more, check out about our [Inventory Management System](https://www.channelape.com/knowledge/channelape-inventory-management-system) knowledgebase article.
 
-## Individual Adjustment
+## Batch Adjustments API
 
 ### Overview
 
-Use this API to create one-off adjustments.
-
-Additional documentation can be found at [docs.channelape.io](https://docs.channelape.io/#7fb11288-1d07-4aa9-97f4-b6a66429e404).
-
-### Endpoint
-
-Send a `POST` request to `https://api.channelape.com/v1/inventories/quantities/adjusts`
-
-### Example cURL Request
-
-```bash
-curl --location -g 'https://api.channelape.com/v1/inventories/quantities/adjusts' \
---header 'Content-Type: application/json' \
---header 'x-channel-ape-authorization-token: your-api-key' \
---header 'x-channel-ape-idempotent-key: some-unique-id-in-your-system' \
---data '{
-  "locationId": 309,
-  "sku": "117_001_GGY_7",
-  "inventoryStatus": "AVAILABLE_TO_SELL",
-  "memo": "Reason: PI",
-  "quantity": "-1"
-}'
-```
-
-### Headers
-
-| Header                            | Value                                                                                    |
-| --------------------------------- | ---------------------------------------------------------------------------------------- |
-| content-type                      | application/json                                                                         |
-| x-channel-ape-authorization-token | Your API token                                                                           |
-| x-channel-ape-idempotent-key      | A unique id for the adjustment that ChannelApe will use to filter duplicate adjustments. |
-
-### Data Requirements
-
-| Field           | Type       | Required | Description                                                                |
-| --------------- | ---------- | -------- | -------------------------------------------------------------------------- |
-| locationId      | string     | Yes      | The corresponding ChannelApe location where the adjustment should be made. |
-| sku             | string     | Yes      | The SKU of the item you want to adjust.                                    |
-| inventoryStatus | string     | Yes      | The status for the balance being adjusted.                                 |
-| memo            | string     | Yes      | Put the reason why the adjustment was made.                                |
-| quantity        | signed int | Yes      | The relative change in quantity (+/-).                                     |
-
-### Inventory Statuses
-| Status            |
-| ----------------- |
-| AVAILABLE_TO_SELL |
-| COMMITTED         |
-| ON_ORDER          |
-| RESERVE           |
-| ON_HOLD           |
-| ON_HAND           |
-
-## Batch Adjustment
-
-### Overview
-
-Use this API process related adjustments like a transfer.
+This API is used to enter inventory adjustments or inventory transfers in ChannelApe's Inventory Management System.
 ChannelApe will assign a unique ID to the batch upon submission which is used to identify the related adjustments.
 
 Additional documentation can be found at [docs.channelape.io](https://docs.channelape.io/#fa5b8800-7847-4168-a68b-6430e4f8fe2f)
@@ -76,32 +20,68 @@ Additional documentation can be found at [docs.channelape.io](https://docs.chann
 
 Send a `POST` request to `https://api.channelape.com/v1/batches`
 
-### Example cURL Request
+### Inventory Transfer Example
+
+You have two inventory locations:
+1. Location named `Fillmore Available`, location ID `309`, for inventory you can sell
+1. Location named `Fillmore Unsellable`, location ID `1049`, for inventory not in a sellable condition
+
+You discover 5 units of SKU `117_001_GGY_7` are damaged and need to be transferred from Available to Unsellable.
+
+cURL Example
 
 ```bash
 curl --location -g 'https://api.channelape.com/v1/batches' \
 --header 'Content-Type: application/json' \
 --header 'x-channel-ape-authorization-token: your-api-key' \
 --data '{
-  "businessId": "938a69a8-9ef2-4faa-b485-dad486aba56e",
+  "businessId": "ec5fcd55-c275-4843-9641-d0fd44b9f173",
   "adjustments": [
     {
-      "idempotentKey": "123456789",
-      "inventoryItemId": "703",
-      "quantity": 10,
+      "idempotentKey": "UNIQUE_ADJUSTMENT_ID_FROM_YOUR_SYSTEM",
+      "sku": "117_001_GGY_7",
+      "quantity": -5,
       "operation": "ADJUST",
-      "locationId": 51,
-      "inventoryStatus": "ON_ORDER",
-      "memo": "Reason the adjustment was made."
+      "locationId": 309,
+      "inventoryStatus": "AVAILABLE_TO_SELL",
+      "memo": "Damaged"
     },
     {
-      "idempotentKey": "123456789",
-      "sku": "ABC-123",
-      "quantity": 12,
-      "operation": "SET",
-      "locationId": 51,
-      "inventoryStatus": "COMMITTED",
-      "memo": "Reason the adjustment was made."
+      "idempotentKey": "UNIQUE_ADJUSTMENT_ID_FROM_YOUR_SYSTEM",
+      "sku": "117_001_GGY_7",
+      "quantity": 5,
+      "operation": "ADJUST",
+      "locationId": 1049,
+      "inventoryStatus": "AVAILABLE_TO_SELL",
+      "memo": "Damaged"
+    }
+  ]
+}'
+```
+
+### Inventory Adjustment Example
+
+4 of the 5 damaged units of SKU `117_001_GGY_7` are damaged beyond repair and scrapped.
+
+You are adjusting out 4 units from your `Fillmore Unsellable` location, ID `1049`, once scrapped.
+
+cURL Example
+
+```bash
+curl --location -g 'https://api.channelape.com/v1/batches' \
+--header 'Content-Type: application/json' \
+--header 'x-channel-ape-authorization-token: your-api-key' \
+--data '{
+  "businessId": "ec5fcd55-c275-4843-9641-d0fd44b9f173",
+  "adjustments": [
+    {
+      "idempotentKey": "UNIQUE_ADJUSTMENT_ID_FROM_YOUR_SYSTEM_2",
+      "sku": "117_001_GGY_7",
+      "quantity": -4,
+      "operation": "ADJUST",
+      "locationId": 1049,
+      "inventoryStatus": "AVAILABLE_TO_SELL",
+      "memo": "Scrapped"
     }
   ]
 }'
