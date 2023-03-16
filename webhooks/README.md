@@ -128,6 +128,7 @@ root
   "warehouseName": "NRI - Available",
   "warehouseId": "LK",
   "warehouseZipcode": "91761",
+  "trackingNumber": "208924061",
   "status": "OPEN",
   "additionalFields": {
     "VendorPartyInternalID": "1018",
@@ -142,6 +143,7 @@ root
     "warehouse_order_id": "R_2935999",
     "Sscc": "00001922492001525086",
     "ShipmentNumber": "20892406",
+    "LicensePlate": "0386149425",
     "CartonNumber": "1",
     "Length": "24",
     "Width": "14",
