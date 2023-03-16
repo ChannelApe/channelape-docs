@@ -21,7 +21,7 @@ Send a `POST` request to `https://api.channelape.com/v1/inventories/quantities/a
 
 ### Example cURL Request
 
-```json
+```bash
 curl --location -g 'https://api.channelape.com/v1/inventories/quantities/adjusts' \
 --header 'Content-Type: application/json' \
 --header 'x-channel-ape-authorization-token: your-api-key' \
@@ -74,12 +74,15 @@ Additional documentation can be found at [docs.channelape.io](https://docs.chann
 
 ### Endpoint
 
-Send a `POST` request to `https://api.channelape.com/v1/inventories/quantities/adjusts`
+Send a `POST` request to `https://api.channelape.com/v1/batches`
 
 ### Example cURL Request
 
-```json
-{
+```bash
+curl --location -g 'https://api.channelape.com/v1/batches' \
+--header 'Content-Type: application/json' \
+--header 'x-channel-ape-authorization-token: your-api-key' \
+--data '{
   "businessId": "938a69a8-9ef2-4faa-b485-dad486aba56e",
   "adjustments": [
     {
@@ -101,7 +104,7 @@ Send a `POST` request to `https://api.channelape.com/v1/inventories/quantities/a
       "memo": "Reason the adjustment was made."
     }
   ]
-}
+}'
 ```
 
 ### Headers
@@ -146,7 +149,7 @@ Send a `POST` request to `https://api.channelape.com/v1/inventories/quantities/a
 
 ## Overview
 
-This Endpoint is used to confirm shipment of a Purchase Order or Fulfillment Order.
+This Endpoint is used to confirm shipment of a Purchase Order or Stock Transfer Order.
 
 ### Use Cases
 
