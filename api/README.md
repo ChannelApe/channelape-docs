@@ -1,46 +1,39 @@
 # Inventory Adjustments
 
-## Overview
-
 ⚠️ Caution: Our API supports two different inventory operations.
 
-This section describes the _adjust_ operation. The other is a _set_ operation which will be explained in another section.
-The differences between adjust and set are significant as the adjust operation will change the balance relative to the quantity posted and the set operation will overwrite the balance.
+This section describes how to adjust inventory balances in ChannelApe using the `ADJUST` operation.  
 
-More information can be found at [docs.channelape.io](https://docs.channelape.io/#7fb11288-1d07-4aa9-97f4-b6a66429e404).
-
+The other is a `SET` operation which is used to complete overwrite ChannelApe's inventory balance.
 If you're interested in learning more, check out about our [Inventory Management System](https://www.channelape.com/knowledge/channelape-inventory-management-system) knowledgebase article.
-
-### Endpoints
-
-ChannelApe supports two methods for adjusting inventory:
-
-1. For creating individual one-off adjustments use `/v1/inventories/quantities/adjusts`
-1. For creating batching adjustments use `/v1/batches`
-
-We recommend using the batch adjustments endpoint if you're creating more than one adjustment or have multiple related adjustments as the batch ID will be helpful for associating groups of transactions.
-
-Whichever endpoint you choose to use will require authentication so you must provide your API Secret Key in the `x-channel-ape-authorization-token` header along with your request.
-
-#### Inventory Statuses
-
-| Status            |
-| ----------------- |
-| AVAILABLE_TO_SELL |
-| COMMITTED         |
-| ON_ORDER          |
-| RESERVE           |
-| ON_HOLD           |
-| ON_HAND           |
 
 ## Individual Adjustment
 
-### Request Properties
+### Overview
 
-| Property | Value |
-| -------- | ----- |
-| Protocol | HTTP  |
-| Method   | POST  |
+Use this API to create one-off adjustments.
+
+Additional documentation can be found at [docs.channelape.io](https://docs.channelape.io/#7fb11288-1d07-4aa9-97f4-b6a66429e404).
+
+### Endpoint
+
+Send a `POST` request to `https://api.channelape.com/v1/inventories/quantities/adjusts`
+
+### Example cURL Request
+
+```json
+curl --location -g 'https://api.channelape.com/v1/inventories/quantities/adjusts' \
+--header 'Content-Type: application/json' \
+--header 'x-channel-ape-authorization-token: your-api-key' \
+--header 'x-channel-ape-idempotent-key: some-unique-id-in-your-system' \
+--data '{
+  "locationId": 309,
+  "sku": "117_001_GGY_7",
+  "inventoryStatus": "AVAILABLE_TO_SELL",
+  "memo": "Reason: PI",
+  "quantity": "-1"
+}'
+```
 
 ### Headers
 
@@ -52,8 +45,6 @@ Whichever endpoint you choose to use will require authentication so you must pro
 
 ### Data Requirements
 
-#### Request Body
-
 | Field           | Type       | Required | Description                                                                |
 | --------------- | ---------- | -------- | -------------------------------------------------------------------------- |
 | locationId      | string     | Yes      | The corresponding ChannelApe location where the adjustment should be made. |
@@ -62,59 +53,30 @@ Whichever endpoint you choose to use will require authentication so you must pro
 | memo            | string     | Yes      | Put the reason why the adjustment was made.                                |
 | quantity        | signed int | Yes      | The relative change in quantity (+/-).                                     |
 
-### Example Request
-
-```json
-{
-  "locationId": 309,
-  "sku": "117_001_GGY_7",
-  "inventoryStatus": "AVAILABLE_TO_SELL",
-  "memo": "Reason: PI",
-  "quantity": "-1"
-}
-```
+### Inventory Statuses
+| Status            |
+| ----------------- |
+| AVAILABLE_TO_SELL |
+| COMMITTED         |
+| ON_ORDER          |
+| RESERVE           |
+| ON_HOLD           |
+| ON_HAND           |
 
 ## Batch Adjustment
 
-ChannelApe will assign a unique ID to the batch upon submission.
-This ID can be used to track progress of a batch (which is especially helpful for large batches).
+### Overview
 
-### Request Properties
+Use this API process related adjustments like a transfer.
+ChannelApe will assign a unique ID to the batch upon submission which is used to identify the related adjustments.
 
-| Property | Value |
-| -------- | ----- |
-| Protocol | HTTP  |
-| Method   | POST  |
+Additional documentation can be found at [docs.channelape.io](https://docs.channelape.io/#fa5b8800-7847-4168-a68b-6430e4f8fe2f)
 
-### Headers
+### Endpoint
 
-| Header                            | Value            |
-| --------------------------------- | ---------------- |
-| content-type                      | application/json |
-| x-channel-ape-authorization-token | Your API token   |
+Send a `POST` request to `https://api.channelape.com/v1/inventories/quantities/adjusts`
 
-### Data Requirements
-
-#### Request Body
-
-| Field       | Type                     | Required | Description                                                       |
-| ----------- | ------------------------ | -------- | ----------------------------------------------------------------- |
-| businessId  | string                   | Yes      | The ID of the business where these adjustments should be applied. |
-| adjustments | array of BatchAdjustment | Yes      | A list of adjustments to apply.                                   |
-
-#### BatchAdjustment
-
-| Field           | Type       | Required | Description                                                                              |
-| --------------- | ---------- | -------- | ---------------------------------------------------------------------------------------- |
-| idempotentKey   | string     | Yes      | A unique id for the adjustment that ChannelApe will use to filter duplicate adjustments. |
-| locationId      | string     | Yes      | The corresponding ChannelApe location where the adjustment should be made.               |
-| sku             | string     | Yes      | The SKU of the item you want to adjust.                                                  |
-| quantity        | signed int | Yes      | The relative change in quantity (+/-).                                                   |
-| operation       | string     | Yes      | Should always be "ADJUST" for adjustments.                                               |
-| memo            | string     | Yes      | Put the reason why the adjustment was made.                                              |
-| inventoryStatus | string     | Yes      | The status for the balance being adjusted.                                               |
-
-### Example Request
+### Example cURL Request
 
 ```json
 {
@@ -141,6 +103,44 @@ This ID can be used to track progress of a batch (which is especially helpful fo
   ]
 }
 ```
+
+### Headers
+
+* Note: The `x-channel-ape-idempotent-key` header is not needed here as it is part of the adjustment in the request.
+
+| Header                            | Value            |
+| --------------------------------- | ---------------- |
+| content-type                      | application/json |
+| x-channel-ape-authorization-token | Your API token   |
+
+### Data Requirements
+
+| Field       | Type                     | Required | Description                                                       |
+| ----------- | ------------------------ | -------- | ----------------------------------------------------------------- |
+| businessId  | string                   | Yes      | The ID of the business where these adjustments should be applied. |
+| adjustments | array of BatchAdjustment | Yes      | A list of adjustments to apply.                                   |
+
+#### BatchAdjustment
+
+| Field           | Type       | Required | Description                                                                              |
+| --------------- | ---------- | -------- | ---------------------------------------------------------------------------------------- |
+| idempotentKey   | string     | Yes      | A unique id for the adjustment that ChannelApe will use to filter duplicate adjustments. |
+| locationId      | string     | Yes      | The corresponding ChannelApe location where the adjustment should be made.               |
+| sku             | string     | Yes      | The SKU of the item you want to adjust.                                                  |
+| quantity        | signed int | Yes      | The relative change in quantity (+/-).                                                   |
+| operation       | string     | Yes      | Should always be "ADJUST" for adjustments.                                               |
+| memo            | string     | Yes      | Put the reason why the adjustment was made.                                              |
+| inventoryStatus | string     | Yes      | The status for the balance being adjusted.                                               |
+
+### Inventory Statuses
+| Status            |
+| ----------------- |
+| AVAILABLE_TO_SELL |
+| COMMITTED         |
+| ON_ORDER          |
+| RESERVE           |
+| ON_HOLD           |
+| ON_HAND           |
 
 # Confirm Shipment
 
