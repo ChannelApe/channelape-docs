@@ -8,11 +8,17 @@
 
 ## Webhooks
 
+See an example of what ChannelApe sends in our webhooks.
+
 [Webhook Documentation](webhooks/README.md)
+
+## Inventory Exports
+
+[Inventory Exports](inventory-exports/README.md)
 
 ## Data Flow Diagrams & Scenarios
 
-[Purchase Orders](/data-flows/purchase-orders/README.md)
+[Purchase Orders](data-flows/purchase-orders/README.md)
 
 [Transfer Orders](data-flows/transfer-orders/README.md)
 
