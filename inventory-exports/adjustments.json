@@ -125,6 +125,34 @@
         "Memo": "NRI Intraday Inventory | Reason: Finished Materials",
         "Adjusted_At": "2023-02-22T18:06:00Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
+      },
+      {
+        "field_0": "10",
+        "Batches_ID": "a9b4eaed-fe0a-42b6-a658-4ccb39167303",
+        "Location": "Fillmore",
+        "ID": "309",
+        "SKU": "005_A02_NEOLME_",
+        "Unit_of_Measure": "EA",
+        "Status": "Available to Sell",
+        "Adjustment": "-1",
+        "Quantity": "9",
+        "Memo": "Visual Prop Disp +",
+        "Adjusted_At": "2023-02-22T19:00:00Z",
+        "Adjusted_By": "Hermes"
+      },
+      {
+        "field_0": "11",
+        "Batches_ID": "a9b4eaed-fe0a-42b6-a658-4ccb39167303",
+        "Location": "Fillmore (Unsellable)",
+        "ID": "1049",
+        "SKU": "005_A02_NEOLME_",
+        "Unit_of_Measure": "EA",
+        "Status": "Available to Sell",
+        "Adjustment": "1",
+        "Quantity": "1",
+        "Memo": "Visual Prop Disp +",
+        "Adjusted_At": "2023-02-22T19:00:00Z",
+        "Adjusted_By": "Hermes"
       }
     ]
   }
