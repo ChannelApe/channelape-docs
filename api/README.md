@@ -26,38 +26,52 @@ You have two inventory locations:
 1. Location named `Fillmore Available`, location ID `309`, for inventory you can sell
 1. Location named `Fillmore Unsellable`, location ID `1049`, for inventory not in a sellable condition
 
-You discover 5 units of SKU `117_001_GGY_7` are damaged and need to be transferred from Available to Unsellable.
+You discover 1 unit of SKU `005_A02_NEOLME_` is damaged and transferred from Available to Unsellable.
 
 cURL Example
 
 ```bash
 curl --location -g 'https://api.channelape.com/v1/batches' \
 --header 'Content-Type: application/json' \
---header 'x-channel-ape-authorization-token: your-api-key' \
+--header 'x-channel-ape-authorization-token: YOUR_API_KEY' \
 --data '{
   "businessId": "ec5fcd55-c275-4843-9641-d0fd44b9f173",
   "adjustments": [
     {
       "idempotentKey": "UNIQUE_ADJUSTMENT_ID_FROM_YOUR_SYSTEM",
-      "sku": "117_001_GGY_7",
-      "quantity": -5,
+      "sku": "005_A02_NEOLME_",
+      "quantity": -1,
       "operation": "ADJUST",
       "locationId": 309,
       "inventoryStatus": "AVAILABLE_TO_SELL",
-      "memo": "Damaged"
+      "memo": "Visual Prop Disp +"
     },
     {
       "idempotentKey": "UNIQUE_ADJUSTMENT_ID_FROM_YOUR_SYSTEM",
-      "sku": "117_001_GGY_7",
-      "quantity": 5,
+      "sku": "005_A02_NEOLME_",
+      "quantity": 1,
       "operation": "ADJUST",
       "locationId": 1049,
       "inventoryStatus": "AVAILABLE_TO_SELL",
-      "memo": "Damaged"
+      "memo": "Visual Prop Disp +"
     }
   ]
 }'
 ```
+
+You should receive a response like this with status code 201 if successful:
+```json
+{
+  "id": "a9b4eaed-fe0a-42b6-a658-4ccb39167303",
+  "type": "INVENTORY",
+  "status": "COMPLETE",
+  "createdAt": "2023-02-22T19:00:00.000Z",
+  "updatedAt": "2023-02-22T19:00:00.000Z",
+  "businessId": "ec5fcd55-c275-4843-9641-d0fd44b9f173"
+}
+```
+
+This inventory transfer will then appear in inventory exports like the example [here](inventory-exports/adjustments.json#L129-L156)
 
 ### Inventory Adjustment Example
 
