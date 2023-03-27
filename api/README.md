@@ -71,7 +71,7 @@ You should receive a response like this with status code 201 if successful:
 }
 ```
 
-This inventory transfer will then appear in inventory exports like the example [here](inventory-exports/adjustments.json#L129-L156)
+This inventory transfer will then appear in inventory exports like the example [here](../inventory-exports/adjustments.json#L129-L156).
 
 ### Inventory Adjustment Example
 
