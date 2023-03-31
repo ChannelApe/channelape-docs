@@ -57,7 +57,7 @@ root
 | warehouseCompany    | string                  | Company associated with the warehouse for the order                      |
 | warehouseZipcode    | string                  | Zipcode of the warehouse associated with the order                       |
 
-### Order Level Additional Fields
+#### Order Level Additional Fields
 
 | Name                      | Source     | Usage                                                                                                                                        |
 | ------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -136,6 +136,22 @@ root
 | shippingTax      | number                  | The tax on shipping for the line item.                                    |
 | taxes            | array of Tax            | Any applicable taxes for the line item.                                   |
 | additionalFields | dict of AdditionalField | Additional fields are normalized into an object with the name as the key  |
+
+#### Item Level Additional Fields
+
+| Name                                    | Source     | Usage                                                                                                    |
+| --------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------- |
+| DeliveryQuantityTypeCode                | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
+| HTSCode                                 | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
+| CountryOfOrigin                         | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
+| StockTransferOrderReferenceID           | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
+| StockTransferOrderReferenceTypeCode     | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
+| StockTransferOrderReferenceItemID       | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
+| StockTransferOrderReferenceItemTypeCode | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
+| fulfillable_quantity                    | ChannelApe | Legacy field. Not used.                                                                                  |
+| Z_PurchaseOrder_ODR                     | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
+| OutboundDeliveryExecution.ID            | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
+| Item.ID                                 | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
 
 ### Example Payload
 
@@ -233,19 +249,3 @@ root
   ]
 }
 ```
-
-### Item Level Additional Fields
-
-| Name                                    | Source     | Usage                                                                                                    |
-| --------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------- |
-| DeliveryQuantityTypeCode                | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
-| HTSCode                                 | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
-| CountryOfOrigin                         | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
-| StockTransferOrderReferenceID           | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
-| StockTransferOrderReferenceTypeCode     | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
-| StockTransferOrderReferenceItemID       | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
-| StockTransferOrderReferenceItemTypeCode | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
-| fulfillable_quantity                    | ChannelApe | Legacy field. Not used.                                                                                  |
-| Z_PurchaseOrder_ODR                     | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
-| OutboundDeliveryExecution.ID            | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
-| Item.ID                                 | SAP ByD    | Provided by SAP ByD. Only mapped so that ChannelApe can send asynchronous communucation back to SAP ByD. |
