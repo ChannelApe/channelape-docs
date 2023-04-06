@@ -4,19 +4,21 @@
 
 ### Interfaces
 
-| Flow                                                      | Deliverable                                | Type      | Assigned     | Informed     | Reference                                                  |
-| --------------------------------------------------------- | ------------------------------------------ | --------- | ------------ | ------------ | ---------------------------------------------------------- |
-| 1.55 - Intraday Warehouse Inventory from CA to SAP S/4 US | Access to AWS S3 to upload inventory files | `AWS S3`  | `Rothy's`    | `CA`         |                                                            |
-| 1.72 - ASN Receipt from CA to SAP S/4 US                  | Endpoint to send OTC ASN Receipt Webhooks  | `Webhook` | `Boomi`      | `CA`         |                                                            |
-| 1.71 - ASN from SAP S/4 US to CA                          | API to create OTC ASN in CA                | `API`     | `CA`         | `Boomi`      |                                                            |
-| 1.79 - ASN Receipt from CA to SAP S/4 US                  | Endpoint to send PTP ASN Receipt Webhooks  | `Webhook` | `Boomi`      | `CA`         |                                                            |
-| 1.80 - ASN from SAP S/4 US to CA                          | API to create PTP ASN in CA                | `API`     | `CA`         | `Boomi`      |                                                            |
-| 1.74 - STO Fulfillment from CA to SAP S/4 US              | API to get STO Fulfillment from CA         | `API`     | `CA`         | `Boomi`      |                                                            |
-| 1.73 - STO from SAP S/4 US to CA                          | API to create STO in CA                    | `API`     | `CA`         | `Boomi`      | [Documentation](api/README.md#create-stock-transfer-order) |
-| 1.76 - ASN Receipt from Store to CA                       | API to create OTC ASN Receipt in CA        | `Webhook` | `CA`         | `Half Helix` |                                                            |
-| 1.75 - ASN from CA to Store                               | Endpoint to send OTC ASN Webhooks          | `Webhook` | `Half Helix` | `CA`         |                                                            |
-| 1.78 - STO Fulfillment from Store to CA                   | API to create STO Fulfillment in CA        | `API`     | `CA`         | `Half Helix` |                                                            |
-| 1.77 - STO from CA to Store                               | Endpoint to send STO Webhooks              | `Webhook` | `Half Helix` | `CA`         |                                                            |
+| Flow                                                      | Deliverable                                | Type            | Assigned     | Informed     | Reference                                                                  |
+| --------------------------------------------------------- | ------------------------------------------ | --------------- | ------------ | ------------ | -------------------------------------------------------------------------- |
+| 1.53 - Nightly Warehouse Inventory from CA to SAP S/4 US  | Access to AWS S3 to upload inventory files | `File Transfer` | `Rothy's`    | `CA`         | [Exporting Inventory Snapshots](inventory-exports/README.md#snapshot)      |
+| 1.54 - Intraday POS Inventory from CA to SAP S/4 US       | Access to AWS S3 to upload inventory files | `File Transfer` | `Rothy's`    | `CA`         | [Exporting Inventory Adjustments](inventory-exports/README.md#adjustments) |
+| 1.55 - Intraday Warehouse Inventory from CA to SAP S/4 US | Access to AWS S3 to upload inventory files | `File Transfer` | `Rothy's`    | `CA`         | [Exporting Inventory Adjustments](inventory-exports/README.md#adjustments) |
+| 1.72 - ASN Receipt from CA to SAP S/4 US                  | Endpoint to send OTC ASN Receipt Webhooks  | `Webhook`       | `Boomi`      | `CA`         | [Receipt Confirmation Webhook](webhooks/README.md#receipt-confirmation)                |
+| 1.71 - ASN from SAP S/4 US to CA                          | API to create OTC ASN in CA                | `API`           | `CA`         | `Boomi`      | [Sending Advanced Ship Notice](api/README.md#advanced-ship-notice)         |
+| 1.79 - ASN Receipt from CA to SAP S/4 US                  | Endpoint to send PTP ASN Receipt Webhooks  | `Webhook`       | `Boomi`      | `CA`         | [Receipt Confirmation Webhook](webhooks/README.md#receipt-confirmation)                |
+| 1.80 - ASN from SAP S/4 US to CA                          | API to create PTP ASN in CA                | `API`           | `CA`         | `Boomi`      | [Sending Advanced Ship Notice](api/README.md#advanced-ship-notice)         |
+| 1.74 - STO Fulfillment from CA to SAP S/4 US              | API to get STO Fulfillment from CA         | `API`           | `CA`         | `Boomi`      | [Querying Fulfillments](api/README.md#query-fulfillments)                  |
+| 1.73 - STO from SAP S/4 US to CA                          | API to create STO in CA                    | `API`           | `CA`         | `Boomi`      | [Creating a Stock Transfer Order](api/README.md#stock-transfer-orders)     |
+| 1.76 - ASN Receipt from Store to CA                       | API to create OTC ASN Receipt in CA        | `API`           | `CA`         | `Half Helix` | [Confirming Receipt](api/README.md#receipts)                               |
+| 1.75 - ASN from CA to Store                               | Endpoint to send OTC ASN Webhooks          | `Webhook`       | `Half Helix` | `CA`         | [Advanced Ship Notice Webhook](webhooks/README.md#advanced-ship-notice)    |
+| 1.78 - STO Fulfillment from Store to CA                   | API to create STO Fulfillment in CA        | `API`           | `CA`         | `Half Helix` | [Fulfilling Stock Transfer Orders](api/README.md#create-fulfillment)       |
+| 1.77 - STO from CA to Store                               | Endpoint to send STO Webhooks              | `Webhook`       | `Half Helix` | `CA`         | [Stock Transfer Order Webhook](webhooks/README.md#stock-transfer-order)    |
 
 ### Data
 
@@ -235,3 +237,13 @@ flowchart LR
 ## True Up Inventory with Shopify using select Shopify locations as system of record
 
 ## Synchronize ChannelApe Order Status with Shopify
+
+## NRI Inventory Transfers for two-sided SAP Inventory Adjustments
+
+### Changes
+
+| Status                                                           | Change                                                                                                | Reason                                                                           |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1) | Process adjustments in individual batches                                                             | To enable inventory transfer grouping by batch ID                                |
+| [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1) | Process adjustments "TRANSFER" adjustments referencing the other's AdjustmentNumber in the same batch | To group inventory transfers by batch ID and enable two-sided adjustments in SAP |
+
