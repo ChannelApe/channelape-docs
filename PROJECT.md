@@ -4,18 +4,19 @@
 
 ### Interfaces
 
-| Flow                                         | Deliverable                               | Type      | Assigned     | Informed     | Value |
-| -------------------------------------------- | ----------------------------------------- | --------- | ------------ | ------------ | ----- |
-| 1.72 - ASN Receipt from CA to SAP S/4 US     | Endpoint to send OTC ASN Receipt Webhooks | `Webhook` | `Boomi`      | `CA`         |       |
-| 1.71 - ASN from SAP S/4 US to CA             | API to create OTC ASN in CA               | `API`     | `CA`         | `Boomi`      |       |
-| 1.79 - ASN Receipt from CA to SAP S/4 US     | Endpoint to send PTP ASN Receipt Webhooks | `Webhook` | `Boomi`      | `CA`         |       |
-| 1.80 - ASN from SAP S/4 US to CA             | API to create PTP ASN in CA               | `API`     | `CA`         | `Boomi`      |       |
-| 1.74 - STO Fulfillment from CA to SAP S/4 US | API to get STO Fulfillment from CA        | `API`     | `CA`         | `Boomi`      |       |
-| 1.73 - STO from SAP S/4 US to CA             | API to create STO in CA                   | `API`     | `CA`         | `Boomi`      |       |
-| 1.76 - ASN Receipt from Store to CA          | API to create OTC ASN Receipt in CA       | `Webhook` | `CA`         | `Half Helix` |       |
-| 1.75 - ASN from CA to Store                  | Endpoint to send OTC ASN Webhooks         | `Webhook` | `Half Helix` | `CA`         |       |
-| 1.78 - STO Fulfillment from Store to CA      | API to create STO Fulfillment in CA       | `API`     | `CA`         | `Half Helix` |       |
-| 1.77 - STO from CA to Store                  | Endpoint to send STO Webhooks             | `Webhook` | `Half Helix` | `CA`         |       |
+| Flow                                                      | Deliverable                                | Type      | Assigned     | Informed     | Reference                                                  |
+| --------------------------------------------------------- | ------------------------------------------ | --------- | ------------ | ------------ | ---------------------------------------------------------- |
+| 1.55 - Intraday Warehouse Inventory from CA to SAP S/4 US | Access to AWS S3 to upload inventory files | `AWS S3`  | `Rothy's`    | `CA`         |                                                            |
+| 1.72 - ASN Receipt from CA to SAP S/4 US                  | Endpoint to send OTC ASN Receipt Webhooks  | `Webhook` | `Boomi`      | `CA`         |                                                            |
+| 1.71 - ASN from SAP S/4 US to CA                          | API to create OTC ASN in CA                | `API`     | `CA`         | `Boomi`      |                                                            |
+| 1.79 - ASN Receipt from CA to SAP S/4 US                  | Endpoint to send PTP ASN Receipt Webhooks  | `Webhook` | `Boomi`      | `CA`         |                                                            |
+| 1.80 - ASN from SAP S/4 US to CA                          | API to create PTP ASN in CA                | `API`     | `CA`         | `Boomi`      |                                                            |
+| 1.74 - STO Fulfillment from CA to SAP S/4 US              | API to get STO Fulfillment from CA         | `API`     | `CA`         | `Boomi`      |                                                            |
+| 1.73 - STO from SAP S/4 US to CA                          | API to create STO in CA                    | `API`     | `CA`         | `Boomi`      | [Documentation](api/README.md#create-stock-transfer-order) |
+| 1.76 - ASN Receipt from Store to CA                       | API to create OTC ASN Receipt in CA        | `Webhook` | `CA`         | `Half Helix` |                                                            |
+| 1.75 - ASN from CA to Store                               | Endpoint to send OTC ASN Webhooks          | `Webhook` | `Half Helix` | `CA`         |                                                            |
+| 1.78 - STO Fulfillment from Store to CA                   | API to create STO Fulfillment in CA        | `API`     | `CA`         | `Half Helix` |                                                            |
+| 1.77 - STO from CA to Store                               | Endpoint to send STO Webhooks              | `Webhook` | `Half Helix` | `CA`         |                                                            |
 
 ### Data
 
