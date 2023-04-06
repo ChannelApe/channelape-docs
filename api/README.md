@@ -2,7 +2,7 @@
 
 ⚠️ Caution: Our API supports two different inventory operations.
 
-This section describes how to adjust inventory balances in ChannelApe using the `ADJUST` operation.  
+This section describes how to adjust inventory balances in ChannelApe using the `ADJUST` operation.
 
 The other is a `SET` operation which is used to complete overwrite ChannelApe's inventory balance.
 If you're interested in learning more, check out about our [Inventory Management System](https://www.channelape.com/knowledge/channelape-inventory-management-system) knowledgebase article.
@@ -23,6 +23,7 @@ Send a `POST` request to `https://api.channelape.com/v1/batches`
 ### Inventory Transfer Example
 
 You have two inventory locations:
+
 1. Location named `Fillmore Available`, location ID `309`, for inventory you can sell
 1. Location named `Fillmore Unsellable`, location ID `1049`, for inventory not in a sellable condition
 
@@ -60,6 +61,7 @@ curl --location -g 'https://api.channelape.com/v1/batches' \
 ```
 
 You should receive a response like this with status code 201 if successful:
+
 ```json
 {
   "id": "a9b4eaed-fe0a-42b6-a658-4ccb39167303",
@@ -103,7 +105,7 @@ curl --location -g 'https://api.channelape.com/v1/batches' \
 
 ### Headers
 
-* Note: The `x-channel-ape-idempotent-key` header is not needed here as it is part of the adjustment in the request.
+- Note: The `x-channel-ape-idempotent-key` header is not needed here as it is part of the adjustment in the request.
 
 | Header                            | Value            |
 | --------------------------------- | ---------------- |
@@ -130,6 +132,7 @@ curl --location -g 'https://api.channelape.com/v1/batches' \
 | inventoryStatus | string     | Yes      | The status for the balance being adjusted.                                               |
 
 ### Inventory Statuses
+
 | Status            |
 | ----------------- |
 | AVAILABLE_TO_SELL |
@@ -506,6 +509,257 @@ Notes
       "quantity": 4,
       "sku": "117_001_GGY_7",
       "taxes": []
+    }
+  ]
+}
+```
+
+# Send Advanced Ship Notice
+
+### Example Request
+
+```json
+{
+  "businessId": "ec5fcd55-c275-4843-9641-d0fd44b9f173",
+  "channelId": "eacc87ed-1e37-4883-bc53-935b032bf4b0",
+  "channelOrderId": "R_2935999",
+  "purchaseOrderNumber": "R_2935999",
+  "status": "UNRECEIVED",
+  "purchasedAt": "2023-02-13T15:45:11.361Z",
+  "alphabeticCurrencyCode": "USD",
+  "customer": {
+    "additionalFields": [
+      {
+        "name": "anything",
+        "value": "you add here will be passed through"
+      }
+    ],
+    "shippingAddress": {
+      "additionalFields": [],
+      "address1": "181 Columbus Ave.",
+      "city": "New York",
+      "countryCode": "US",
+      "name": "Rothy's 181 Columbus",
+      "postalCode": "10023",
+      "province": "New York",
+      "provinceCode": "NY"
+    }
+  },
+  "additionalFields": [
+    {
+      "name": "VendorPartyInternalID",
+      "value": "1018"
+    },
+    {
+      "name": "SenderPartyInternalID",
+      "value": "123456789"
+    },
+    {
+      "name": "RecipientPartyInternalID",
+      "value": "1234567890123"
+    },
+    {
+      "name": "ShippingDateTimePeriod",
+      "value": "2023-02-13T19:00:00Z"
+    },
+    {
+      "name": "ArrivalDateTimePeriod",
+      "value": "2022-02-13T19:00:00Z"
+    },
+    {
+      "name": "note_attributes_ship_from",
+      "value": "819"
+    },
+    {
+      "name": "shipping_lines_title",
+      "value": "VENDOR"
+    },
+    {
+      "name": "note_attribute_retail_order",
+      "value": "true"
+    }
+  ],
+  "lineItems": [
+    {
+      "additionalFields": [
+        {
+          "name": "DeliveryQuantityTypeCode",
+          "value": "EA"
+        },
+        {
+          "name": "HTSCode",
+          "value": "4202.92.3131"
+        },
+        {
+          "name": "CountryOfOrigin",
+          "value": "CN"
+        },
+        {
+          "name": "StockTransferOrderReferenceID",
+          "value": "2936000"
+        },
+        {
+          "name": "StockTransferOrderReferenceTypeCode",
+          "value": "814"
+        },
+        {
+          "name": "StockTransferOrderReferenceItemID",
+          "value": "1"
+        },
+        {
+          "name": "StockTransferOrderReferenceItemTypeCode",
+          "value": "74"
+        },
+        {
+          "name": "fulfillable_quantity",
+          "value": "4"
+        },
+        {
+          "name": "Z_PurchaseOrder_ODR",
+          "value": "R_2935999-02"
+        },
+        {
+          "name": "OutboundDeliveryExecution.ID",
+          "value": "5194651"
+        },
+        {
+          "name": "Item.ID",
+          "value": "1"
+        }
+      ],
+      "id": "1",
+      "quantity": 4,
+      "sku": "125_001_BBPLD_OS",
+      "taxes": []
+    },
+    {
+      "additionalFields": [
+        {
+          "name": "DeliveryQuantityTypeCode",
+          "value": "PR"
+        },
+        {
+          "name": "HTSCode",
+          "value": "6404.19.3760"
+        },
+        {
+          "name": "CountryOfOrigin",
+          "value": "CN"
+        },
+        {
+          "name": "StockTransferOrderReferenceID",
+          "value": "2935999"
+        },
+        {
+          "name": "StockTransferOrderReferenceTypeCode",
+          "value": "814"
+        },
+        {
+          "name": "StockTransferOrderReferenceItemID",
+          "value": "2"
+        },
+        {
+          "name": "StockTransferOrderReferenceItemTypeCode",
+          "value": "74"
+        },
+        {
+          "name": "fulfillable_quantity",
+          "value": "4"
+        },
+        {
+          "name": "Z_PurchaseOrder_ODR",
+          "value": "R_2935999-01"
+        },
+        {
+          "name": "OutboundDeliveryExecution.ID",
+          "value": "5194550"
+        },
+        {
+          "name": "Item.ID",
+          "value": "2"
+        }
+      ],
+      "id": "2",
+      "quantity": 4,
+      "sku": "117_001_GGY_7",
+      "taxes": []
+    }
+  ],
+  "fulfillments": [
+    {
+      "id": "208924061",
+      "additionalFields": [
+        {
+          "name": "shipment_id",
+          "value": "208924061"
+        },
+        {
+          "name": "warehouse_order_id",
+          "value": "R_2935999"
+        },
+        {
+          "name": "Sscc",
+          "value": "00001922492001525086"
+        },
+        {
+          "name": "ShipmentNumber",
+          "value": "20892406"
+        },
+        {
+          "name": "CartonNumber",
+          "value": "1"
+        },
+        {
+          "name": "Length",
+          "value": "24"
+        },
+        {
+          "name": "Width",
+          "value": "14"
+        },
+        {
+          "name": "Height",
+          "value": "14"
+        },
+        {
+          "name": "Weight",
+          "value": "18.38"
+        },
+        {
+          "name": "TotalOrderWeight",
+          "value": "18.38"
+        },
+        {
+          "name": "TotalOrderCartons",
+          "value": "1"
+        },
+        {
+          "name": "ClientTotalFreightCharge",
+          "value": "140.00"
+        },
+        {
+          "name": "TotalOrderCubeVolume",
+          "value": "2.54"
+        }
+      ],
+      "locationId": "309",
+      "shippingCompany": "FEDEX",
+      "shippingMethod": "GROUND",
+      "trackingNumber": "1234123412341234",
+      "shippedAt": "2023-03-01T17:30:00Z",
+      "status": "SHIPPED",
+      "lineItems": [
+        {
+          "additionalFields": [],
+          "quantity": 4,
+          "sku": "125_001_BBPLD_OS"
+        },
+        {
+          "additionalFields": [],
+          "quantity": 4,
+          "sku": "117_001_GGY_7"
+        }
+      ]
     }
   ]
 }
