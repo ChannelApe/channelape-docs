@@ -23,3 +23,7 @@ See an example of what ChannelApe sends in our webhooks.
 [Transfer Orders](data-flows/transfer-orders/README.md)
 
 [Sales Orders](data-flows/sales-orders/README.md)
+
+## Project Planning
+
+[Scope and Deliverables](PROJECT.md)
