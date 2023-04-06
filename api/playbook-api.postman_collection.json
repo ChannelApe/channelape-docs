@@ -141,6 +141,34 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Send Advanced Ship Notice",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"businessId\": \"ec5fcd55-c275-4843-9641-d0fd44b9f173\",\n    \"channelId\": \"eacc87ed-1e37-4883-bc53-935b032bf4b0\",\n    \"channelOrderId\": \"R_2935999\",\n    \"purchaseOrderNumber\": \"R_2935999\",\n    \"status\": \"UNRECEIVED\",\n    \"purchasedAt\": \"2023-02-13T15:45:11.361Z\",\n    \"alphabeticCurrencyCode\": \"USD\",\n    \"customer\": {\n        \"additionalFields\": [\n            {\n                \"name\": \"anything\",\n                \"value\": \"you add here will be passed through\"\n            }\n        ],\n        \"shippingAddress\": {\n            \"additionalFields\": [],\n            \"address1\": \"181 Columbus Ave.\",\n            \"city\": \"New York\",\n            \"countryCode\": \"US\",\n            \"name\": \"Rothy's 181 Columbus\",\n            \"postalCode\": \"10023\",\n            \"province\": \"New York\",\n            \"provinceCode\": \"NY\"\n        }\n    },\n    \"additionalFields\": [\n        {\n            \"name\": \"VendorPartyInternalID\",\n            \"value\": \"1018\"\n        },\n        {\n            \"name\": \"SenderPartyInternalID\",\n            \"value\": \"123456789\"\n        },\n        {\n            \"name\": \"RecipientPartyInternalID\",\n            \"value\": \"1234567890123\"\n        },\n        {\n            \"name\": \"ShippingDateTimePeriod\",\n            \"value\": \"2023-02-13T19:00:00Z\"\n        },\n        {\n            \"name\": \"ArrivalDateTimePeriod\",\n            \"value\": \"2022-02-13T19:00:00Z\"\n        },\n        {\n            \"name\": \"note_attributes_ship_from\",\n            \"value\": \"819\"\n        },\n        {\n            \"name\": \"shipping_lines_title\",\n            \"value\": \"VENDOR\"\n        },\n        {\n            \"name\": \"note_attribute_retail_order\",\n            \"value\": \"true\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"additionalFields\": [\n                {\n                    \"name\": \"DeliveryQuantityTypeCode\",\n                    \"value\": \"EA\"\n                },\n                {\n                    \"name\": \"HTSCode\",\n                    \"value\": \"4202.92.3131\"\n                },\n                {\n                    \"name\": \"CountryOfOrigin\",\n                    \"value\": \"CN\"\n                },\n                {\n                    \"name\": \"StockTransferOrderReferenceID\",\n                    \"value\": \"2936000\"\n                },\n                {\n                    \"name\": \"StockTransferOrderReferenceTypeCode\",\n                    \"value\": \"814\"\n                },\n                {\n                    \"name\": \"StockTransferOrderReferenceItemID\",\n                    \"value\": \"1\"\n                },\n                {\n                    \"name\": \"StockTransferOrderReferenceItemTypeCode\",\n                    \"value\": \"74\"\n                },\n                {\n                    \"name\": \"fulfillable_quantity\",\n                    \"value\": \"4\"\n                },\n                {\n                    \"name\": \"Z_PurchaseOrder_ODR\",\n                    \"value\": \"R_2935999-02\"\n                },\n                {\n                    \"name\": \"OutboundDeliveryExecution.ID\",\n                    \"value\": \"5194651\"\n                },\n                {\n                    \"name\": \"Item.ID\",\n                    \"value\": \"1\"\n                }\n            ],\n            \"id\": \"1\",\n            \"quantity\": 4,\n            \"sku\": \"125_001_BBPLD_OS\",\n            \"taxes\": []\n        },\n        {\n            \"additionalFields\": [\n                {\n                    \"name\": \"DeliveryQuantityTypeCode\",\n                    \"value\": \"PR\"\n                },\n                {\n                    \"name\": \"HTSCode\",\n                    \"value\": \"6404.19.3760\"\n                },\n                {\n                    \"name\": \"CountryOfOrigin\",\n                    \"value\": \"CN\"\n                },\n                {\n                    \"name\": \"StockTransferOrderReferenceID\",\n                    \"value\": \"2935999\"\n                },\n                {\n                    \"name\": \"StockTransferOrderReferenceTypeCode\",\n                    \"value\": \"814\"\n                },\n                {\n                    \"name\": \"StockTransferOrderReferenceItemID\",\n                    \"value\": \"2\"\n                },\n                {\n                    \"name\": \"StockTransferOrderReferenceItemTypeCode\",\n                    \"value\": \"74\"\n                },\n                {\n                    \"name\": \"fulfillable_quantity\",\n                    \"value\": \"4\"\n                },\n                {\n                    \"name\": \"Z_PurchaseOrder_ODR\",\n                    \"value\": \"R_2935999-01\"\n                },\n                {\n                    \"name\": \"OutboundDeliveryExecution.ID\",\n                    \"value\": \"5194550\"\n                },\n                {\n                    \"name\": \"Item.ID\",\n                    \"value\": \"2\"\n                }\n            ],\n            \"id\": \"2\",\n            \"quantity\": 4,\n            \"sku\": \"117_001_GGY_7\",\n            \"taxes\": []\n        }\n    ],\n    \"fulfillments\": [\n        {\n            \"id\": \"208924061\",\n            \"additionalFields\": [\n                {\n                    \"name\": \"shipment_id\",\n                    \"value\": \"208924061\"\n                },\n                {\n                    \"name\": \"warehouse_order_id\",\n                    \"value\": \"R_2935999\"\n                },\n                {\n                    \"name\": \"Sscc\",\n                    \"value\": \"00001922492001525086\"\n                },\n                {\n                    \"name\": \"ShipmentNumber\",\n                    \"value\": \"20892406\"\n                },\n                {\n                    \"name\": \"CartonNumber\",\n                    \"value\": \"1\"\n                },\n                {\n                    \"name\": \"Length\",\n                    \"value\": \"24\"\n                },\n                {\n                    \"name\": \"Width\",\n                    \"value\": \"14\"\n                },\n                {\n                    \"name\": \"Height\",\n                    \"value\": \"14\"\n                },\n                {\n                    \"name\": \"Weight\",\n                    \"value\": \"18.38\"\n                },\n                {\n                    \"name\": \"TotalOrderWeight\",\n                    \"value\": \"18.38\"\n                },\n                {\n                    \"name\": \"TotalOrderCartons\",\n                    \"value\": \"1\"\n                },\n                {\n                    \"name\": \"ClientTotalFreightCharge\",\n                    \"value\": \"140.00\"\n                },\n                {\n                    \"name\": \"TotalOrderCubeVolume\",\n                    \"value\": \"2.54\"\n                }\n            ],\n            \"locationId\": \"309\",\n            \"shippingCompany\": \"FEDEX\",\n            \"shippingMethod\": \"GROUND\",\n            \"trackingNumber\": \"1234123412341234\",\n            \"shippedAt\": \"2023-03-01T17:30:00Z\",\n            \"status\": \"SHIPPED\",\n            \"lineItems\": [\n                {\n                    \"additionalFields\": [],\n                    \"quantity\": 4,\n                    \"sku\": \"125_001_BBPLD_OS\"\n                },\n                {\n                    \"additionalFields\": [],\n                    \"quantity\": 4,\n                    \"sku\": \"117_001_GGY_7\"\n                }\n            ]\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{endpoint}}/stock-transfer-orders/advanced-ship-notice/webhook.rsb",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"stock-transfer-orders",
+								"advanced-ship-notice",
+								"webhook.rsb"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "# Confirm Shipment\n\nThe Confirm Shipment API is used to communicate line item, carton, and tracking information on the carton level for each carton within shipment."
@@ -274,6 +302,117 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"businessId\": \"{{business_id}}\",\n  \"adjustments\": [\n    {\n      \"idempotentKey\": \"123456789\",\n      \"sku\": \"001_112_BLK_10.5\",\n      \"quantity\": -1,\n      \"operation\": \"ADJUST\",\n      \"locationId\": 309,\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"Damaged\"\n    },\n    {\n      \"idempotentKey\": \"123456789\",\n      \"sku\": \"001_112_BLK_10.5\",\n      \"quantity\": 1,\n      \"operation\": \"ADJUST\",\n      \"locationId\": 1049,\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"Damaged\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{api}}/batches",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"batches"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Inventory Transfers - Two-sided Adjustments",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "x-channel-ape-authorization-token",
+										"value": "{{secret}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"businessId\": \"{{business_id}}\",\n  \"adjustments\": [\n    {\n      \"idempotentKey\": \"123456789\",\n      \"sku\": \"001_112_BLK_10.5\",\n      \"quantity\": -1,\n      \"operation\": \"ADJUST\",\n      \"locationId\": 309,\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"Damaged\"\n    },\n    {\n      \"idempotentKey\": \"123456789\",\n      \"sku\": \"001_112_BLK_10.5\",\n      \"quantity\": 1,\n      \"operation\": \"ADJUST\",\n      \"locationId\": 1049,\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"Damaged\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api}}/batches",
+									"host": [
+										"{{api}}"
+									],
+									"path": [
+										"batches"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 09 Mar 2023 22:39:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "303"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Application-Context",
+									"value": "application:8080"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://www.channelape.com"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Authorization, X-Forwarded-For, X-Requested-With, Content-Type, X-Channel-Ape-Authorization-Token, X-Channel-Ape-Idempotent-Key, X-Channel-Ape-Action-Id, X-Channel-Ape-Jwt"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "HEAD, PATCH, PUT, POST, GET, DELETE, OPTIONS"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"325bd7f2-272a-4212-9abb-59ffeaddb5ab\",\n  \"type\": \"INVENTORY\",\n  \"status\": \"READY\",\n  \"createdAt\": \"2022-04-19T02:35:17.000Z\",\n  \"updatedAt\": \"2022-04-19T02:35:17.000Z\",\n  \"businessId\": \"938a69a8-9ef2-4faa-b485-dad486aba56e\"\n}"
+						}
+					]
+				},
+				{
+					"name": "NRI Two-sided Adjustments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"businessId\": \"{{business_id}}\",\n  \"adjustments\": [\n    {\n      \"idempotentKey\": \"{{from_adjustmentnumber}}-{{linenumber}}\",\n      \"sku\": \"{{from_itemnumber}}\",\n      \"quantity\": {{from_quantity}},\n      \"operation\": \"ADJUST\",\n      \"locationId\": {{from_location_id}},\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"NRI Intraday Inventory | Reason: {{from_adjustmentreason}}\"\n    },\n    {\n      \"idempotentKey\": \"{{to_adjustmentnumber}}-{{linenumber}}\",\n      \"sku\": \"{{to_itemnumber}}\",\n      \"quantity\": {{to_quantity}},\n      \"operation\": \"ADJUST\",\n      \"locationId\": {{to_location_id}},\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"NRI Intraday Inventory | Reason: {{to_adjustmentreason}}\"\n    }\n  ]\n}"
 						},
 						"url": {
 							"raw": "{{api}}/batches",
