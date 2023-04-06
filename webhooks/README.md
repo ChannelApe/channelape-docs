@@ -2,40 +2,63 @@
 
 ## Overview
 
-This documentation explains the different types of notifications ChannelApe can send.
+This document describes the webhooks available in ChannelApe and their usage.
 
-### Use Cases
+## Receiving Webhooks
 
-1. Receive notification when a new Purchase Order is created
-1. Receive notification when a new Stock Transfer Order is created
-1. Receive notification when a new Sales Order is created
-1. Receive notification when a Purchase Order ships
-1. Receive notification when a Stock Transfer Order ships
-1. Receive notification when a Sales Order ships
+ChannelApe will send the webhook to the HTTPs endpoint provided by your application.
 
-### Receiving Webhooks
+### Responding to Webhooks
 
-In order to receive a webhook your application must provide an HTTPS endpoint.
+Your endpoint should return a successful response code to acknowledge its receipt.
 
-### Security
+Status codes >= 200 and <= 399 are treated as a successful delivery and will not be retried.
 
-A security token can be used to protect your endpoint.
-ChannelApe will include a query parameter named `@authtoken` in the webhook notification request with its value set to the token provided.
+#### Retry Policy
 
-#### Structure
+For all other response codes or a failure to respond in general, ChannelApe will retry webhooks[^1] every `15 minutes` until successful delivery or a user intervenes.
 
-```
-root
-  - customer
-    - billingAddress
-    - shippingAddress
-    - additionalFields
-  - lineItems
-    - additionalFields*
-  - additionalFields*
-```
+[^1]: ChannelApe will always include the most up-to-date copy of the object and as such, the contents of the payload may change between attempts.
 
-### Data Requirements
+### Authentication and Security
+
+Although ChannelApe does not support authenticated endpoints, a key and secret can be configured for each endpoint.
+
+The key will be included as a query parameter in the request and its secret for the value.
+
+The secret is never displayed to end users.
+
+## Webhooks
+
+1. Stock Transfer Order
+1. Advanced Ship Notice
+1. Receipt Confirmation
+
+### Stock Transfer Order
+
+ChannelApe's Order Management System sends this to the party responsible for fulfilling the Stock Transfer Order.
+
+#### Timing
+
+Stock Transfer Orders are evaluated in batches by ChannelApe's Order Management System every `15 minutes`.
+
+### Advanced Ship Notice
+
+This webhook is intended for the party that will receive the shipment when an Advanced Ship Notice is created.
+
+#### Timing
+
+It is sent upon creation of an Advanced Ship Notice.
+
+### Receipt Confirmation
+
+This webhook is intended for the party that created the Advanced Ship Notice to both confirm and describe the goods received.
+
+#### Timing
+
+It is sent upon the creation of a Receipt Confirmation.
+
+Multiple partial receipts will result in multiple Receipt Confirmations.
 
 #### Order Level
 
