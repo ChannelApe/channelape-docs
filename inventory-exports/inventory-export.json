@@ -1,0 +1,69 @@
+{
+    "inventory-export": [
+      {
+        "field_0": "1",
+        "Location": "NRI - Available",
+        "ID": "819",
+        "SKU": "001_112_BLK_10.5",
+        "Unit_of_Measure": "PR",
+        "Available_to_Sell": "8281"
+      },
+      {
+        "field_0": "2",
+        "Location": "NRI - Damaged",
+        "ID": "853",
+        "SKU": "001_112_BLK_10.5",
+        "Unit_of_Measure": "PR",
+        "Available_to_Sell": "82"
+      },
+      {
+        "field_0": "3",
+        "Location": "Fillmore",
+        "ID": "309",
+        "SKU": "001_112_BLK_10.5",
+        "Unit_of_Measure": "PR",
+        "Available_to_Sell": "10"
+      },
+      {
+        "field_0": "4",
+        "Location": "Fillmore (Unsellable)",
+        "ID": "1049",
+        "SKU": "001_112_BLK_10.5",
+        "Unit_of_Measure": "PR",
+        "Available_to_Sell": "0"
+      },
+      {
+        "field_0": "5",
+        "Location": "NRI - Available",
+        "ID": "819",
+        "SKU": "005_A02_NEOLME_",
+        "Unit_of_Measure": "EA",
+        "Available_to_Sell": "102"
+      },
+      {
+        "field_0": "6",
+        "Location": "NRI - Damaged",
+        "ID": "853",
+        "SKU": "005_A02_NEOLME_",
+        "Unit_of_Measure": "EA",
+        "Available_to_Sell": "0"
+      },
+      {
+        "field_0": "7",
+        "Location": "Fillmore",
+        "ID": "309",
+        "SKU": "005_A02_NEOLME_",
+        "Unit_of_Measure": "EA",
+        "Available_to_Sell": "9"
+      },
+      {
+        "field_0": "8",
+        "Location": "Fillmore (Unsellable)",
+        "ID": "1049",
+        "SKU": "005_A02_NEOLME_",
+        "Unit_of_Measure": "EA",
+        "Available_to_Sell": "1"
+      }
+    ]
+  }
+  

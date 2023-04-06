@@ -9,7 +9,7 @@
         "Unit_of_Measure": "PR",
         "Status": "Available to Sell",
         "Adjustment": "-1",
-        "Quantity": "8,281",
+        "Quantity": "8281",
         "Memo": "NRI Intraday Inventory | Reason: Transfer",
         "Adjusted_At": "2023-02-22T15:07:47Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
@@ -37,7 +37,7 @@
         "Unit_of_Measure": "PR",
         "Status": "Available to Sell",
         "Adjustment": "-1",
-        "Quantity": "1,234",
+        "Quantity": "1234",
         "Memo": "NRI Intraday Inventory | Reason: Transfer",
         "Adjusted_At": "2023-02-22T15:07:47Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
@@ -121,7 +121,7 @@
         "Unit_of_Measure": "PR",
         "Status": "Available to Sell",
         "Adjustment": "1",
-        "Quantity": "8,282",
+        "Quantity": "8282",
         "Memo": "NRI Intraday Inventory | Reason: Transfer",
         "Adjusted_At": "2023-02-22T18:06:00Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
