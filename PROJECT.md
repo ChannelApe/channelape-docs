@@ -22,31 +22,31 @@
 
 ### Data
 
-|     | Deliverable                             | Assigned     | Informed     | Flows  | Hermes Epic          | Status                                                                          | Blocked By |
-| --- | --------------------------------------- | ------------ | ------------ | ------ | -------------------- | ------------------------------------------------------------------------------- | ---------- |
-| 1   | SAP OTC Goods Receipt Requirements      | `Boomi`      | `CA`         | `1.72` |                      | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)                |            |
-| 2   | OTC ASN Receipt Webhook Payload         | `CA`         | `Boomi`      | `1.72` |                      | [![Status](https://img.shields.io/badge/Status-CHANGES%20NEEDED-orange.svg)](1) |            |
-| 3   | Create OTC ASN Receipt Payload          | `CA`         | `Half Helix` | `1.76` | `Inbound Shipments`  | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)                |            |
-| 4   | SAP PTP Goods Receipt Requirements      | `Boomi`      | `CA`         | `1.79` |                      | [![Status](https://img.shields.io/badge/Status-NEW-white.svg)](1)               |            |
-| 5   | PTP ASN Receipt Webhook Payload         | `CA`         | `Boomi`      | `1.80` |                      | [![Status](https://img.shields.io/badge/Status-CHANGES%20NEEDED-orange.svg)](1) |            |
-| 6   | NRI Purchase Order Preview Requirements | `NRI`        | `CA`         | `1.79` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 7   | SAP OTC ASN Requirements                | `Boomi`      | `CA`         | `1.71` |                      | [![Status](https://img.shields.io/badge/Status-NEW-white.svg)](1)               |            |
-| 8   | Hermes OTC ASN Requirements             | `Half Helix` | `CA`         | `1.75` | `Inbound Shipments`  | [![Status](https://img.shields.io/badge/Status-NEW-white.svg)](1)               |            |
-| 9   | Create OTC ASN Payload                  | `CA`         | `Boomi`      | `1.71` |                      | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)                |            |
-| 10  | SAP PTP ASN Requirements                | `Boomi`      | `CA`         | `1.79` |                      | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)                |            |
-| 11  | Create PTP ASN Payload                  | `CA`         | `Boomi`      | `1.79` |                      | [![Status](https://img.shields.io/badge/Status-CHANGES%20NEEDED-orange.svg)](1) |            |
-| 12  | OTC ASN Webhook Payload                 | `CA`         | `Half Helix` | `1.75` | `Inbound Shipments`  | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)                |            |
-| 13  | SAP Outbound Delivery Requirements      | `Boomi`      | `CA`         | `1.74` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 14  | Example Fulfillment Response            | `CA`         | `Boomi`      | `1.74` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 15  | SAP Delivery Note Requirements          | `Boomi`      | `CA`         | `1.73` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 16  | Create Order Payload                    | `CA`         | `Boomi`      | `1.73` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 17  | SAP Outbound Delivery Requirements      | `Boomi`      | `CA`         | `1.74` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 18  | Example Fulfillment Response            | `CA`         | `Boomi`      | `1.74` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 19  | Shipment Confirmation Webhook Payload   | `CA`         | `Half Helix` | `1.78` | `Outbound Shipments` | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 20  | NRI Order Preview Requirements          | `CA`         | `Boomi`      | `1.73` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 21  | Hermes STO Requirements                 | `Half Helix` | `CA`         | `1.77` | `Outbound Shipments` | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 22  | SAP Delivery Note Requirements          | `Boomi`      | `CA`         | `1.73` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
-| 23  | Create Stock Transfer Order Payload     | `CA`         | `Boomi`      | `1.73` |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |            |
+|     | Deliverable                             | Assigned     | Informed     | Flows  | Hermes Epic          | Status         | Blocked By |
+| --- | --------------------------------------- | ------------ | ------------ | ------ | -------------------- | -------------- | ---------- |
+| 1   | SAP OTC Goods Receipt Requirements      | `Boomi`      | `CA`         | `1.72` |                      | IN PROGRESS    |            |
+| 2   | OTC ASN Receipt Webhook Payload         | `CA`         | `Boomi`      | `1.72` |                      | CHANGES NEEDED | 1          |
+| 3   | Create OTC ASN Receipt Payload          | `CA`         | `Half Helix` | `1.76` | `Inbound Shipments`  | TODO           | 1          |
+| 4   | SAP PTP Goods Receipt Requirements      | `Boomi`      | `CA`         | `1.79` |                      | NEW            |            |
+| 5   | PTP ASN Receipt Webhook Payload         | `CA`         | `Boomi`      | `1.80` |                      | CHANGES NEEDED |            |
+| 6   | NRI Purchase Order Preview Requirements | `NRI`        | `CA`         | `1.79` |                      | DONE           |            |
+| 7   | SAP OTC ASN Requirements                | `Boomi`      | `CA`         | `1.71` |                      | NEW            |            |
+| 8   | Hermes OTC ASN Requirements             | `Half Helix` | `CA`         | `1.75` | `Inbound Shipments`  | NEW            |            |
+| 9   | Create OTC ASN Payload                  | `CA`         | `Boomi`      | `1.71` |                      | TODO           |            |
+| 10  | SAP PTP ASN Requirements                | `Boomi`      | `CA`         | `1.79` |                      | TODO           |            |
+| 11  | Create PTP ASN Payload                  | `CA`         | `Boomi`      | `1.79` |                      | CHANGES NEEDED |            |
+| 12  | OTC ASN Webhook Payload                 | `CA`         | `Half Helix` | `1.75` | `Inbound Shipments`  | TODO           |            |
+| 13  | SAP Outbound Delivery Requirements      | `Boomi`      | `CA`         | `1.74` |                      | DONE           |            |
+| 14  | Example Fulfillment Response            | `CA`         | `Boomi`      | `1.74` |                      | DONE           |            |
+| 15  | SAP Delivery Note Requirements          | `Boomi`      | `CA`         | `1.73` |                      | DONE           |            |
+| 16  | Create Order Payload                    | `CA`         | `Boomi`      | `1.73` |                      | DONE           |            |
+| 17  | SAP Outbound Delivery Requirements      | `Boomi`      | `CA`         | `1.74` |                      | DONE           |            |
+| 18  | Example Fulfillment Response            | `CA`         | `Boomi`      | `1.74` |                      | DONE           |            |
+| 19  | Shipment Confirmation Webhook Payload   | `CA`         | `Half Helix` | `1.78` | `Outbound Shipments` | DONE           |            |
+| 20  | NRI Order Preview Requirements          | `CA`         | `Boomi`      | `1.73` |                      | DONE           |            |
+| 21  | Hermes STO Requirements                 | `Half Helix` | `CA`         | `1.77` | `Outbound Shipments` | DONE           |            |
+| 22  | SAP Delivery Note Requirements          | `Boomi`      | `CA`         | `1.73` |                      | DONE           |            |
+| 23  | Create Stock Transfer Order Payload     | `CA`         | `Boomi`      | `1.73` |                      | DONE           |            |
 
 ## NRI Receipt Preview API Integration
 
@@ -65,15 +65,15 @@ flowchart LR
 
 ##### Deliverables
 
-|     | Deliverable                        | Assigned | Informed | Flow   | Hermes Epic | Status                                                                          |
-| --- | ---------------------------------- | -------- | -------- | ------ | ----------- | ------------------------------------------------------------------------------- |
-| 1   | SAP PTP Goods Receipt Requirements | `Boomi`  | `CA`     | `1.79` |             | [![Status](https://img.shields.io/badge/Status-NEW-white.svg)](1)               |
-| 2   | ASN Receipt Webhook Payload        | `CA`     | `Boomi`  | `1.80` |             | [![Status](https://img.shields.io/badge/Status-CHANGES%20NEEDED-orange.svg)](1) |
-| 3   | NRI Integration Requirements       | `NRI`    | `CA`     | `1.79` |             | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |
-| 4   | SAP PTP ASN Requirements           | `Boomi`  | `CA`     | `1.79` |             | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)                |
-| 5   | Create ASN Payload                 | `CA`     | `Boomi`  | `1.79` |             | [![Status](https://img.shields.io/badge/Status-CHANGES%20NEEDED-orange.svg)](1) |
-| 6   | Create ASN API                     | `CA`     | `Boomi`  | `1.79` |             | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1)              |
-| 7   | ASN Receipt Webhook Endpoint       | `Boomi`  | `CA`     | `1.80` |             | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)                |
+|     | Deliverable                        | Assigned | Informed | Flow   | Hermes Epic | Status         |
+| --- | ---------------------------------- | -------- | -------- | ------ | ----------- | -------------- |
+| 1   | SAP PTP Goods Receipt Requirements | `Boomi`  | `CA`     | `1.79` |             | NEW            |
+| 2   | ASN Receipt Webhook Payload        | `CA`     | `Boomi`  | `1.80` |             | CHANGES NEEDED |
+| 3   | NRI Integration Requirements       | `NRI`    | `CA`     | `1.79` |             | DONE           |
+| 4   | SAP PTP ASN Requirements           | `Boomi`  | `CA`     | `1.79` |             | TODO           |
+| 5   | Create ASN Payload                 | `CA`     | `Boomi`  | `1.79` |             | CHANGES NEEDED |
+| 6   | Create ASN API                     | `CA`     | `Boomi`  | `1.79` |             | DONE           |
+| 7   | ASN Receipt Webhook Endpoint       | `Boomi`  | `CA`     | `1.80` |             | TODO           |
 
 ## Store STOs and ASNs
 
@@ -92,12 +92,12 @@ flowchart LR
 
 ##### Deliverables
 
-|     | Deliverable                        | Assigned | Informed     | Olympus Flow | Hermes Epic         | Status                                                             |
-| --- | ---------------------------------- | -------- | ------------ | ------------ | ------------------- | ------------------------------------------------------------------ |
-| 1   | SAP OTC Goods Receipt Requirements | `Boomi`  | `CA`         | `1.72`       |                     | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)   |
-| 2   | Create ASN Receipt Payload         | `CA`     | `Half Helix` | `1.76`       | `Inbound Shipments` | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)   |
-| 3   | Create ASN Receipt API             | `CA`     | `Half Helix` | `1.76`       | `Inbound Shipments` | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 4   | ASN Receipt Webhook Endpoint       | `Boomi`  | `CA`         | `1.72`       |                     | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)   |
+|     | Deliverable                        | Assigned | Informed     | Olympus Flow | Hermes Epic         | Status |
+| --- | ---------------------------------- | -------- | ------------ | ------------ | ------------------- | ------ |
+| 1   | SAP OTC Goods Receipt Requirements | `Boomi`  | `CA`         | `1.72`       |                     | TODO   |
+| 2   | Create ASN Receipt Payload         | `CA`     | `Half Helix` | `1.76`       | `Inbound Shipments` | TODO   |
+| 3   | Create ASN Receipt API             | `CA`     | `Half Helix` | `1.76`       | `Inbound Shipments` | DONE   |
+| 4   | ASN Receipt Webhook Endpoint       | `Boomi`  | `CA`         | `1.72`       |                     | TODO   |
 
 #### Advanced Ship Notice
 
@@ -110,22 +110,22 @@ flowchart LR
 
 ##### Deliverables
 
-|     | Deliverable              | Assigned     | Informed     | Olympus Flow | Hermes Epic         | Status                                                            |
-| --- | ------------------------ | ------------ | ------------ | ------------ | ------------------- | ----------------------------------------------------------------- |
-| 1   | Hermes ASN Requirements  | `Half Helix` | `CA`         | `1.75`       | `Inbound Shipments` | [![Status](https://img.shields.io/badge/Status-NEW-white.svg)](1) |
-| 2   | SAP OTC ASN Requirements | `Boomi`      | `CA`         | `1.75`       |                     | [![Status](https://img.shields.io/badge/Status-NEW-white.svg)](1) |
-| 3   | ASN Webhook Payload      | `CA`         | `Half Helix` | `1.75`       | `Inbound Shipments` | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)  |
-| 4   | Create ASN Payload       | `CA`         | `Boomi`      | `1.71`       |                     | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)  |
-| 5   | ASN Webhook Endpoint     | `Half Helix` | `CA`         | `1.75`       | `Inbound Shipments` | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)  |
-| 6   | Create ASN API           | `CA`         | `Boomi`      | `1.71`       |                     | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)  |
+|     | Deliverable              | Assigned     | Informed     | Olympus Flow | Hermes Epic         | Status |
+| --- | ------------------------ | ------------ | ------------ | ------------ | ------------------- | ------ |
+| 1   | Hermes ASN Requirements  | `Half Helix` | `CA`         | `1.75`       | `Inbound Shipments` | NEW    |
+| 2   | SAP OTC ASN Requirements | `Boomi`      | `CA`         | `1.75`       |                     | NEW    |
+| 3   | ASN Webhook Payload      | `CA`         | `Half Helix` | `1.75`       | `Inbound Shipments` | TODO   |
+| 4   | Create ASN Payload       | `CA`         | `Boomi`      | `1.71`       |                     | TODO   |
+| 5   | ASN Webhook Endpoint     | `Half Helix` | `CA`         | `1.75`       | `Inbound Shipments` | TODO   |
+| 6   | Create ASN API           | `CA`         | `Boomi`      | `1.71`       |                     | TODO   |
 
 #### Ship Confirmation
 
 ##### Changes
 
-| Status                                                           | Change                                       | Reason                                                           |
-| ---------------------------------------------------------------- | -------------------------------------------- | ---------------------------------------------------------------- |
-| [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1) | Map LicensePlate from NRI Order Confirmation | This number is printed on the carton labels for Retail Shipments |
+| Status | Change                                       | Reason                                                           |
+| ------ | -------------------------------------------- | ---------------------------------------------------------------- |
+| TODO   | Map LicensePlate from NRI Order Confirmation | This number is printed on the carton labels for Retail Shipments |
 
 ##### Dataflow
 
@@ -136,11 +136,11 @@ flowchart LR
 
 ##### Deliverables
 
-|     | Deliverable                        | Assigned | Informed | Olympus Flow | Hermes Epic | Status                                                             |
-| --- | ---------------------------------- | -------- | -------- | ------------ | ----------- | ------------------------------------------------------------------ |
-| 1   | SAP Outbound Delivery Requirements | `Boomi`  | `CA`     | `1.74`       |             | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 2   | Example Fulfillment Response       | `CA`     | `Boomi`  | `1.74`       |             | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 3   | Get Order API                      | `CA`     | `Boomi`  | `1.74`       |             | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
+|     | Deliverable                        | Assigned | Informed | Olympus Flow | Hermes Epic | Status |
+| --- | ---------------------------------- | -------- | -------- | ------------ | ----------- | ------ |
+| 1   | SAP Outbound Delivery Requirements | `Boomi`  | `CA`     | `1.74`       |             | DONE   |
+| 2   | Example Fulfillment Response       | `CA`     | `Boomi`  | `1.74`       |             | DONE   |
+| 3   | Get Order API                      | `CA`     | `Boomi`  | `1.74`       |             | DONE   |
 
 #### Stock Transfer Order
 
@@ -153,11 +153,11 @@ flowchart LR
 
 ##### Deliverables
 
-| #   | Deliverable                    | Assigned | Informed | Olympus Flow | Hermes Epic | Status                                                             |
-| --- | ------------------------------ | -------- | -------- | ------------ | ----------- | ------------------------------------------------------------------ |
-| 1   | SAP Delivery Note Requirements | `Boomi`  | `CA`     | `1.73`       |             | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 2   | Create Order Payload           | `CA`     | `Boomi`  | `1.73`       |             | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 3   | Create Order API               | `CA`     | `Boomi`  | `1.73`       |             | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
+| #   | Deliverable                    | Assigned | Informed | Olympus Flow | Hermes Epic | Status |
+| --- | ------------------------------ | -------- | -------- | ------------ | ----------- | ------ |
+| 1   | SAP Delivery Note Requirements | `Boomi`  | `CA`     | `1.73`       |             | DONE   |
+| 2   | Create Order Payload           | `CA`     | `Boomi`  | `1.73`       |             | DONE   |
+| 3   | Create Order API               | `CA`     | `Boomi`  | `1.73`       |             | DONE   |
 
 ### Store to Warehouse
 
@@ -172,10 +172,10 @@ flowchart LR
 
 ##### Deliverables
 
-|     | Deliverable                        | Assigned | Informed | Olympus Flow | Hermes Epic | Status                                                           |
-| --- | ---------------------------------- | -------- | -------- | ------------ | ----------- | ---------------------------------------------------------------- |
-| 1   | SAP OTC Goods Receipt Requirements | `Boomi`  | `CA`     | `1.72`       |             | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1) |
-| 2   | ASN Receipt Webhook Endpoint       | `Boomi`  | `CA`     | `1.72`       |             | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1) |
+|     | Deliverable                        | Assigned | Informed | Olympus Flow | Hermes Epic | Status |
+| --- | ---------------------------------- | -------- | -------- | ------------ | ----------- | ------ |
+| 1   | SAP OTC Goods Receipt Requirements | `Boomi`  | `CA`     | `1.72`       |             | TODO   |
+| 2   | ASN Receipt Webhook Endpoint       | `Boomi`  | `CA`     | `1.72`       |             | TODO   |
 
 #### Advanced Ship Notice
 
@@ -188,11 +188,11 @@ flowchart LR
 
 ##### Deliverables
 
-|     | Deliverable              | Assigned | Informed | Olympus Flow | Hermes Epic | Status                                                            |
-| --- | ------------------------ | -------- | -------- | ------------ | ----------- | ----------------------------------------------------------------- |
-| 1   | SAP OTC ASN Requirements | `Boomi`  | `CA`     | `1.71`       |             | [![Status](https://img.shields.io/badge/Status-NEW-white.svg)](1) |
-| 2   | Create ASN Payload       | `CA`     | `Boomi`  | `1.71`       |             | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)  |
-| 3   | Create ASN API           | `CA`     | `Boomi`  | `1.71`       |             | [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1)  |
+|     | Deliverable              | Assigned | Informed | Olympus Flow | Hermes Epic | Status |
+| --- | ------------------------ | -------- | -------- | ------------ | ----------- | ------ |
+| 1   | SAP OTC ASN Requirements | `Boomi`  | `CA`     | `1.71`       |             | NEW    |
+| 2   | Create ASN Payload       | `CA`     | `Boomi`  | `1.71`       |             | TODO   |
+| 3   | Create ASN API           | `CA`     | `Boomi`  | `1.71`       |             | TODO   |
 
 #### Ship Confirmation
 
@@ -205,13 +205,13 @@ flowchart LR
 
 ##### Deliverables
 
-|     | Deliverable                           | Assigned | Informed     | Olympus Flow | Hermes Epic          | Status                                                             |
-| --- | ------------------------------------- | -------- | ------------ | ------------ | -------------------- | ------------------------------------------------------------------ |
-| 1   | SAP Outbound Delivery Requirements    | `Boomi`  | `CA`         | `1.74`       |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 2   | Example Fulfillment Response          | `CA`     | `Boomi`      | `1.74`       |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 3   | Shipment Confirmation Webhook Payload | `CA`     | `Half Helix` | `1.78`       | `Outbound Shipments` | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 4   | Shipment Confirmation API             | `CA`     | `Half Helix` | `1.78`       | `Outbound Shipments` | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 5   | Get Order API                         | `CA`     | `Boomi`      | `1.74`       |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
+|     | Deliverable                           | Assigned | Informed     | Olympus Flow | Hermes Epic          | Status |
+| --- | ------------------------------------- | -------- | ------------ | ------------ | -------------------- | ------ |
+| 1   | SAP Outbound Delivery Requirements    | `Boomi`  | `CA`         | `1.74`       |                      | DONE   |
+| 2   | Example Fulfillment Response          | `CA`     | `Boomi`      | `1.74`       |                      | DONE   |
+| 3   | Shipment Confirmation Webhook Payload | `CA`     | `Half Helix` | `1.78`       | `Outbound Shipments` | DONE   |
+| 4   | Shipment Confirmation API             | `CA`     | `Half Helix` | `1.78`       | `Outbound Shipments` | DONE   |
+| 5   | Get Order API                         | `CA`     | `Boomi`      | `1.74`       |                      | DONE   |
 
 #### Stock Transfer Order
 
@@ -224,12 +224,12 @@ flowchart LR
 
 ##### Deliverables
 
-| #   | Deliverable                    | Assigned     | Informed | Olympus Flow | Hermes Epic          | Status                                                             |
-| --- | ------------------------------ | ------------ | -------- | ------------ | -------------------- | ------------------------------------------------------------------ |
-| 1   | Hermes STO Requirements        | `Half Helix` | `CA`     | `1.77`       | `Outbound Shipments` | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 2   | SAP Delivery Note Requirements | `Boomi`      | `CA`     | `1.73`       |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 3   | Create Order Payload           | `CA`         | `Boomi`  | `1.73`       |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
-| 4   | Create Order API               | `CA`         | `Boomi`  | `1.73`       |                      | [![Status](https://img.shields.io/badge/Status-DONE-green.svg)](1) |
+| #   | Deliverable                    | Assigned     | Informed | Olympus Flow | Hermes Epic          | Status |
+| --- | ------------------------------ | ------------ | -------- | ------------ | -------------------- | ------ |
+| 1   | Hermes STO Requirements        | `Half Helix` | `CA`     | `1.77`       | `Outbound Shipments` | DONE   |
+| 2   | SAP Delivery Note Requirements | `Boomi`      | `CA`     | `1.73`       |                      | DONE   |
+| 3   | Create Order Payload           | `CA`         | `Boomi`  | `1.73`       |                      | DONE   |
+| 4   | Create Order API               | `CA`         | `Boomi`  | `1.73`       |                      | DONE   |
 
 ## One-way sync for intraday updates from Shopify to ChannelApe for POS locations
 
@@ -241,7 +241,7 @@ flowchart LR
 
 ### Changes
 
-| Status                                                           | Change                                                                                                | Reason                                                                           |
-| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1) | Process adjustments in individual batches                                                             | To enable inventory transfer grouping by batch ID                                |
-| [![Status](https://img.shields.io/badge/Status-TODO-red.svg)](1) | Process adjustments "TRANSFER" adjustments referencing the other's AdjustmentNumber in the same batch | To group inventory transfers by batch ID and enable two-sided adjustments in SAP |
+| Status | Change                                                                                                | Reason                                                                           |
+| ------ | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| TODO   | Process adjustments in individual batches                                                             | To enable inventory transfer grouping by batch ID                                |
+| TODO   | Process adjustments "TRANSFER" adjustments referencing the other's AdjustmentNumber in the same batch | To group inventory transfers by batch ID and enable two-sided adjustments in SAP |
