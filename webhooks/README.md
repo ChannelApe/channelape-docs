@@ -166,8 +166,6 @@ The destination for the Stock Transfer Order provided by SAP.
 
 ##### Line Item Additional Fields
 
-The destination for the Stock Transfer Order provided by SAP.
-
 | Field         | Description                                       |
 | ------------- | ------------------------------------------------- |
 | UnitOfMeasure | Used by Boomi to reference SAP's Unit of Measure. |
