@@ -22,31 +22,41 @@
 
 ### Data
 
-|     | Deliverable                             | Assigned     | Informed     | Flows  | Hermes Epic          | Status         | Blocked By |
-| --- | --------------------------------------- | ------------ | ------------ | ------ | -------------------- | -------------- | ---------- |
-| 1   | SAP OTC Goods Receipt Requirements      | `Boomi`      | `CA`         | `1.72` |                      | IN PROGRESS    |            |
-| 2   | OTC ASN Receipt Webhook Payload         | `CA`         | `Boomi`      | `1.72` |                      | CHANGES NEEDED | 1          |
-| 3   | Create OTC ASN Receipt Payload          | `CA`         | `Half Helix` | `1.76` | `Inbound Shipments`  | TODO           | 1          |
-| 4   | SAP PTP Goods Receipt Requirements      | `Boomi`      | `CA`         | `1.79` |                      | NEW            |            |
-| 5   | PTP ASN Receipt Webhook Payload         | `CA`         | `Boomi`      | `1.80` |                      | CHANGES NEEDED |            |
-| 6   | NRI Purchase Order Preview Requirements | `NRI`        | `CA`         | `1.79` |                      | DONE           |            |
-| 7   | SAP OTC ASN Requirements                | `Boomi`      | `CA`         | `1.71` |                      | NEW            |            |
-| 8   | Hermes OTC ASN Requirements             | `Half Helix` | `CA`         | `1.75` | `Inbound Shipments`  | NEW            |            |
-| 9   | Create OTC ASN Payload                  | `CA`         | `Boomi`      | `1.71` |                      | TODO           |            |
-| 10  | SAP PTP ASN Requirements                | `Boomi`      | `CA`         | `1.79` |                      | TODO           |            |
-| 11  | Create PTP ASN Payload                  | `CA`         | `Boomi`      | `1.79` |                      | CHANGES NEEDED |            |
-| 12  | OTC ASN Webhook Payload                 | `CA`         | `Half Helix` | `1.75` | `Inbound Shipments`  | TODO           |            |
-| 13  | SAP Outbound Delivery Requirements      | `Boomi`      | `CA`         | `1.74` |                      | DONE           |            |
-| 14  | Example Fulfillment Response            | `CA`         | `Boomi`      | `1.74` |                      | DONE           |            |
-| 15  | SAP Delivery Note Requirements          | `Boomi`      | `CA`         | `1.73` |                      | DONE           |            |
-| 16  | Create Order Payload                    | `CA`         | `Boomi`      | `1.73` |                      | DONE           |            |
-| 17  | SAP Outbound Delivery Requirements      | `Boomi`      | `CA`         | `1.74` |                      | DONE           |            |
-| 18  | Example Fulfillment Response            | `CA`         | `Boomi`      | `1.74` |                      | DONE           |            |
-| 19  | Shipment Confirmation Webhook Payload   | `CA`         | `Half Helix` | `1.78` | `Outbound Shipments` | DONE           |            |
-| 20  | NRI Order Preview Requirements          | `CA`         | `Boomi`      | `1.73` |                      | DONE           |            |
-| 21  | Hermes STO Requirements                 | `Half Helix` | `CA`         | `1.77` | `Outbound Shipments` | DONE           |            |
-| 22  | SAP Delivery Note Requirements          | `Boomi`      | `CA`         | `1.73` |                      | DONE           |            |
-| 23  | Create Stock Transfer Order Payload     | `CA`         | `Boomi`      | `1.73` |                      | DONE           |            |
+#### Status Legend
+
+| Status      | Description                                       |
+| ----------- | ------------------------------------------------- |
+| NEW         | Added scope that was previously unidentified.     |
+| TODO        | Known scope that needs to be completed.           |
+| IN PROGRESS | Delivery in progress.                             |
+| IN REVISION | Previously completed but IN REVISION for changes. |
+| DONE        | Completed.                                        |
+| CLOSED      | Not completed but no longer needed.               |
+
+#### Deliverables
+
+|     | Deliverable                             | Assigned     | Informed     | Flows          | Hermes Epic          | Status      | Blocked By |
+| --- | --------------------------------------- | ------------ | ------------ | -------------- | -------------------- | ----------- | ---------- |
+| 1   | SAP OTC Goods Receipt Requirements      | `Boomi`      | `CA`         | `1.72`         |                      | IN PROGRESS |            |
+| 2   | OTC ASN Receipt Webhook Payload         | `CA`         | `Boomi`      | `1.72`         |                      | IN REVISION | 1          |
+| 3   | Create OTC ASN Receipt Payload          | `CA`         | `Half Helix` | `1.76`         | `Inbound Shipments`  | TODO        | 1          |
+| 4   | SAP PTP Goods Receipt Requirements      | `Boomi`      | `CA`         | `1.79`         |                      | DONE        |            |
+| 5   | PTP ASN Receipt Webhook Payload         | `CA`         | `Boomi`      | `1.80`         |                      | CLOSED      |            |
+| 6   | NRI Purchase Order Preview Requirements | `NRI`        | `CA`         | `1.79`         |                      | DONE        |            |
+| 7   | SAP OTC ASN Requirements                | `Boomi`      | `CA`         | `1.71`         |                      | IN PROGRESS |            |
+| 8   | Hermes OTC ASN Requirements             | `Half Helix` | `CA`         | `1.75`         | `Inbound Shipments`  | IN PROGRESS |            |
+| 9   | Create OTC ASN Payload                  | `CA`         | `Boomi`      | `1.71`         |                      | TODO        | 1, 7       |
+| 10  | SAP PTP ASN Requirements                | `Boomi`      | `CA`         | `1.79`         |                      | CLOSED      |            |
+| 11  | Create PTP ASN Payload                  | `CA`         | `Boomi`      | `1.79`         |                      | CLOSED      |            |
+| 12  | OTC ASN Webhook Payload                 | `CA`         | `Half Helix` | `1.75`         | `Inbound Shipments`  | IN REVISION | 9          |
+| 13  | SAP Outbound Delivery Requirements      | `Boomi`      | `CA`         | `1.74`, `1.73` | `Outbound Shipments` | IN PROGRESS |            |
+| 14  | Example Fulfillment Response            | `CA`         | `Boomi`      | `1.74`         |                      | DONE        |            |
+| 15  | SAP Delivery Note Requirements          | `Boomi`      | `CA`         | `1.73`, `1.77` | `Outbound Shipments` | IN PROGRESS |            |
+| 16  | Example Fulfillment Response            | `CA`         | `Boomi`      | `1.74`         |                      | DONE        |            |
+| 17  | Shipment Confirmation Payload           | `CA`         | `Half Helix` | `1.78`         | `Outbound Shipments` | DONE        |            |
+| 18  | NRI Order Preview Requirements          | `CA`         | `Boomi`      | `1.73`         |                      | DONE        |            |
+| 19  | Hermes STO Requirements                 | `Half Helix` | `CA`         | `1.77`         | `Outbound Shipments` | TODO        | 13, 15     |
+| 20  | Create STO Payload                      | `CA`         | `Boomi`      | `1.73`, `1.77` | `Outbound Shipments` | IN REVISION | 15         |
 
 ## NRI Receipt Preview API Integration
 
@@ -65,15 +75,15 @@ flowchart LR
 
 ##### Deliverables
 
-|     | Deliverable                        | Assigned | Informed | Flow   | Hermes Epic | Status         |
-| --- | ---------------------------------- | -------- | -------- | ------ | ----------- | -------------- |
-| 1   | SAP PTP Goods Receipt Requirements | `Boomi`  | `CA`     | `1.79` |             | NEW            |
-| 2   | ASN Receipt Webhook Payload        | `CA`     | `Boomi`  | `1.80` |             | CHANGES NEEDED |
-| 3   | NRI Integration Requirements       | `NRI`    | `CA`     | `1.79` |             | DONE           |
-| 4   | SAP PTP ASN Requirements           | `Boomi`  | `CA`     | `1.79` |             | TODO           |
-| 5   | Create ASN Payload                 | `CA`     | `Boomi`  | `1.79` |             | CHANGES NEEDED |
-| 6   | Create ASN API                     | `CA`     | `Boomi`  | `1.79` |             | DONE           |
-| 7   | ASN Receipt Webhook Endpoint       | `Boomi`  | `CA`     | `1.80` |             | TODO           |
+|     | Deliverable                        | Assigned | Informed | Flow   | Hermes Epic | Status      |
+| --- | ---------------------------------- | -------- | -------- | ------ | ----------- | ----------- |
+| 1   | SAP PTP Goods Receipt Requirements | `Boomi`  | `CA`     | `1.79` |             | NEW         |
+| 2   | ASN Receipt Webhook Payload        | `CA`     | `Boomi`  | `1.80` |             | IN REVISION |
+| 3   | NRI Integration Requirements       | `NRI`    | `CA`     | `1.79` |             | DONE        |
+| 4   | SAP PTP ASN Requirements           | `Boomi`  | `CA`     | `1.79` |             | TODO        |
+| 5   | Create ASN Payload                 | `CA`     | `Boomi`  | `1.79` |             | IN REVISION |
+| 6   | Create ASN API                     | `CA`     | `Boomi`  | `1.79` |             | DONE        |
+| 7   | ASN Receipt Webhook Endpoint       | `Boomi`  | `CA`     | `1.80` |             | TODO        |
 
 ## Store STOs and ASNs
 
@@ -156,8 +166,8 @@ flowchart LR
 | #   | Deliverable                    | Assigned | Informed | Olympus Flow | Hermes Epic | Status |
 | --- | ------------------------------ | -------- | -------- | ------------ | ----------- | ------ |
 | 1   | SAP Delivery Note Requirements | `Boomi`  | `CA`     | `1.73`       |             | DONE   |
-| 2   | Create Order Payload           | `CA`     | `Boomi`  | `1.73`       |             | DONE   |
-| 3   | Create Order API               | `CA`     | `Boomi`  | `1.73`       |             | DONE   |
+| 2   | Create STO Payload             | `CA`     | `Boomi`  | `1.73`       |             | DONE   |
+| 3   | Create STO API                 | `CA`     | `Boomi`  | `1.73`       |             | DONE   |
 
 ### Store to Warehouse
 
@@ -205,13 +215,13 @@ flowchart LR
 
 ##### Deliverables
 
-|     | Deliverable                           | Assigned | Informed     | Olympus Flow | Hermes Epic          | Status |
-| --- | ------------------------------------- | -------- | ------------ | ------------ | -------------------- | ------ |
-| 1   | SAP Outbound Delivery Requirements    | `Boomi`  | `CA`         | `1.74`       |                      | DONE   |
-| 2   | Example Fulfillment Response          | `CA`     | `Boomi`      | `1.74`       |                      | DONE   |
-| 3   | Shipment Confirmation Webhook Payload | `CA`     | `Half Helix` | `1.78`       | `Outbound Shipments` | DONE   |
-| 4   | Shipment Confirmation API             | `CA`     | `Half Helix` | `1.78`       | `Outbound Shipments` | DONE   |
-| 5   | Get Order API                         | `CA`     | `Boomi`      | `1.74`       |                      | DONE   |
+|     | Deliverable                        | Assigned | Informed     | Olympus Flow | Hermes Epic          | Status |
+| --- | ---------------------------------- | -------- | ------------ | ------------ | -------------------- | ------ |
+| 1   | SAP Outbound Delivery Requirements | `Boomi`  | `CA`         | `1.74`       |                      | DONE   |
+| 2   | Example Fulfillment Response       | `CA`     | `Boomi`      | `1.74`       |                      | DONE   |
+| 3   | Shipment Confirmation Payload      | `CA`     | `Half Helix` | `1.78`       | `Outbound Shipments` | DONE   |
+| 4   | Shipment Confirmation API          | `CA`     | `Half Helix` | `1.78`       | `Outbound Shipments` | DONE   |
+| 5   | Get Order API                      | `CA`     | `Boomi`      | `1.74`       |                      | DONE   |
 
 #### Stock Transfer Order
 
@@ -228,8 +238,8 @@ flowchart LR
 | --- | ------------------------------ | ------------ | -------- | ------------ | -------------------- | ------ |
 | 1   | Hermes STO Requirements        | `Half Helix` | `CA`     | `1.77`       | `Outbound Shipments` | DONE   |
 | 2   | SAP Delivery Note Requirements | `Boomi`      | `CA`     | `1.73`       |                      | DONE   |
-| 3   | Create Order Payload           | `CA`         | `Boomi`  | `1.73`       |                      | DONE   |
-| 4   | Create Order API               | `CA`         | `Boomi`  | `1.73`       |                      | DONE   |
+| 3   | Create STO Payload             | `CA`         | `Boomi`  | `1.73`       |                      | DONE   |
+| 4   | Create STO API                 | `CA`         | `Boomi`  | `1.73`       |                      | DONE   |
 
 ## One-way sync for intraday updates from Shopify to ChannelApe for POS locations
 
