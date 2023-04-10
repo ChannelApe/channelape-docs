@@ -82,7 +82,13 @@ Snapshots may take up to 15 minutes to create and filesize may vary by configura
 
 The estimated filesize for 1 location is 3 MB.
 
-e may be ChannelApe will upload an object to the S3 bucket named `inventory-export.json` `30 minutes`.
+The following table shows the current time, location, and filename for each inventory export.
+
+| Time        | Location             | Filename                            |
+| ----------- | -------------------- | ----------------------------------- |
+| 3:00 AM PST | NRI - Available      | nri-available-inventory-export.json |
+| 3:45 AM PST | NRI - Damaged        | nri-damaged-inventory-export.json   |
+| 5:00 AM PST | All Retail Locations | retail-all-inventory-export.json    |
 
 ##### Filters
 
