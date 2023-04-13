@@ -12,6 +12,12 @@ See an example of what ChannelApe sends in our webhooks.
 
 [Webhook Documentation](webhooks/README.md)
 
+## Product Data Imports
+
+See how Product Data attributes like `Unit of Measure` is imported into ChannelApe.
+
+[Product Data Documentation](product-data-imports/README.md)
+
 ## Inventory Exports
 
 [Inventory Exports](inventory-exports/README.md)
