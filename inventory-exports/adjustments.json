@@ -10,7 +10,7 @@
         "Status": "Available to Sell",
         "Adjustment": "-1",
         "Quantity": "8281",
-        "Memo": "NRI Intraday Inventory | Reason: Transfer",
+        "Memo": "Transfer",
         "Adjusted_At": "2023-02-22T15:07:47Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
       },
@@ -24,7 +24,7 @@
         "Status": "Available to Sell",
         "Adjustment": "1",
         "Quantity": "82",
-        "Memo": "NRI Intraday Inventory | Reason: Transfer",
+        "Memo": "Transfer",
         "Adjusted_At": "2023-02-22T15:09:16Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
       },
@@ -38,7 +38,7 @@
         "Status": "Available to Sell",
         "Adjustment": "-1",
         "Quantity": "1234",
-        "Memo": "NRI Intraday Inventory | Reason: Transfer",
+        "Memo": "Transfer",
         "Adjusted_At": "2023-02-22T15:07:47Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
       },
@@ -52,7 +52,7 @@
         "Status": "Available to Sell",
         "Adjustment": "1",
         "Quantity": "1",
-        "Memo": "NRI Intraday Inventory | Reason: Transfer",
+        "Memo": "Transfer",
         "Adjusted_At": "2023-02-22T15:09:16Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
       },
@@ -66,7 +66,7 @@
         "Status": "Available to Sell",
         "Adjustment": "-1",
         "Quantity": "12",
-        "Memo": "NRI Intraday Inventory | Reason: Transfer",
+        "Memo": "Transfer",
         "Adjusted_At": "2023-02-22T17:16:12Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
       },
@@ -80,7 +80,7 @@
         "Status": "Available to Sell",
         "Adjustment": "1",
         "Quantity": "3",
-        "Memo": "NRI Intraday Inventory | Reason: Transfer",
+        "Memo": "Transfer",
         "Adjusted_At": "2023-02-22T17:19:16Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
       },
@@ -94,7 +94,7 @@
         "Status": "Available to Sell",
         "Adjustment": "-1",
         "Quantity": "81",
-        "Memo": "NRI Intraday Inventory | Reason: Damaged",
+        "Memo": "Damaged",
         "Adjusted_At": "2023-02-22T17:45:20Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
       },
@@ -108,7 +108,7 @@
         "Status": "Available to Sell",
         "Adjustment": "-1",
         "Quantity": "80",
-        "Memo": "NRI Intraday Inventory | Reason: Transfer",
+        "Memo": "Transfer",
         "Adjusted_At": "2023-02-22T18:06:00Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
       },
@@ -122,7 +122,7 @@
         "Status": "Available to Sell",
         "Adjustment": "1",
         "Quantity": "8282",
-        "Memo": "NRI Intraday Inventory | Reason: Transfer",
+        "Memo": "Transfer",
         "Adjusted_At": "2023-02-22T18:06:00Z",
         "Adjusted_By": "NRI - Intraday Adjustments"
       },

@@ -412,7 +412,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"businessId\": \"{{business_id}}\",\n  \"adjustments\": [\n    {\n      \"idempotentKey\": \"{{from_adjustmentnumber}}-{{linenumber}}\",\n      \"sku\": \"{{from_itemnumber}}\",\n      \"quantity\": {{from_quantity}},\n      \"operation\": \"ADJUST\",\n      \"locationId\": {{from_location_id}},\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"NRI Intraday Inventory | Reason: {{from_adjustmentreason}}\"\n    },\n    {\n      \"idempotentKey\": \"{{to_adjustmentnumber}}-{{linenumber}}\",\n      \"sku\": \"{{to_itemnumber}}\",\n      \"quantity\": {{to_quantity}},\n      \"operation\": \"ADJUST\",\n      \"locationId\": {{to_location_id}},\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"NRI Intraday Inventory | Reason: {{to_adjustmentreason}}\"\n    }\n  ]\n}"
+							"raw": "{\n  \"businessId\": \"{{business_id}}\",\n  \"adjustments\": [\n    {\n      \"idempotentKey\": \"{{from_adjustmentnumber}}-{{linenumber}}\",\n      \"sku\": \"{{from_itemnumber}}\",\n      \"quantity\": {{from_quantity}},\n      \"operation\": \"ADJUST\",\n      \"locationId\": {{from_location_id}},\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"{{from_adjustmentreason}}\"\n    },\n    {\n      \"idempotentKey\": \"{{to_adjustmentnumber}}-{{linenumber}}\",\n      \"sku\": \"{{to_itemnumber}}\",\n      \"quantity\": {{to_quantity}},\n      \"operation\": \"ADJUST\",\n      \"locationId\": {{to_location_id}},\n      \"inventoryStatus\": \"AVAILABLE_TO_SELL\",\n      \"memo\": \"{{to_adjustmentreason}}\"\n    }\n  ]\n}"
 						},
 						"url": {
 							"raw": "{{api}}/batches",
