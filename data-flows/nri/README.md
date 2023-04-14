@@ -2,6 +2,8 @@
 
 An overview of the interfaces in scope for Project Olympus and Project Hermes with NRI.
 
+We will make use of NRI's Receipt[^1] and ReceiptConfirmation[^1] APIs and the NRI PurchaseOrderPreview[^2] API.
+
 ## Sending Advanced Ship Notice to NRI
 
 ChannelApe will send the ASN Webhook to our MFT instance where the following will occur:
@@ -52,9 +54,16 @@ sequenceDiagram
     participant MFT
     participant NRI
 
-    loop 60 minutes
+    loop 60 minute recipe
+    ChannelApe->>MFT: CALL_PAYLOAD_URL Webhook Supplier Request
+    activate MFT
+    end
+
     MFT->>NRI: GET /api/v1/receiptconfirmation/confirmations
+    deactivate MFT
+    activate NRI
     NRI-->>MFT:Receipt Confirmations
+    deactivate NRI
 
     MFT-->>MFT: Received Carton has SSCC?
     alt Yes
@@ -65,7 +74,6 @@ sequenceDiagram
 
     MFT->>NRI: POST /api/v1/receiptconfirmation/confirmations
     note right of MFT: Acknowledge Receipt Confirmation 
-    end
 ```
 
 ### SSCC in Received Cartons Test
@@ -78,3 +86,6 @@ This can't be done for Cartons without an SSCC because only Shipments with Carto
 
 ChannelApe cannot rely on dates either because NRI only records the Receipt Completion Date, not the start date and the Arrival Date does not indicate start of the receiving process.
 This is done to avoid overinflating inventory.
+
+[^1]: [NRI Receipt and Receipt Confirmation API Documentation](../references/nri-receipt-and-receiptconfirmation-api-documentation.pdf)
+[^2]: [NRI Complete API Documentation](../references/nri-api-documentation-2022-01-17.pdf)
