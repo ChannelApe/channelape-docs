@@ -31,6 +31,7 @@ The secret is never displayed to end users.
 ## Webhooks
 
 1. Stock Transfer Order
+1. Ship Confirmation
 1. Advanced Ship Notice
 1. Receipt Confirmation
 
