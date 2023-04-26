@@ -58,7 +58,7 @@ ChannelApe will send notification to the shipping party using our [Stock Transfe
 #### Order Additional Fields
 
 | Field (Name)                     | Type   | Required | Description                                                                                           |
-| -------------------------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------- | --- |
+| -------------------------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------- |
 | deliver_by_date                  | string | Yes      | ISO-8601 timestamp used in rate arbitrage to find a cost-effective delivery service                   |
 | note_attributes_ship_from        | string | Yes      | The ChannelApe ID for the location shipping the goods                                                 |
 | note_attributes_ship_to          | string | Yes      | The ChannelApe ID for the location that will receive the goods                                        |
@@ -66,7 +66,7 @@ ChannelApe will send notification to the shipping party using our [Stock Transfe
 | sap_source_location              | string | Yes      | The SAP ID for the location shipping the goods                                                        |
 | sap_destination_location         | string | Yes      | The SAP ID for the location that will receive the goods                                               |
 | sap_source_storage_location      | string | Yes      | The SAP ID for the storage location where goods will be shipped from                                  |
-| sap_destination_storage_location | string | Yes      | The SAP ID for the destination storage location                                                       |     |
+| sap_destination_storage_location | string | Yes      | The SAP ID for the destination storage location                                                       |
 | note_attribute_retail_order      | string | Yes      | Set this to "true" when shipping from NRI; when set, NRI follows shipping procedure for retail orders |
 
 #### Line Items
