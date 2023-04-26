@@ -1,0 +1,250 @@
+<?xml version="1.1"?>
+<FSHORD03>
+    <IDOC BEGIN="1">
+        <EDI_DC40 SEGMENT="1">
+            <TABNAM>EDI_DC40</TABNAM>
+            <MANDT>100</MANDT>
+            <DOCNUM>0000000000001002</DOCNUM>
+            <DOCREL>756</DOCREL>
+            <STATUS>30</STATUS>
+            <DIRECT>1</DIRECT>
+            <OUTMOD>2</OUTMOD>
+            <IDOCTYP>FSHORD03</IDOCTYP>
+            <MESTYP>ORDERS</MESTYP>
+            <SNDPOR>SAPQS7</SNDPOR>
+            <SNDPRT>LS</SNDPRT>
+            <SNDPRN>QS7CLNT100</SNDPRN>
+            <RCVPOR>A000000002</RCVPOR>
+            <RCVPRT>LS</RCVPRT>
+            <RCVPRN>BOOMI</RCVPRN>
+            <CREDAT>20230421</CREDAT>
+            <CRETIM>143901</CRETIM>
+            <SERIAL>20230421143900</SERIAL>
+        </EDI_DC40>
+        <E1EDK01 SEGMENT="1">
+            <CURCY>USD</CURCY>
+            <HWAER>USD</HWAER>
+            <WKURS>1.00000</WKURS>
+            <BSART>UB</BSART>
+            <BELNR>4500000023</BELNR>
+            <RECIPNT_NO>0000009000</RECIPNT_NO>
+        </E1EDK01>
+        <E1EDK14 SEGMENT="1">
+            <QUALF>014</QUALF>
+            <ORGID>1000</ORGID>
+        </E1EDK14>
+        <E1EDK14 SEGMENT="1">
+            <QUALF>009</QUALF>
+            <ORGID>100</ORGID>
+        </E1EDK14>
+        <E1EDK14 SEGMENT="1">
+            <QUALF>013</QUALF>
+            <ORGID>UB</ORGID>
+        </E1EDK14>
+        <E1EDK14 SEGMENT="1">
+            <QUALF>011</QUALF>
+            <ORGID>1000</ORGID>
+        </E1EDK14>
+        <E1EDK03 SEGMENT="1">
+            <IDDAT>012</IDDAT>
+            <DATUM>20230421</DATUM>
+        </E1EDK03>
+        <E1EDK03 SEGMENT="1">
+            <IDDAT>011</IDDAT>
+            <DATUM>20230421</DATUM>
+        </E1EDK03>
+        <E1EDKA1 SEGMENT="1">
+            <PARVW>AG</PARVW>
+            <PARTN>1000</PARTN>
+            <BNAME>Footwear</BNAME>
+            <PAORG>1000</PAORG>
+            <ORGTX>Rothy's P.Org US</ORGTX>
+            <PAGRU>100</PAGRU>
+        </E1EDKA1>
+        <E1EDKA1 SEGMENT="1">
+            <PARVW>LF</PARVW>
+            <SPRAS>E</SPRAS>
+            <SPRAS_ISO>EN</SPRAS_ISO>
+        </E1EDKA1>
+        <E1EDKA1 SEGMENT="1">
+            <PARVW>LW</PARVW>
+            <PARTN>0000009000</PARTN>
+        </E1EDKA1>
+        <E1EDKA1 SEGMENT="1">
+            <PARVW>WE</PARVW>
+            <LIFNR>1003</LIFNR>
+            <NAME1>Rothy’s Fillmore</NAME1>
+            <STRAS>2448 Fillmore Street</STRAS>
+            <ORT01>San Francisco</ORT01>
+            <PSTLZ>94115</PSTLZ>
+            <LAND1>US</LAND1>
+            <SPRAS>E</SPRAS>
+            <ANRED>Company</ANRED>
+            <REGIO>CA</REGIO>
+            <SPRAS_ISO>EN</SPRAS_ISO>
+        </E1EDKA1>
+        <E1EDK02 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <BELNR>4500000023</BELNR>
+            <DATUM>20230421</DATUM>
+            <UZEIT>143900</UZEIT>
+        </E1EDK02>
+        <E1EDK02 SEGMENT="1">
+            <QUALF>007</QUALF>
+            <BELNR>10002224</BELNR>
+        </E1EDK02>
+        <E1EDP01 SEGMENT="1">
+            <POSEX>00010</POSEX>
+            <ACTION>001</ACTION>
+            <PSTYP>7</PSTYP>
+            <MENGE>2.000</MENGE>
+            <MENEE>PR</MENEE>
+            <BMNG2>2.000</BMNG2>
+            <PMENE>PR</PMENE>
+            <NTGEW>2</NTGEW>
+            <GEWEI>LBR</GEWEI>
+            <MATKL>102010410</MATKL>
+            <BPUMN>1</BPUMN>
+            <BPUMZ>1</BPUMZ>
+            <BRGEW>2</BRGEW>
+            <WERKS>1003</WERKS>
+            <LGORT>1000</LGORT>
+            <E1EDP20 SEGMENT="1">
+                <WMENG>2.000</WMENG>
+                <AMENG>0.000</AMENG>
+                <EDATU>20230421</EDATU>
+            </E1EDP20>
+            <E1EDP19 SEGMENT="1">
+                <QUALF>001</QUALF>
+                <IDTNR>001_268_CML</IDTNR>
+                <KTEXT>TheFlatCML</KTEXT>
+                <IDTNR_LONG>001_268_CML</IDTNR_LONG>
+            </E1EDP19>
+        </E1EDP01>
+        <E1EDP01 SEGMENT="1">
+            <POSEX>00011</POSEX>
+            <ACTION>001</ACTION>
+            <PSTYP>7</PSTYP>
+            <MENGE>2.000</MENGE>
+            <MENEE>PR</MENEE>
+            <BMNG2>2.000</BMNG2>
+            <PMENE>PR</PMENE>
+            <NTGEW>2</NTGEW>
+            <GEWEI>LBR</GEWEI>
+            <MATKL>102010410</MATKL>
+            <UEPOS>00010</UEPOS>
+            <BPUMN>1</BPUMN>
+            <BPUMZ>1</BPUMZ>
+            <BRGEW>2</BRGEW>
+            <WERKS>1003</WERKS>
+            <LGORT>1000</LGORT>
+            <E1CUREF SEGMENT="1">
+                <POSEX>000011</POSEX>
+                <CONFIG_ID>000001</CONFIG_ID>
+                <INST_ID>00000001</INST_ID>
+            </E1CUREF>
+            <E1EDP20 SEGMENT="1">
+                <WMENG>2.000</WMENG>
+                <AMENG>0.000</AMENG>
+                <EDATU>20230421</EDATU>
+            </E1EDP20>
+            <E1EDP19 SEGMENT="1">
+                <QUALF>001</QUALF>
+                <IDTNR>001_268_CML_9</IDTNR>
+                <KTEXT>TheFlatCML, Size 9</KTEXT>
+                <IDTNR_LONG>001_268_CML_9</IDTNR_LONG>
+            </E1EDP19>
+            <E1EDP19 SEGMENT="1">
+                <QUALF>003</QUALF>
+                <IDTNR>192249169768</IDTNR>
+            </E1EDP19>
+            <E1EDP25 SEGMENT="1">
+                <WRF_CHARSTC2>9</WRF_CHARSTC2>
+                <WRF_CHARSTC2_TXT>Size 9</WRF_CHARSTC2_TXT>
+                <WRF_CHARSTC2_TXT_LONG>Size 9</WRF_CHARSTC2_TXT_LONG>
+            </E1EDP25>
+        </E1EDP01>
+        <E1EDP01 SEGMENT="1">
+            <POSEX>00020</POSEX>
+            <ACTION>001</ACTION>
+            <PSTYP>7</PSTYP>
+            <MENGE>1.000</MENGE>
+            <MENEE>PR</MENEE>
+            <BMNG2>1.000</BMNG2>
+            <PMENE>PR</PMENE>
+            <NTGEW>1</NTGEW>
+            <GEWEI>LBR</GEWEI>
+            <MATKL>102010410</MATKL>
+            <BPUMN>1</BPUMN>
+            <BPUMZ>1</BPUMZ>
+            <BRGEW>1</BRGEW>
+            <WERKS>1003</WERKS>
+            <LGORT>1000</LGORT>
+            <E1CUREF SEGMENT="1">
+                <POSEX>000020</POSEX>
+                <CONFIG_ID>000002</CONFIG_ID>
+                <INST_ID>00000001</INST_ID>
+            </E1CUREF>
+            <E1EDP20 SEGMENT="1">
+                <WMENG>1.000</WMENG>
+                <AMENG>0.000</AMENG>
+                <EDATU>20230421</EDATU>
+            </E1EDP20>
+            <E1EDP19 SEGMENT="1">
+                <QUALF>001</QUALF>
+                <IDTNR>001_289_BSL_11</IDTNR>
+                <KTEXT>TheFlatBSL, Size 11</KTEXT>
+                <IDTNR_LONG>001_289_BSL_11</IDTNR_LONG>
+            </E1EDP19>
+            <E1EDP19 SEGMENT="1">
+                <QUALF>003</QUALF>
+                <IDTNR>192249191332</IDTNR>
+            </E1EDP19>
+            <E1EDP25 SEGMENT="1">
+                <WRF_CHARSTC2>11</WRF_CHARSTC2>
+                <WRF_CHARSTC2_TXT>Size 11</WRF_CHARSTC2_TXT>
+                <WRF_CHARSTC2_TXT_LONG>Size 11</WRF_CHARSTC2_TXT_LONG>
+            </E1EDP25>
+        </E1EDP01>
+        <E1CUCFG SEGMENT="1">
+            <POSEX>000011</POSEX>
+            <CONFIG_ID>000001</CONFIG_ID>
+            <ROOT_ID>00000001</ROOT_ID>
+            <E1CUINS SEGMENT="1">
+                <INST_ID>00000001</INST_ID>
+                <OBJ_TYPE>MARA</OBJ_TYPE>
+                <CLASS_TYPE>300</CLASS_TYPE>
+                <OBJ_KEY>001_268_CML_9</OBJ_KEY>
+                <OBJ_TXT>TheFlatCML, Size 9</OBJ_TXT>
+                <QUANTITY>         2.000</QUANTITY>
+            </E1CUINS>
+            <E1CUVAL SEGMENT="1">
+                <INST_ID>00000001</INST_ID>
+                <CHARC>CP7_WOMENS_5-13_HALF</CHARC>
+                <CHARC_TXT>Footwear-Womens-5-13 W Half</CHARC_TXT>
+                <VALUE>9</VALUE>
+                <VALUE_LONG>9</VALUE_LONG>
+            </E1CUVAL>
+        </E1CUCFG>
+        <E1CUCFG SEGMENT="1">
+            <POSEX>000020</POSEX>
+            <CONFIG_ID>000002</CONFIG_ID>
+            <ROOT_ID>00000001</ROOT_ID>
+            <E1CUINS SEGMENT="1">
+                <INST_ID>00000001</INST_ID>
+                <OBJ_TYPE>MARA</OBJ_TYPE>
+                <CLASS_TYPE>300</CLASS_TYPE>
+                <OBJ_KEY>001_289_BSL_11</OBJ_KEY>
+                <OBJ_TXT>TheFlatBSL, Size 11</OBJ_TXT>
+                <QUANTITY>         1.000</QUANTITY>
+            </E1CUINS>
+            <E1CUVAL SEGMENT="1">
+                <INST_ID>00000001</INST_ID>
+                <CHARC>CP7_WOMENS_5-13_HALF</CHARC>
+                <CHARC_TXT>Footwear-Womens-5-13 W Half</CHARC_TXT>
+                <VALUE>11</VALUE>
+                <VALUE_LONG>11</VALUE_LONG>
+            </E1CUVAL>
+        </E1CUCFG>
+    </IDOC>
+</FSHORD03>

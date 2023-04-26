@@ -1,0 +1,227 @@
+<?xml version="1.1"?>
+<DELVRY03>
+    <IDOC BEGIN="1">
+        <EDI_DC40 SEGMENT="1">
+            <TABNAM>EDI_DC40</TABNAM>
+            <MANDT>100</MANDT>
+            <DOCNUM>0000000000001015</DOCNUM>
+            <DOCREL>756</DOCREL>
+            <STATUS>30</STATUS>
+            <DIRECT>1</DIRECT>
+            <OUTMOD>2</OUTMOD>
+            <IDOCTYP>DELVRY03</IDOCTYP>
+            <MESTYP>DESADV</MESTYP>
+            <MESCOD>ASN</MESCOD>
+            <SNDPOR>SAPQS7</SNDPOR>
+            <SNDPRT>LS</SNDPRT>
+            <SNDPRN>QS7CLNT100</SNDPRN>
+            <RCVPOR>A000000002</RCVPOR>
+            <RCVPRT>LS</RCVPRT>
+            <RCVPRN>BOOMI</RCVPRN>
+            <CREDAT>20230422</CREDAT>
+            <CRETIM>002311</CRETIM>
+            <SERIAL>20230422002311</SERIAL>
+        </EDI_DC40>
+        <E1EDL20 SEGMENT="1">
+            <VBELN>0180000011</VBELN>
+            <VSTEL>9000</VSTEL>
+            <INCO1>EXW</INCO1>
+            <INCO2>CHINA PLANT</INCO2>
+            <BTGEW>200.000</BTGEW>
+            <NTGEW>200.000</NTGEW>
+            <GEWEI>LBR</GEWEI>
+            <VOLUM>56.600</VOLUM>
+            <VOLEH>HLT</VOLEH>
+            <ANZPK>00000</ANZPK>
+            <LIFEX>SO-3200000121</LIFEX>
+            <PODAT>20230421</PODAT>
+            <POTIM>172311</POTIM>
+            <INCO2_L>CHINA PLANT</INCO2_L>
+            <E1EDL22 SEGMENT="1">
+                <VSTEL_BEZ>Shipping Point 9000</VSTEL_BEZ>
+                <INCO1_BEZ>Ex Works</INCO1_BEZ>
+            </E1EDL22>
+            <E1EDL21 SEGMENT="1">
+                <LFART>EL</LFART>
+                <EXPKZ>X</EXPKZ>
+                <LPRIO>00</LPRIO>
+                <E1EDL23 SEGMENT="1">
+                    <LFART_BEZ>Inbound Delivery</LFART_BEZ>
+                </E1EDL23>
+            </E1EDL21>
+            <E1EDL18 SEGMENT="1">
+                <QUALF>ORI</QUALF>
+            </E1EDL18>
+            <E1ADRM1 SEGMENT="1">
+                <PARTNER_Q>LF</PARTNER_Q>
+                <PARTNER_ID>IC2030</PARTNER_ID>
+                <LANGUAGE>EN</LANGUAGE>
+                <FORMOFADDR>Company</FORMOFADDR>
+                <NAME1>IC HK Rothy's</NAME1>
+                <CITY1>Hong Kong</CITY1>
+                <COUNTRY1>HK</COUNTRY1>
+                <REGION>HK</REGION>
+            </E1ADRM1>
+            <E1ADRM1 SEGMENT="1">
+                <PARTNER_Q>OSP</PARTNER_Q>
+                <PARTNER_ID>9000</PARTNER_ID>
+                <LANGUAGE>EN</LANGUAGE>
+                <NAME1>Shipping Point 9000ddress Name 1</NAME1>
+                <CITY1>SFO</CITY1>
+                <E_MAIL>noreply@sap.com</E_MAIL>
+                <COUNTRY1>US</COUNTRY1>
+                <REGION>CA</REGION>
+            </E1ADRM1>
+            <E1EDT13 SEGMENT="1">
+                <QUALF>007</QUALF>
+                <NTANF>20230421</NTANF>
+                <NTANZ>000000</NTANZ>
+                <NTEND>20230421</NTEND>
+                <NTENZ>000000</NTENZ>
+                <TZONE_BEG>PST</TZONE_BEG>
+                <ISDD>00000000</ISDD>
+                <ISDZ>000000</ISDZ>
+                <IEDD>00000000</IEDD>
+                <IEDZ>000000</IEDZ>
+            </E1EDT13>
+            <E1EDT13 SEGMENT="1">
+                <QUALF>015</QUALF>
+                <NTANF>20230421</NTANF>
+                <NTANZ>000000</NTANZ>
+                <NTEND>20230421</NTEND>
+                <NTENZ>000000</NTENZ>
+                <ISDD>00000000</ISDD>
+                <ISDZ>000000</ISDZ>
+                <IEDD>00000000</IEDD>
+                <IEDZ>000000</IEDZ>
+            </E1EDT13>
+            <E1EDL33 SEGMENT="1">
+                <ALAND>US</ALAND>
+            </E1EDL33>
+            <E1EDL24 SEGMENT="1">
+                <POSNR>000010</POSNR>
+                <MATNR>002_110_BLK_5</MATNR>
+                <ARKTX>ThePointBLK, Size 5</ARKTX>
+                <MATKL>102010430</MATKL>
+                <WERKS>9000</WERKS>
+                <LGORT>1000</LGORT>
+                <LFIMG>100.000</LFIMG>
+                <VRKME>PR</VRKME>
+                <LGMNG>100.000</LGMNG>
+                <MEINS>PR</MEINS>
+                <NTGEW>100.000</NTGEW>
+                <BRGEW>100.000</BRGEW>
+                <GEWEI>LBR</GEWEI>
+                <VOLUM>28.300</VOLUM>
+                <VOLEH>HLT</VOLEH>
+                <LADGR>0001</LADGR>
+                <GRKOR>000</GRKOR>
+                <EAN11>815436028746</EAN11>
+                <POSEX>000000</POSEX>
+                <VFDAT>00000000</VFDAT>
+                <EXPIRY_DATE_EXT>0</EXPIRY_DATE_EXT>
+                <VGBEL>4600000039</VGBEL>
+                <VGPOS>000011</VGPOS>
+                <ORMNG>       100.000</ORMNG>
+                <EXPIRY_DATE_EXT_B>0</EXPIRY_DATE_EXT_B>
+                <E1EDL25 SEGMENT="1">
+                    <LGORT_BEZ>FG Materials</LGORT_BEZ>
+                    <LADGR_BEZ>Crane</LADGR_BEZ>
+                </E1EDL25>
+                <E1EDL26 SEGMENT="1">
+                    <PSTYV>ELN</PSTYV>
+                    <MATKL>102010430</MATKL>
+                    <UMVKZ>1</UMVKZ>
+                    <UMVKN>1</UMVKN>
+                    <UEBTO>0.0</UEBTO>
+                    <UNTTO>0.0</UNTTO>
+                    <MATNR_LONG>002_110_BLK_5</MATNR_LONG>
+                    <E1EDL27 SEGMENT="1">
+                        <PSTYV_BEZ>Inbound Delivery</PSTYV_BEZ>
+                        <MATKL_BEZ>W_FW_FLT_Pointe</MATKL_BEZ>
+                        <WERKS_BEZ>Rothy’s NRI WH</WERKS_BEZ>
+                    </E1EDL27>
+                </E1EDL26>
+                <E1EDL35 SEGMENT="1">
+                    <HERKL>CN</HERKL>
+                    <HERKR>190</HERKR>
+                </E1EDL35>
+                <E1EDL43 SEGMENT="1">
+                    <QUALF>V</QUALF>
+                    <BELNR>4600000039</BELNR>
+                    <POSNR>000011</POSNR>
+                </E1EDL43>
+                <E1EDL12 SEGMENT="1">
+                    <ATINN>0000000809</ATINN>
+                    <ATNAM>CP7_WOMENS_5-13_HALF</ATNAM>
+                    <ATBEZ>Footwear-Womens-5-13 W Half</ATBEZ>
+                    <ATWRT>5</ATWRT>
+                    <EWAHR>0</EWAHR>
+                    <ATWRT_LONG>5</ATWRT_LONG>
+                </E1EDL12>
+            </E1EDL24>
+            <E1EDL24 SEGMENT="1">
+                <POSNR>000020</POSNR>
+                <MATNR>002_110_BLK_6</MATNR>
+                <ARKTX>ThePointBLK, Size 6</ARKTX>
+                <MATKL>102010430</MATKL>
+                <WERKS>9000</WERKS>
+                <LGORT>1000</LGORT>
+                <LFIMG>100.000</LFIMG>
+                <VRKME>PR</VRKME>
+                <LGMNG>100.000</LGMNG>
+                <MEINS>PR</MEINS>
+                <NTGEW>100.000</NTGEW>
+                <BRGEW>100.000</BRGEW>
+                <GEWEI>LBR</GEWEI>
+                <VOLUM>28.300</VOLUM>
+                <VOLEH>HLT</VOLEH>
+                <LADGR>0001</LADGR>
+                <GRKOR>000</GRKOR>
+                <EAN11>815436022867</EAN11>
+                <POSEX>000000</POSEX>
+                <VFDAT>00000000</VFDAT>
+                <EXPIRY_DATE_EXT>0</EXPIRY_DATE_EXT>
+                <VGBEL>4600000039</VGBEL>
+                <VGPOS>000012</VGPOS>
+                <ORMNG>       100.000</ORMNG>
+                <EXPIRY_DATE_EXT_B>0</EXPIRY_DATE_EXT_B>
+                <E1EDL25 SEGMENT="1">
+                    <LGORT_BEZ>FG Materials</LGORT_BEZ>
+                    <LADGR_BEZ>Crane</LADGR_BEZ>
+                </E1EDL25>
+                <E1EDL26 SEGMENT="1">
+                    <PSTYV>ELN</PSTYV>
+                    <MATKL>102010430</MATKL>
+                    <UMVKZ>1</UMVKZ>
+                    <UMVKN>1</UMVKN>
+                    <UEBTO>0.0</UEBTO>
+                    <UNTTO>0.0</UNTTO>
+                    <MATNR_LONG>002_110_BLK_6</MATNR_LONG>
+                    <E1EDL27 SEGMENT="1">
+                        <PSTYV_BEZ>Inbound Delivery</PSTYV_BEZ>
+                        <MATKL_BEZ>W_FW_FLT_Pointe</MATKL_BEZ>
+                        <WERKS_BEZ>Rothy’s NRI WH</WERKS_BEZ>
+                    </E1EDL27>
+                </E1EDL26>
+                <E1EDL35 SEGMENT="1">
+                    <HERKL>CN</HERKL>
+                    <HERKR>190</HERKR>
+                </E1EDL35>
+                <E1EDL43 SEGMENT="1">
+                    <QUALF>V</QUALF>
+                    <BELNR>4600000039</BELNR>
+                    <POSNR>000012</POSNR>
+                </E1EDL43>
+                <E1EDL12 SEGMENT="1">
+                    <ATINN>0000000809</ATINN>
+                    <ATNAM>CP7_WOMENS_5-13_HALF</ATNAM>
+                    <ATBEZ>Footwear-Womens-5-13 W Half</ATBEZ>
+                    <ATWRT>6</ATWRT>
+                    <EWAHR>0</EWAHR>
+                    <ATWRT_LONG>6</ATWRT_LONG>
+                </E1EDL12>
+            </E1EDL24>
+        </E1EDL20>
+    </IDOC>
+</DELVRY03>

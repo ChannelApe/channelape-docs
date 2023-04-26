@@ -373,14 +373,6 @@ Notes
   },
   "additionalFields": [
     {
-      "name": "VendorPartyInternalID",
-      "value": "1018"
-    },
-    {
-      "name": "SenderPartyInternalID",
-      "value": "123456789"
-    },
-    {
       "name": "RecipientPartyInternalID",
       "value": "1234567890123"
     },
@@ -391,6 +383,10 @@ Notes
     {
       "name": "ArrivalDateTimePeriod",
       "value": "2022-02-13T19:00:00Z"
+    },
+    {
+      "name": "note_attributes_ship_from",
+      "value": "819"
     },
     {
       "name": "note_attributes_ship_from",
@@ -520,244 +516,74 @@ Notes
 
 ```json
 {
-  "businessId": "ec5fcd55-c275-4843-9641-d0fd44b9f173",
-  "channelId": "eacc87ed-1e37-4883-bc53-935b032bf4b0",
-  "channelOrderId": "R_2935999",
-  "purchaseOrderNumber": "R_2935999",
-  "status": "UNRECEIVED",
-  "purchasedAt": "2023-02-13T15:45:11.361Z",
-  "alphabeticCurrencyCode": "USD",
-  "customer": {
-    "additionalFields": [
-      {
-        "name": "anything",
-        "value": "you add here will be passed through"
-      }
-    ],
-    "shippingAddress": {
-      "additionalFields": [],
-      "address1": "181 Columbus Ave.",
-      "city": "New York",
-      "countryCode": "US",
-      "name": "Rothy's 181 Columbus",
-      "postalCode": "10023",
-      "province": "New York",
-      "provinceCode": "NY"
-    }
-  },
-  "additionalFields": [
-    {
-      "name": "VendorPartyInternalID",
-      "value": "1018"
-    },
-    {
-      "name": "SenderPartyInternalID",
-      "value": "123456789"
-    },
-    {
-      "name": "RecipientPartyInternalID",
-      "value": "1234567890123"
-    },
-    {
-      "name": "ShippingDateTimePeriod",
-      "value": "2023-02-13T19:00:00Z"
-    },
-    {
-      "name": "ArrivalDateTimePeriod",
-      "value": "2022-02-13T19:00:00Z"
-    },
-    {
-      "name": "note_attributes_ship_from",
-      "value": "819"
-    },
-    {
-      "name": "shipping_lines_title",
-      "value": "VENDOR"
-    },
-    {
-      "name": "note_attribute_retail_order",
-      "value": "true"
-    }
-  ],
-  "lineItems": [
-    {
-      "additionalFields": [
-        {
-          "name": "DeliveryQuantityTypeCode",
-          "value": "EA"
-        },
-        {
-          "name": "HTSCode",
-          "value": "4202.92.3131"
-        },
-        {
-          "name": "CountryOfOrigin",
-          "value": "CN"
-        },
-        {
-          "name": "StockTransferOrderReferenceID",
-          "value": "2936000"
-        },
-        {
-          "name": "StockTransferOrderReferenceTypeCode",
-          "value": "814"
-        },
-        {
-          "name": "StockTransferOrderReferenceItemID",
-          "value": "1"
-        },
-        {
-          "name": "StockTransferOrderReferenceItemTypeCode",
-          "value": "74"
-        },
-        {
-          "name": "fulfillable_quantity",
-          "value": "4"
-        },
-        {
-          "name": "Z_PurchaseOrder_ODR",
-          "value": "R_2935999-02"
-        },
-        {
-          "name": "OutboundDeliveryExecution.ID",
-          "value": "5194651"
-        },
-        {
-          "name": "Item.ID",
-          "value": "1"
-        }
-      ],
-      "id": "1",
-      "quantity": 4,
-      "sku": "125_001_BBPLD_OS",
-      "taxes": []
-    },
-    {
-      "additionalFields": [
-        {
-          "name": "DeliveryQuantityTypeCode",
-          "value": "PR"
-        },
-        {
-          "name": "HTSCode",
-          "value": "6404.19.3760"
-        },
-        {
-          "name": "CountryOfOrigin",
-          "value": "CN"
-        },
-        {
-          "name": "StockTransferOrderReferenceID",
-          "value": "2935999"
-        },
-        {
-          "name": "StockTransferOrderReferenceTypeCode",
-          "value": "814"
-        },
-        {
-          "name": "StockTransferOrderReferenceItemID",
-          "value": "2"
-        },
-        {
-          "name": "StockTransferOrderReferenceItemTypeCode",
-          "value": "74"
-        },
-        {
-          "name": "fulfillable_quantity",
-          "value": "4"
-        },
-        {
-          "name": "Z_PurchaseOrder_ODR",
-          "value": "R_2935999-01"
-        },
-        {
-          "name": "OutboundDeliveryExecution.ID",
-          "value": "5194550"
-        },
-        {
-          "name": "Item.ID",
-          "value": "2"
-        }
-      ],
-      "id": "2",
-      "quantity": 4,
-      "sku": "117_001_GGY_7",
-      "taxes": []
-    }
-  ],
+  "purchaseOrderNumber": "4600000039",
   "fulfillments": [
     {
-      "id": "208924061",
+      "id": "0180000011",
+      "status": "SHIPPED",
+      "shippingCompany": "FEDEX",
+      "shippingMethod": "GROUND",
+      "trackingNumber": "208924061",
       "additionalFields": [
         {
-          "name": "shipment_id",
-          "value": "208924061"
+          "name": "CartonNumber",
+          "value": "1"
         },
         {
-          "name": "warehouse_order_id",
-          "value": "R_2935999"
+          "name": "TotalOrderCartons",
+          "value": "5"
+        },
+        {
+          "name": "LicensePlate",
+          "value": "0386149425"
         },
         {
           "name": "Sscc",
           "value": "00001922492001525086"
         },
         {
-          "name": "ShipmentNumber",
-          "value": "20892406"
+          "name": "EstimatedArrivalDate",
+          "value": "2023-04-08T00:00:00.000Z"
         },
         {
-          "name": "CartonNumber",
-          "value": "1"
+          "name": "sap_purchase_order_number",
+          "value": "4600000039",
         },
         {
-          "name": "Length",
-          "value": "24"
-        },
-        {
-          "name": "Width",
-          "value": "14"
-        },
-        {
-          "name": "Height",
-          "value": "14"
-        },
-        {
-          "name": "Weight",
-          "value": "18.38"
-        },
-        {
-          "name": "TotalOrderWeight",
-          "value": "18.38"
-        },
-        {
-          "name": "TotalOrderCartons",
-          "value": "1"
-        },
-        {
-          "name": "ClientTotalFreightCharge",
-          "value": "140.00"
-        },
-        {
-          "name": "TotalOrderCubeVolume",
-          "value": "2.54"
+          "name": "sap_handling_unit_number",
+          "value": "4600000039001"
         }
       ],
-      "locationId": "309",
-      "shippingCompany": "FEDEX",
-      "shippingMethod": "GROUND",
-      "trackingNumber": "1234123412341234",
-      "shippedAt": "2023-03-01T17:30:00Z",
-      "status": "SHIPPED",
       "lineItems": [
         {
-          "additionalFields": [],
-          "quantity": 4,
-          "sku": "125_001_BBPLD_OS"
+          "additionalFields": [
+            {
+              "name": "sap_unit_of_measure",
+              "value": "PR"
+            },
+            {
+              "name": "sap_line_number_reference",
+              "value": "000011"
+            }
+          ],
+          "id": "000010",
+          "quantity": 100,
+          "sku": "002_110_BLK_5"
         },
         {
-          "additionalFields": [],
-          "quantity": 4,
-          "sku": "117_001_GGY_7"
+          "additionalFields": [
+            {
+              "name": "sap_unit_of_measure",
+              "value": "PR"
+            },
+            {
+              "name": "sap_line_number_reference",
+              "value": "000012"
+            }
+          ],
+          "id": "000020",
+          "quantity": 100,
+          "sku": "002_110_BLK_6"
         }
       ]
     }
