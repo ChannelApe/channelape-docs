@@ -2,90 +2,14 @@
 
 An overview of the interfaces in scope for Project Olympus and Project Hermes with NRI.
 
-We will make use of NRI's Receipt[^1] and ReceiptConfirmation[^1] APIs and the NRI PurchaseOrderPreview[^2] API.
+For ASNs, ChannelApe will make use of NRI's Receipt Preview[^1] and Purchase Order Preview APIs[^2].
 
-## Sending Advanced Ship Notice to NRI
+The Receipt Confirmation API[^1] will be used to confirm receipts.
 
-ChannelApe will send the ASN Webhook to our MFT instance where the following will occur:
-1. Choose the NRI API
-1. Mapping to NRI's spec
+## Architecture
+[Advanced Ship Notice](asn/README.md)
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant ChannelApe
-    participant MFT
-    participant NRI
-
-    ChannelApe->>MFT: ASN Webhook
-    MFT-->>MFT: Does ASN have Carton Details?
-
-    alt Yes
-    MFT->>NRI: POST /api/v1/receiptpreview/receipts
-    note left of NRI: Receipt Preview
-    else No
-    MFT->>NRI: POST /api/v1/purchaseorderpreview/purchaseorders
-    note left of NRI: Purchase Order Preview
-    end
-```
-
-### ASN Carton Details Test
-
-An ASN has Carton Details if a value is found in the `SSCC` field in the payload.
-
-```mermaid
-flowchart LR
-    start[/ASN Webhook Payload/] --> inspection[[Inspect Payload]]
-    inspection --> decision{Is there a value for SSCC?}
-    decision --> |No| nripo([NRI Purchase Order Preview])
-    decision --> |Yes| nrir([NRI Receipt Preview])
-```
-
-## Receipt Confirmation
-
-NRI publishes Receipt Confirmations to their API where they will remain available to API consumers until acknowledged.
-
-ChannelApe will poll this API every 60 minutes to ingest and acknowledge new Receipt Confirmations.
-
-```mermaid
-sequenceDiagram
-    autonumber
-    participant ChannelApe
-    participant MFT
-    participant NRI
-
-    loop 60 minute recipe
-    ChannelApe->>MFT: CALL_PAYLOAD_URL Webhook Supplier Request
-    activate MFT
-    end
-
-    MFT->>NRI: GET /api/v1/receiptconfirmation/confirmations
-    deactivate MFT
-    activate NRI
-    NRI-->>MFT:Receipt Confirmations
-    deactivate NRI
-
-    MFT-->>MFT: Received Carton has SSCC?
-    alt Yes
-        MFT->>ChannelApe: Update inventory
-    end
-
-    MFT->>ChannelApe: Create Receipt
-
-    MFT->>NRI: POST /api/v1/receiptconfirmation/confirmations
-    note right of MFT: Acknowledge Receipt Confirmation 
-```
-
-### SSCC in Received Cartons Test
-
-The Received Carton has an SSCC if the value in `ReceiptCartons[n].Sscc` of the ReceiptConfirmation is not blank.
-
-### Inventory
-Inventory will become immediately available upon ingestion if the Cartons Received have an SSCC.
-This can't be done for Cartons without an SSCC because only Shipments with Carton Level Details communicated using the Receipt Preview API are instantly received in NRI's system, and the SSCC is the indicator.
-
-ChannelApe cannot rely on dates either because NRI only records the Receipt Completion Date, not the start date and the Arrival Date does not indicate start of the receiving process.
-This is done to avoid overinflating inventory.
+[Receipt Confirmation](receipt/README.md)
 
 [^1]: [NRI Receipt and Receipt Confirmation API Documentation](../references/nri-receipt-and-receiptconfirmation-api-documentation.pdf)
 [^2]: [NRI Complete API Documentation](../references/nri-api-documentation-2022-01-17.pdf)
