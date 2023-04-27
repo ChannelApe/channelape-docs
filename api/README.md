@@ -110,7 +110,6 @@ Notes
       "countryCode": "US",
       "name": "Rothy's 181 Columbus",
       "postalCode": "10023",
-      "province": "New York",
       "provinceCode": "NY"
     }
   },
@@ -324,7 +323,6 @@ Notes
       "countryCode": "US",
       "name": "Rothy's 181 Columbus",
       "postalCode": "10023",
-      "province": "New York",
       "provinceCode": "NY"
     }
   },
