@@ -317,6 +317,17 @@ Notes
 ```json
 {
   "purchaseOrderNumber": "4600000039",
+  "customer": {
+    "shippingAddress": {
+      "address1": "181 Columbus Ave.",
+      "city": "New York",
+      "countryCode": "US",
+      "name": "Rothy's 181 Columbus",
+      "postalCode": "10023",
+      "province": "New York",
+      "provinceCode": "NY"
+    }
+  },
   "fulfillments": [
     {
       "id": "208924061",
@@ -360,6 +371,10 @@ Notes
         {
           "name": "sap_handling_unit_number",
           "value": "4600000039001"
+        },
+        {
+          "name": "country_of_origin",
+          "value": "HK"
         }
       ],
       "lineItems": [
@@ -370,11 +385,11 @@ Notes
               "value": "PR"
             },
             {
-              "name": "sap_line_number_reference",
-              "value": "000011"
+              "name": "sap_asn_line_number",
+              "value": "000010"
             }
           ],
-          "id": "000010",
+          "id": "000011",
           "quantity": 100,
           "sku": "002_110_BLK_5"
         },
@@ -385,11 +400,11 @@ Notes
               "value": "PR"
             },
             {
-              "name": "sap_line_number_reference",
-              "value": "000012"
+              "name": "sap_asn_line_number",
+              "value": "000020"
             }
           ],
-          "id": "000020",
+          "id": "000012",
           "quantity": 100,
           "sku": "002_110_BLK_6"
         }
