@@ -43,65 +43,60 @@ ChannelApe's Order Management System sends this to the party responsible for ful
 
 Stock Transfer Orders are evaluated in batches by ChannelApe's Order Management System every `15 minutes`.
 
-<details>
-
-<summary>Store to Warehouse Example</summary>
-
-In this example, the store at Fillmore is asked to ship 10 units of 001_100_BLK_10 and 001_112_BLK_10.5 to NRI.
+#### Example Payload
 
 ```json
 {
-  "purchaseOrderNumber": "STO100",
-  "warehouseOrderId": "STO100",
-  "channelOrderId": "123456789",
-  "purchasedAt": "2023-04-06T00:00:00.000Z",
+  "purchaseOrderNumber": "4600000039",
+  "warehouseOrderId": "4600000039",
+  "channelOrderId": "STO4600000039",
+  "purchasedAt": "2023-04-01T00:00:00.000Z",
   "shippingCompany": "FEDEX",
   "shippingMethod": "GROUND",
-  "locationId": "309",
-  "warehouseCode": "FILLMORE",
+  "locationId": "969",
+  "warehouseCode": "COLUMBUS",
   "warehouseCompany": "Rothys",
-  "warehouseName": "Fillmore Store",
-  "warehouseId": "50645237922",
-  "warehouseZipcode": "94115",
+  "warehouseName": "POS 181 Columbus",
+  "warehouseId": "67740827810",
+  "warehouseZipcode": "10023",
   "status": "OPEN",
   "additionalFields": {
-    "ShipByDate": "2023-04-08T00:00:00.000Z",
-    "PARTN": "1003",
-    "LIFNR": "1000",
-    "note_attributes_ship_from": "309",
-    "WERKS": "9000",
-    "LGORT": "1000",
-    "note_attributes_ship_to": "819",
+    "deliver_by_date": "2023-04-08T00:00:00.000Z",
+    "note_attributes_ship_from": "819",
+    "note_attributes_ship_to": "969",
     "shipping_lines_title": "VENDOR",
-    "warehouse_order_id": "10000"
+    "sap_source_location": "1111",
+    "sap_destination_location": "2222",
+    "sap_source_storage_location": "1111",
+    "sap_destination_storage_location": "2222",
+    "note_attribute_retail_order": "true"
   },
   "customer": {
     "shippingAddress": {
-      "name": "NRI - FG Materials",
-      "address1": "1950 S. Vintage Avenue",
-      "city": "Ontario",
-      "postalCode": "91761",
-      "province": "California",
-      "provinceCode": "CA",
-      "countryCode": "US"
+      "address1": "181 Columbus Ave.",
+      "city": "New York",
+      "countryCode": "US",
+      "name": "Rothy's 181 Columbus",
+      "postalCode": "10023",
+      "provinceCode": "NY"
     }
   },
   "lineItems": [
     {
       "additionalFields": {
-        "UnitOfMeasure": "PR"
+        "sap_unit_of_measure": "PR"
       },
-      "id": "1",
-      "quantity": 10,
-      "sku": "001_100_BLK_10"
+      "id": "000011",
+      "quantity": 100,
+      "sku": "002_110_BLK_5"
     },
     {
       "additionalFields": {
-        "UnitOfMeasure": "PR"
+        "sap_unit_of_measure": "PR"
       },
-      "id": "2",
-      "quantity": 10,
-      "sku": "001_112_BLK_10.5"
+      "id": "000012",
+      "quantity": 100,
+      "sku": "002_110_BLK_6"
     }
   ]
 }
@@ -171,11 +166,119 @@ The destination for the Stock Transfer Order provided by SAP.
 | ------------- | ------------------------------------------------- |
 | UnitOfMeasure | Used by Boomi to reference SAP's Unit of Measure. |
 
-</details>
+### Ship Confirmation
+
+This webhook is sent to the party who created the Stock Transfer or Purchase Order to confirm its shipment.
+
+#### Example Payload
+
+```json
+{
+  "id": "208924061",
+  "shippedAt": "2023-04-01T15:35:00.000Z",
+  "status": "SHIPPED",
+  "purchaseOrderNumber": "4600000039",
+  "warehouseOrderId": "4600000039",
+  "channelOrderId": "STO4600000039",
+  "purchasedAt": "2023-04-01T00:00:00.000Z",
+  "locationId": "819",
+  "shippingCompany": "FEDEX",
+  "shippingMethod": "GROUND",
+  "trackingNumber": "123456789012345",
+  "additionalFields": {
+    "deliver_by_date": "2023-04-08T00:00:00.000Z",
+    "note_attributes_ship_from": "819",
+    "note_attributes_ship_to": "969",
+    "shipping_lines_title": "VENDOR",
+    "sap_source_location": "1111",
+    "sap_destination_location": "2222",
+    "sap_source_storage_location": "1111",
+    "sap_destination_storage_location": "2222",
+    "note_attribute_retail_order": "true",
+    "warehouse_order_id": "4600000039",
+    "CartonNumber": "1",
+    "TotalOrderCartons": "5",
+    "LicensePlate": "0386149425",
+    "Sscc": "00001922492001525086",
+    "EstimatedArrivalDate": "2023-04-08T00:00:00.000Z"
+  },
+  "lineItems": [
+    {
+      "additionalFields": {
+        "sap_unit_of_measure": "PR"
+      },
+      "id": "000011",
+      "quantity": 100,
+      "sku": "002_110_BLK_5"
+    },
+    {
+      "additionalFields": {
+        "sap_unit_of_measure": "PR"
+      },
+      "id": "000012",
+      "quantity": 100,
+      "sku": "002_110_BLK_6"
+    }
+  ]
+}
+```
 
 ### Advanced Ship Notice
 
 This webhook is intended for the party that will receive the shipment when an Advanced Ship Notice is created.
+
+#### Example Payload
+
+```json
+{
+  "id": "208924061",
+  "shippedAt": "2023-04-01T15:35:00.000Z",
+  "status": "SHIPPED",
+  "purchaseOrderNumber": "4600000039",
+  "warehouseOrderId": "4600000039",
+  "channelOrderId": "STO4600000039",
+  "purchasedAt": "2023-04-01T00:00:00.000Z",
+  "locationId": "819",
+  "shippingCompany": "FEDEX",
+  "shippingMethod": "GROUND",
+  "trackingNumber": "123456789012345",
+  "additionalFields": {
+    "deliver_by_date": "2023-04-08T00:00:00.000Z",
+    "note_attributes_ship_from": "819",
+    "note_attributes_ship_to": "969",
+    "shipping_lines_title": "VENDOR",
+    "sap_source_location": "1111",
+    "sap_destination_location": "2222",
+    "sap_source_storage_location": "1111",
+    "sap_destination_storage_location": "2222",
+    "note_attribute_retail_order": "true",
+    "warehouse_order_id": "4600000039",
+    "CartonNumber": "1",
+    "TotalOrderCartons": "5",
+    "LicensePlate": "0386149425",
+    "Sscc": "00001922492001525086",
+    "EstimatedArrivalDate": "2023-04-08T00:00:00.000Z"
+  },
+  "lineItems": [
+    {
+      "additionalFields": {
+        "sap_unit_of_measure": "PR"
+      },
+      "id": "000011",
+      "quantity": 100,
+      "sku": "002_110_BLK_5"
+    },
+    {
+      "additionalFields": {
+        "sap_unit_of_measure": "PR"
+      },
+      "id": "000012",
+      "quantity": 100,
+      "sku": "002_110_BLK_6"
+    }
+  ]
+}
+```
 
 #### Timing
 
@@ -300,94 +403,65 @@ Multiple partial receipts will result in multiple Receipt Confirmations.
 
 ```json
 {
-  "purchaseOrderNumber": "R_2935999",
-  "warehouseOrderId": "R_2935999",
-  "channelOrderId": "R_2935999",
-  "purchasedAt": "2023-02-13T19:00:00.000Z",
+  "id": "208924061",
+  "shippedAt": "2023-04-01T15:35:00.000Z",
+  "status": "RECEIVED",
+  "purchaseOrderNumber": "4600000039",
+  "warehouseOrderId": "4600000039",
+  "channelOrderId": "STO4600000039",
+  "purchasedAt": "2023-04-01T00:00:00.000Z",
+  "locationId": "819",
   "shippingCompany": "FEDEX",
   "shippingMethod": "GROUND",
-  "locationId": "819",
-  "warehouseCode": "LK",
-  "warehouseCompany": "NRI",
-  "warehouseName": "NRI - Available",
-  "warehouseId": "LK",
-  "warehouseZipcode": "91761",
-  "trackingNumber": "208924061",
-  "status": "OPEN",
+  "trackingNumber": "123456789012345",
   "additionalFields": {
-    "VendorPartyInternalID": "1018",
-    "SenderPartyInternalID": "123456789",
-    "RecipientPartyInternalID": "1234567890123",
-    "ShippingDateTimePeriod": "2023-02-13T19:00:00Z",
-    "ArrivalDateTimePeriod": "2023-02-13T19:00:00Z",
+    "deliver_by_date": "2023-04-08T00:00:00.000Z",
     "note_attributes_ship_from": "819",
+    "note_attributes_ship_to": "969",
     "shipping_lines_title": "VENDOR",
+    "sap_source_location": "1111",
+    "sap_destination_location": "2222",
+    "sap_source_storage_location": "1111",
+    "sap_destination_storage_location": "2222",
     "note_attribute_retail_order": "true",
-    "shipment_id": "208924061",
-    "warehouse_order_id": "R_2935999",
-    "Sscc": "00001922492001525086",
-    "ShipmentNumber": "20892406",
-    "LicensePlate": "0386149425",
+    "warehouse_order_id": "4600000039",
     "CartonNumber": "1",
-    "Length": "24",
-    "Width": "14",
-    "Height": "14",
-    "Weight": "18.38",
-    "TotalOrderWeight": "18.38",
-    "TotalOrderCartons": "1",
-    "ClientTotalFreightCharge": "140.00",
-    "TotalOrderCubeVolume": "2.54"
-  },
-  "customer": {
-    "additionalFields": [],
-    "shippingAddress": {
-      "name": "Upper West Side (NY)",
-      "address1": "181 Columbus Ave",
-      "city": "New York",
-      "postalCode": "10023",
-      "province": "New York",
-      "provinceCode": "NY",
-      "countryCode": "US"
-    }
+    "TotalOrderCartons": "5",
+    "LicensePlate": "0386149425",
+    "Sscc": "00001922492001525086",
+    "EstimatedArrivalDate": "2023-04-08T00:00:00.000Z",
+    "sap_purchase_order_number": "4600000039",
+    "sap_asn_number": "0180000011",
+    "sap_handling_unit_number": "4600000039001",
+    "country_of_origin": "HK",
+    "receipt_id": "27d7b5b5-5451-470e-98cd-374100ba8dc4",
+    "actual_arrival_date": "2023-04-25T19:09:11.127",
+    "actual_received_date": "2023-04-25T19:18:10.143"
   },
   "lineItems": [
     {
       "additionalFields": {
-        "DeliveryQuantityTypeCode": "EA",
-        "HTSCode": "4202.92.3131",
-        "CountryOfOrigin": "CN",
-        "StockTransferOrderReferenceID": "2935999",
-        "StockTransferOrderReferenceTypeCode": "814",
-        "StockTransferOrderReferenceItemID": "1",
-        "StockTransferOrderReferenceItemTypeCode": "74",
-        "fulfillable_quantity": "4",
-        "Z_PurchaseOrder_ODR": "R_2935999-01",
-        "OutboundDeliveryExecution.ID": "5194550",
-        "Item.ID": "1"
+        "sap_unit_of_measure": "PR",
+        "sap_asn_line_number": "000010",
+        "damaged_qty": "0",
+        "variance": "0",
+        "received_qty": "100"
       },
-      "id": "1",
-      "quantity": 4,
-      "sku": "125_001_BBPLD_OS",
-      "taxes": []
+      "id": "000011",
+      "quantity": 100,
+      "sku": "002_110_BLK_5"
     },
     {
       "additionalFields": {
-        "DeliveryQuantityTypeCode": "PR",
-        "HTSCode": "6404.19.3760",
-        "CountryOfOrigin": "CN",
-        "StockTransferOrderReferenceID": "2935999",
-        "StockTransferOrderReferenceTypeCode": "814",
-        "StockTransferOrderReferenceItemID": "2",
-        "StockTransferOrderReferenceItemTypeCode": "74",
-        "fulfillable_quantity": "4",
-        "Z_PurchaseOrder_ODR": "R_2935999-01",
-        "OutboundDeliveryExecution.ID": "5194550",
-        "Item.ID": "2"
+        "sap_unit_of_measure": "PR",
+        "sap_asn_line_number": "00020",
+        "damaged_qty": "0",
+        "variance": "0",
+        "received_qty": "100"
       },
-      "id": "2",
-      "quantity": 4,
-      "sku": "117_001_GGY_7",
-      "taxes": []
+      "id": "000012",
+      "quantity": 100,
+      "sku": "002_110_BLK_6"
     }
   ]
 }
