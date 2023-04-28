@@ -411,3 +411,76 @@ Notes
   ]
 }
 ```
+
+# Confirm Receipt
+
+| Method | Endpoint                                                                                        |
+| ------ | ----------------------------------------------------------------------------------------------- |
+| POST   | https://edi-300.channelapeservices.com/web/connector/stock-transfer-orders/receipts/webhook.rsb |
+
+### Example Request
+
+```json
+{
+  "locationId": "969",
+  "status": "RECEIVED",
+  "additionalFields": [
+    {
+      "name": "warehouse_order_id",
+      "value": "4600000039"
+    },
+    {
+      "name": "actual_arrival_date",
+      "value": "2023-04-25T19:09:11.127"
+    },
+    {
+      "name": "actual_received_date",
+      "value": "2023-04-25T19:18:10.143"
+    },
+    {
+      "name": "receipt_id",
+      "value": "27d7b5b5-5451-470e-98cd-374100ba8dc4"
+    }
+  ],
+  "lineItems": [
+    {
+      "additionalFields": [
+        {
+          "name": "damaged_qty",
+          "value": "0"
+        },
+        {
+          "name": "variance",
+          "value": "0"
+        },
+        {
+          "name": "received_qty",
+          "value": "100"
+        }
+      ],
+      "id": "000011",
+      "quantity": 100,
+      "sku": "002_110_BLK_5"
+    },
+    {
+      "additionalFields": [
+        {
+          "name": "damaged_qty",
+          "value": "0"
+        },
+        {
+          "name": "variance",
+          "value": "0"
+        },
+        {
+          "name": "received_qty",
+          "value": "100"
+        }
+      ],
+      "id": "000012",
+      "quantity": 100,
+      "sku": "002_110_BLK_6"
+    }
+  ]
+}
+```
