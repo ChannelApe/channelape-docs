@@ -61,6 +61,7 @@ Stock Transfer Orders are evaluated in batches by ChannelApe's Order Management 
   "warehouseZipcode": "10023",
   "status": "OPEN",
   "additionalFields": {
+    "ship_by_date": "2023-04-08T00:00:00.000Z",
     "deliver_by_date": "2023-04-08T00:00:00.000Z",
     "note_attributes_ship_from": "819",
     "note_attributes_ship_to": "969",
