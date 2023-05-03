@@ -63,8 +63,8 @@ Stock Transfer Orders are evaluated in batches by ChannelApe's Order Management 
   "additionalFields": {
     "ship_by_date": "2023-04-08T00:00:00.000Z",
     "deliver_by_date": "2023-04-08T00:00:00.000Z",
-    "note_attributes_ship_from": "819",
-    "note_attributes_ship_to": "969",
+    "note_attributes_ship_from": "969",
+    "note_attributes_ship_to": "819",
     "shipping_lines_title": "VENDOR",
     "sap_source_location": "1111",
     "sap_destination_location": "2222",
