@@ -215,7 +215,6 @@ This is an authenticated endpoint so your request must include your API Secret i
 | locationId       | integer                  | Yes      | The ChannelApe ID for the location that shipped the order                                                                  |
 | shippedAt        | DateTime                 | Yes      | ISO-8601 formatted time of shipment                                                                                        |
 | status           | string                   | Yes      | Should always be "OPEN" for new shipments.                                                                                 |
-| locationId       | string                   | Yes      | The corresponding ChannelApe location where the shipment originated used for inventory tracking                            |
 | lineItems        | array of LineItem        | Yes      | Line items shipped in the shipment                                                                                         |
 | trackingNumber   | string                   | Yes      | Tracking Number                                                                                                            |
 | additionalFields | array of AdditionalField | Yes      | Used to capture and pass through other data requirements as needed. See requirements below. Can also be used for metadata. |
