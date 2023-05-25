@@ -103,6 +103,32 @@ curl --location -g 'https://api.channelape.com/v1/batches' \
 }'
 ```
 
+### Inventory Audit Example
+
+50 units of SKU `119_003_CRMS_13` were found at `Fillmore` (ID `309`) after performing a physical inventory count.
+
+cURL Example
+
+```bash
+curl --location -g 'https://api.channelape.com/v1/batches' \
+--header 'Content-Type: application/json' \
+--header 'x-channel-ape-authorization-token: your-api-key' \
+--data '{
+  "businessId": "ec5fcd55-c275-4843-9641-d0fd44b9f173",
+  "adjustments": [
+    {
+      "idempotentKey": "UNIQUE_ADJUSTMENT_ID_FROM_YOUR_SYSTEM_2",
+      "sku": "119_003_CRMS_13",
+      "quantity": 50,
+      "operation": "SET",
+      "locationId": 309,
+      "inventoryStatus": "AVAILABLE_TO_SELL",
+      "memo": "PI Audit"
+    }
+  ]
+}'
+```
+
 ### Headers
 
 - Note: The `x-channel-ape-idempotent-key` header is not needed here as it is part of the adjustment in the request.
